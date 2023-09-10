@@ -29,11 +29,25 @@
     <meta property="og:site_name" content="zylyy"/>
     <meta property="og:type" content="object"/>
     <meta property="og:title" content="Hello World - zylyy"/>
-    <meta property="og:description" content="lucky,Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"/>
+    <meta property="og:description" content="lucky,Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any pr,"/>   
     
 <link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
 
     <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
@@ -60,14 +74,47 @@
 </div>
 
     <div class="section">
-        <div class="article">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/cover.jpg,/img/welcome-cover.jpg" />
+        
+        <div class="post_cover_mask"></div>
+        <div class="post_text">
+            <h1>Hello World</h1>
+            <div>
+                <span>九月 08, 2023</span>
+
+                
+
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="article">
     <div class='main'>
+        <!-- 帖子视图 -->
+        
+
+
+
         <h1 class="title">Hello World</h1>
         <div class="stuff">
             <span>九月 08, 2023</span>
             
 
         </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2023.09.08</span>
+        </div>
+
         <div class="content markdown">
             <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="language-bash" data-language="bash"><code class="language-bash">$ hexo new &quot;My New Post&quot;</code></pre>
@@ -140,6 +187,7 @@ color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com
 <script src="/js/plugin.js"></script>
 <script src="/js/typed.js"></script>
 <script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
 
 
 <link rel="stylesheet" href="/photoswipe/photoswipe.css">
