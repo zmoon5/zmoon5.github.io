@@ -1,8 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>traning-www-robots</title>
-    <url>/2022/09/10/traning-www-robots/</url>
+    <title>Hello World</title>
+    <url>/2222/09/01/hello-world/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>记录美好</p>
+<!-- more -->
+
+]]></content>
+  </entry>
+  <entry>
+    <title>Exec</title>
+    <url>/2022/09/11/Exec/</url>
+    <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><p>在进入靶场后发现窗口ping，猜测可能是SQL注入漏洞，也有可能是命令执行漏洞。</p>
+<p>先ping一下本机地址127.0.0.1</p>
+<p>有回显，所以是命令执行漏洞。</p>
+<p><img src="/../images/Exec/image-20230911105131441.png" alt="image-20230911105131441"></p>
+<hr>
+<p>在 Web 应用中有时候程序员为了考虑灵活性、简洁性，会在代码调用代码或命令执行函数去处理。比如当应用在调用一些能将字符串转化成代码的函数时，没有考虑用户是否能控制这个字符串，将造成代码执行漏洞。同样调用系统命令处理，将造成命令执行漏洞。</p>
+<p>命令执行漏洞的原理是由于应用程序未正确对用户输入进行验证和过滤，导致用户输入被直接或间接地作为命令或代码的一部分执行。攻击者利用这个漏洞，通过注入恶意代码或命令，让应用程序误以为这是合法的输入，从而在目标系统上执行恶意操作。</p>
+<h3 id="命令拼接符"><a href="#命令拼接符" class="headerlink" title="命令拼接符:"></a>命令拼接符:</h3><p>命令执行就用命令拼接符执行漏洞命令就行。常见的命令拼接符为以下四种。<br>&amp;:无论左边是false还是true，右边都执行。<br>&amp;&amp;:具有短路效果，左边是false，右边不执行。<br>|:无论左边是false还是true，右边都执行。</p>
+<p>||:具有短路效果，左边是true，右边不执行</p>
+<hr>
+<p>试着查看目录127.0.0.1 &amp;&amp; ls 没反应，试试127.0.0.1 &amp; ls 有回显</p>
+<p>发现index.php文件，进入。</p>
+<p>查看所有根目录Windows系统为dir，linux为 ls&#x2F;，猜测为Linux系统先试试127.0.0.1 &amp; ls &#x2F;(或者127.0.0.1 | ls)</p>
+<p>得到目录发现有一个flag文件，flag应该在里面，进行查看。127.0.0.1 &amp; cat &#x2F;flag（或者127.0.0.1 | cat &#x2F;flag）</p>
+<p>拿到flag!</p>
+<p><img src="/../images/Exec/image-20230911105144151.png" alt="image-20230911105144151"></p>
+]]></content>
+      <categories>
+        <category>buuctf</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+        <tag>命令执行漏洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>train-www-robots</title>
+    <url>/2022/09/11/train-www-robots/</url>
     <content><![CDATA[<span id="more"></span>
 
 <h2 id="training-www-Robots"><a href="#training-www-Robots" class="headerlink" title="training-www-Robots"></a>training-www-Robots</h2><h3 id="考察的知识点"><a href="#考察的知识点" class="headerlink" title="考察的知识点"></a>考察的知识点</h3><p>robots.txt 文件是一个文本文件，使用任何一个常见的文 本编辑器，比如 Windows 系统自带的 Notepad，就可以创 建和编辑它[1] 。robots.txt 是一个协议，而不是一个命令。 robots.txt 是搜索引擎中访问网站的时候要查看的第一个 文件。robots.txt 文件告诉蜘蛛程序在服务器上什么文件 是可以被查看的。 当一个搜索蜘蛛访问一个站点时，它会首先检查该站点根 目录下是否存在 robots.txt，如果存在，搜索机器人就会 按照该文件中的内容来确定访问的范围；如果该文件不存 在，所有的搜索蜘蛛将能够访问网站上所有没有被口令保 护的页面。百度官方建议，仅当您的网站包含不希望被搜 索引擎收录的内容时，才需要使用 robots.txt 文件。如果 您希望搜索引擎收录网站上所有内容，请勿建立 robots.txt 文件。 如果将网站视为酒店里的一个房间，robots.txt 就是主人 在房间门口悬挂的“请勿打扰”或“欢迎打扫”的提示牌。这 个文件告诉来访的搜索引擎哪些房间可以进入和参观，哪 些房间因为存放贵重物品，或可能涉及住户及访客的隐私 而不对搜索引擎开放。但 robots.txt 不是命令，也不是防 火墙，如同守门人无法阻止窃贼等恶意闯入者。</p>
@@ -14,8 +52,6 @@
 <p>看到flag信息查看flag</p>
 <p><img src="/../images/traning-www-robots/image-20230910204211916.png" alt="image-20230910204211916"></p>
 <p>拿到flag。</p>
-<h2 id="二、robots"><a href="#二、robots" class="headerlink" title="二、robots"></a>二、robots</h2><p>与一一样的解法</p>
-<!-- more -->
 ]]></content>
       <categories>
         <category>攻防世界</category>
@@ -23,15 +59,5 @@
       <tags>
         <tag>-web -robots</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2022/09/01/hello-world/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<p>记录一下</p>
-<!-- more -->
-
-]]></content>
   </entry>
 </search>
