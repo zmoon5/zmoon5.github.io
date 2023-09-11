@@ -9,7 +9,7 @@
      }
      else {
          $('[rel="icon"]').attr('href', "/img/trhx2.png");
-         document.title = 'ヾ(Ő∀Ő3)ノ你好！' + OriginTitle;
+         document.title = 'ヾ(Ő∀Ő3)ノ！' + OriginTitle;
          titleTime = setTimeout(function () {
              document.title = OriginTitle;
          }, 2000);
