@@ -141,4 +141,38 @@ Content-Type:文件MIME，视情况更改
         <tag>uoload-labs</tag>
       </tags>
   </entry>
+  <entry>
+    <title>N1book</title>
+    <url>/2023/09/15/N1book/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h2 id="常见信息收集"><a href="#常见信息收集" class="headerlink" title="常见信息收集"></a>常见信息收集</h2><p><img src="/../images/N1book/image-20230915145523146.png" alt="image-20230915145523146"></p>
+<p>进入靶场查看源码没有收获，使用工具对网站目录进行扫描。</p>
+<p>dirb没扫到，改用dirsearch。</p>
+<p>发现存在<code>robots.txt</code>,<code>index.php~</code>,<code>.index.php.swp</code>三个文件，分别存放了flag的3个部分</p>
+<pre class="language-none"><code class="language-none">- `robots.txt`:告诉爬虫哪些页面可以爬取
+- `index.php~`:php的备份有两种：`*.php~`和`*.php.bak`
+- `.index.php.swp`:当vim出现异常会产生`.swp`文件，可以通过`vim -r .index.php.swp`恢复文件</code></pre>
+
+<p>访问robots.txt</p>
+<p><img src="/../images/N1book/image-20230915160035966.png" alt="image-20230915160035966"></p>
+<p>得到flag存放信息继续访问提示文件</p>
+<p><img src="/../images/N1book/image-20230915160114816.png" alt="image-20230915160114816"></p>
+<p>拿到部分flag。</p>
+<p><img src="/../images/N1book/image-20230915160206249.png" alt="image-20230915160206249"></p>
+<p>访问index.php~拿到第二部分flag。</p>
+<p>访问.index.php.swp</p>
+<p><img src="/../images/N1book/image-20230915160451066.png" alt="image-20230915160451066"></p>
+<p>下载文件查看。</p>
+<p><img src="/../images/N1book/image-20230915160806614.png" alt="image-20230915160806614"></p>
+<p>拿到第三部分flag。拼接在一起。</p>
+<p><img src="/../images/N1book/image-20230915160921280.png" alt="image-20230915160921280"></p>
+<!-- more -->
+]]></content>
+      <tags>
+        <tag>buuctf</tag>
+        <tag>N1book</tag>
+        <tag>web入门</tag>
+      </tags>
+  </entry>
 </search>
