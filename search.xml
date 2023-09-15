@@ -168,7 +168,11 @@ Content-Type:文件MIME，视情况更改
 <p>拿到第三部分flag。拼接在一起。</p>
 <p><img src="/../images/N1book/image-20230915160921280.png" alt="image-20230915160921280"></p>
 <!-- more -->
+
 ]]></content>
+      <categories>
+        <category>buuctf</category>
+      </categories>
       <tags>
         <tag>buuctf</tag>
         <tag>N1book</tag>
