@@ -170,6 +170,48 @@ dirb没扫到，改用dirsearch。
 <p><img src="/../images/N1book/image-20230915160806614.png" alt="image-20230915160806614"></p>
 <p>拿到第三部分flag。拼接在一起。</p>
 <p><img src="/../images/N1book/image-20230915160921280.png" alt="image-20230915160921280"></p>
+<h2 id="粗心的小李"><a href="#粗心的小李" class="headerlink" title="粗心的小李"></a>粗心的小李</h2><p><img src="/../images/N1book/image-20230918162128927.png" alt="image-20230918162128927"></p>
+<p>进入靶场，可以看到是和git泄露漏洞相关。</p>
+<h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p>git是一个开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目。当前大量开发人员使用git进行版本控制，对站点自动部署。攻击者可以利用该漏洞下载git文件夹里的所有内容。如果文件夹内有敏感信息比如站点源码、数据库账户密码等，攻击者可能直接控制服务器。如果配置不当，可能会将.git文件夹直接部署到线上环境。这就引起了git泄露漏洞。</p>
+<h3 id="git目录"><a href="#git目录" class="headerlink" title=".git目录"></a>.git目录</h3><pre class="language-none"><code class="language-none">config - 包含一些配置选项
+description - 仓库的描述信息，主要给gitweb等git托管系统使用
+HEAD - 指定当前分支,映射到ref引用，能够找到下一次commit的前一次哈希值
+hooks - 存放可在某些指令前后触发运行的钩子脚本（hook scripts），默认包含一些脚本样例
+index - 这个文件就是我们前面提到的暂存区（stage），是一个二进制文件
+info - 存放仓库的信息
+objects - 存储所有Git的数据对象,对象的SHA1哈希值的前两位是文件夹名称，后38位作为对象文件名
+refs - 存储各个分支指向的目标提交
+</code></pre>
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/455435143%EF%BC%88Git%E4%BF%A1%E6%81%AF%E6%B3%84%E9%9C%B2%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90%E5%8F%8A%E5%88%A9%E7%94%A8%E6%80%BB%E7%BB%93%EF%BC%89">https://zhuanlan.zhihu.com/p/455435143（Git信息泄露原理解析及利用总结）</a></p>
+<p>使用dirsearch工具扫描，需要设置扫描间隔时间和线程数，默认情况无法扫描。本次使用的单线程模式且间隔时间为0.1.</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/m0_37268841/article/details/125565452">https://blog.csdn.net/m0_37268841/article/details/125565452</a></p>
+<p>（dirsearch工具常见参数）</p>
+<p><img src="/../images/N1book/image-20230918163952795.png" alt="image-20230918163952795"></p>
+<p>证明存在git泄露漏洞</p>
+<p>使用githack工具泄露的文件（python2运行）或者scrabble。</p>
+<p>会得到一个index.html文件打开拿到flag。</p>
+<h2 id="SQL注入1"><a href="#SQL注入1" class="headerlink" title="SQL注入1"></a>SQL注入1</h2><p><img src="/../images/N1book/image-20230918165610498.png" alt="image-20230918165610498"></p>
+<p>进入靶场，看似有输入表单点击无反应。直接在url注入，尝试1.2</p>
+<p><img src="/../images/N1book/image-20230918165828443.png" alt="image-20230918165828443"></p>
+<p><img src="/../images/N1book/image-20230918165837170.png" alt="image-20230918165837170"></p>
+<p><img src="/../images/N1book/image-20230918165909456.png" alt="image-20230918165909456"></p>
+<p>插入‘变化所以是字符注入，</p>
+<p>测试注入列数</p>
+<p>Index.php?id=1’ order by 3 –+</p>
+<p><img src="/../images/N1book/image-20230918170021585.png" alt="image-20230918170021585"></p>
+<p>测试注入点</p>
+<p><img src="/../images/N1book/image-20230918170246786.png" alt="image-20230918170246786"></p>
+<p>测试数据库</p>
+<p><img src="/../images/N1book/image-20230918170322140.png" alt="image-20230918170322140"></p>
+<p>测表名</p>
+<p><img src="/../images/N1book/image-20230918170544720.png" alt="image-20230918170544720"></p>
+<p>查列名</p>
+<p><img src="/../images/N1book/image-20230918170711429.png" alt="image-20230918170711429"></p>
+<p>查看表里数据</p>
+<p><img src="/../images/N1book/image-20230918170928545.png" alt="image-20230918170928545"></p>
+<p>使用sqlmap试试。</p>
+<p><img src="/../images/N1book/image-20230918171103395.png" alt="image-20230918171103395"></p>
 <!-- more -->
 
 
@@ -212,7 +254,7 @@ dirb没扫到，改用dirsearch。
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">常见信息收集</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E4%BF%A1%E6%81%AF%E6%94%B6%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">常见信息收集</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B2%97%E5%BF%83%E7%9A%84%E5%B0%8F%E6%9D%8E"><span class="toc-number">2.</span> <span class="toc-text">粗心的小李</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%EF%BC%9A"><span class="toc-number">2.1.</span> <span class="toc-text">原理：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#git%E7%9B%AE%E5%BD%95"><span class="toc-number">2.2.</span> <span class="toc-text">.git目录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A51"><span class="toc-number">3.</span> <span class="toc-text">SQL注入1</span></a></li></ol>
         </div>
     
 </div>
