@@ -1,38 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2222/09/01/hello-world/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<p>记录美好</p>
-<!-- more -->
-
-]]></content>
-  </entry>
-  <entry>
-    <title>train-www-robots</title>
-    <url>/2022/09/11/train-www-robots/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<h2 id="training-www-Robots"><a href="#training-www-Robots" class="headerlink" title="training-www-Robots"></a>training-www-Robots</h2><h3 id="考察的知识点"><a href="#考察的知识点" class="headerlink" title="考察的知识点"></a>考察的知识点</h3><p>robots.txt 文件是一个文本文件，使用任何一个常见的文 本编辑器，比如 Windows 系统自带的 Notepad，就可以创 建和编辑它[1] 。robots.txt 是一个协议，而不是一个命令。 robots.txt 是搜索引擎中访问网站的时候要查看的第一个 文件。robots.txt 文件告诉蜘蛛程序在服务器上什么文件 是可以被查看的。 当一个搜索蜘蛛访问一个站点时，它会首先检查该站点根 目录下是否存在 robots.txt，如果存在，搜索机器人就会 按照该文件中的内容来确定访问的范围；如果该文件不存 在，所有的搜索蜘蛛将能够访问网站上所有没有被口令保 护的页面。百度官方建议，仅当您的网站包含不希望被搜 索引擎收录的内容时，才需要使用 robots.txt 文件。如果 您希望搜索引擎收录网站上所有内容，请勿建立 robots.txt 文件。 如果将网站视为酒店里的一个房间，robots.txt 就是主人 在房间门口悬挂的“请勿打扰”或“欢迎打扫”的提示牌。这 个文件告诉来访的搜索引擎哪些房间可以进入和参观，哪 些房间因为存放贵重物品，或可能涉及住户及访客的隐私 而不对搜索引擎开放。但 robots.txt 不是命令，也不是防 火墙，如同守门人无法阻止窃贼等恶意闯入者。</p>
-<p><a href="https://zhuanlan.zhihu.com/p/29675312#:~:text=%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFRobots%E5%8D%8F%E8%AE%AE%EF%BC%9F,Robots%E5%8D%8F%E8%AE%AE%EF%BC%88%E4%B9%9F%E7%A7%B0%E4%B8%BA%E7%88%AC%E8%99%AB%E5%8D%8F%E8%AE%AE%E3%80%81%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8D%8F%E8%AE%AE%E7%AD%89%EF%BC%89%E7%9A%84%E5%85%A8%E7%A7%B0%E6%98%AF%E2%80%9C%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E6%8E%92%E9%99%A4%E6%A0%87%E5%87%86%E2%80%9D%EF%BC%8Crobots.txt%E6%98%AF%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99%E6%97%B6%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9F%A5%E7%9C%8B%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BD%93%E6%88%91%E4%BB%AC%E7%BD%91%E7%AB%99%E6%9C%89%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E4%B8%8D%E5%B8%8C%E6%9C%9B%E6%94%B6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%93%E5%8F%96%E6%97%B6%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87Robots%E5%8D%8F%E8%AE%AE%E6%9D%A5%E5%91%8A%E8%AF%89%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%93%AA%E4%BA%9B%E9%A1%B5%E9%9D%A2%E6%98%AF%E4%B8%8D%E8%83%BD%E6%8A%93%E5%8F%96%E7%9A%84%EF%BC%8C%E5%A4%A7%E5%A4%9A%E7%94%A8%E6%9D%A5%E4%BF%9D%E6%8A%A4%E7%BD%91%E7%AB%99%E7%9A%84%E9%9A%90%E7%A7%81%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%AD%BB%E9%93%BE%E3%80%81%E9%87%8D%E5%A4%8D%E9%A1%B5%E9%9D%A2%E7%AD%89%E7%AD%89%E3%80%82">什么是robots协议？robots.txt文件怎么写？ - 知乎 (zhihu.com)</a></p>
-<p><img src="/../images/traning-www-robots/image-20230910204135962.png" alt="image-20230910204135962"></p>
-<p>打开网页得到这个阅读一下，发现使用robots</p>
-<p>在网页链接加上robots.txt</p>
-<p><img src="/../images/traning-www-robots/image-20230910204201240.png" alt="image-20230910204201240"></p>
-<p>看到flag信息查看flag</p>
-<p><img src="/../images/traning-www-robots/image-20230910204211916.png" alt="image-20230910204211916"></p>
-<p>拿到flag。</p>
-]]></content>
-      <categories>
-        <category>攻防世界</category>
-      </categories>
-      <tags>
-        <tag>-web -robots</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Exec</title>
     <url>/2022/09/11/Exec/</url>
     <content><![CDATA[<h2 id="Exec"><a href="#Exec" class="headerlink" title="Exec"></a>Exec</h2><p>在进入靶场后发现窗口ping，猜测可能是SQL注入漏洞，也有可能是命令执行漏洞。</p>
@@ -47,8 +15,8 @@
 <hr>
 <p>试着查看目录127.0.0.1 &amp;&amp; ls 没反应，试试127.0.0.1 &amp; ls 有回显</p>
 <p>发现index.php文件，进入。</p>
-<p>查看所有根目录Windows系统为dir，linux为 ls&#x2F;，猜测为Linux系统先试试127.0.0.1 &amp; ls &#x2F;(或者127.0.0.1 | ls)</p>
-<p>得到目录发现有一个flag文件，flag应该在里面，进行查看。127.0.0.1 &amp; cat &#x2F;flag（或者127.0.0.1 | cat &#x2F;flag）</p>
+<p>查看所有根目录Windows系统为dir，linux为 ls/，猜测为Linux系统先试试127.0.0.1 &amp; ls /(或者127.0.0.1 | ls)</p>
+<p>得到目录发现有一个flag文件，flag应该在里面，进行查看。127.0.0.1 &amp; cat /flag（或者127.0.0.1 | cat /flag）</p>
 <p>拿到flag!</p>
 <p><img src="/../images/Exec/image-20230911105144151.png" alt="image-20230911105144151"></p>
 ]]></content>
@@ -58,87 +26,6 @@
       <tags>
         <tag>web</tag>
         <tag>命令执行漏洞</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>文件上传</title>
-    <url>/2023/09/14/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
-    <content><![CDATA[<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p><img src="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433334141-cb693e43-53e8-4e28-80b9-b2c08e23f2f6.png" alt="web漏洞文件上传.png"></p>
-<h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><p>在某处用户可以上传文件到服务器端，比如个人资料，头像，且后端不对用户上传的文件做处理，攻击者可以利用这个功能上传恶意文件，比如木马，病毒，恶意脚本，后门等。</p>
-<h2 id="利用："><a href="#利用：" class="headerlink" title="利用："></a>利用：</h2><p>各种绕过，上传一句话木马。</p>
-<p><img src="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433817849-28573285-fa9c-4d1d-9864-2f822f372ee5.png" alt="文件上传利用思路.png"></p>
-<h2 id="文件上传漏洞如何查找及判断"><a href="#文件上传漏洞如何查找及判断" class="headerlink" title="文件上传漏洞如何查找及判断?"></a>文件上传漏洞如何查找及判断?</h2><p>1.黑盒查找：通过工具扫描网站敏感文件、路径，以期获得文件上传地址。或者通过类似于会员中心的上传图片功能进行漏洞测试。网站后台也有上传功能（后台权限不等同于网站权限）。</p>
-<p>2.白盒测试：审计代码，寻找上传漏洞。通过抓包、上传等操作判断漏洞是否有效。</p>
-<h3 id="文件上传常见验证"><a href="#文件上传常见验证" class="headerlink" title="文件上传常见验证:"></a>文件上传常见验证:</h3><p>后缀名，类型，文件头等<br>后缀名:黑名单,白名单<br>文件类型:MIME<br>信息文件头:内容头信息</p>
-<p>简要上传表单代码分析解释</p>
-<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><pre class="language-none"><code class="language-none">trim() 函数移除字符串两侧的空白字符或其他预定义字符。
-
-str_ireplace() 函数替换字符串中的一些字符（不区分大小写）。
-
-substr() 函数返回字符串的一部分。
-
-strrpos() 函数查找字符串在另一字符串中最后一次出现的位置。</code></pre>
-
-
-
-<h2 id="防御："><a href="#防御：" class="headerlink" title="防御："></a>防御：</h2><p>1.前端js脚本检测后缀名。（可以有burp抓包修改文件后缀名绕过）</p>
-<p>2.后端黑白名单检测（黑名单检测可以通过测试检测规则绕过，白名单检测可以用00截断绕过）</p>
-<p>3.content-type检测过滤（bp抓包修改content-type绕过）</p>
-<p>4.getimagesize(_)函数检测图片大小是否正常（将木马写入图片绕过）</p>
-<p>5.图片二次渲染</p>
-<p>6.文件重命名</p>
-<h2 id="常见绕过方式"><a href="#常见绕过方式" class="headerlink" title="常见绕过方式"></a>常见绕过方式</h2><p>数据溢出-防匹配(xxx.. .)</p>
-<p>符号变异-防匹配（’” ;)</p>
-<p>数据截断-防匹配(%00 ;换行)</p>
-<p>重复数据-防匹配(参数多次)</p>
-<h2 id="上传的参数名解析"><a href="#上传的参数名解析" class="headerlink" title="上传的参数名解析"></a>上传的参数名解析</h2><p>可以修改的东西有？</p>
-<pre class="language-none"><code class="language-none">Content-Disposition:	一般可更改
-
-name:	表单参数值，不能更改
-
-filename :文件名，可以更改
-
-Content-Type:文件MIME，视情况更改
-</code></pre>
-
-]]></content>
-      <tags>
-        <tag>文件上传</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>upload-labs1</title>
-    <url>/2023/09/14/upload-labs1/</url>
-    <content><![CDATA[<h2 id="upload-labs-1"><a href="#upload-labs-1" class="headerlink" title="upload-labs-1"></a>upload-labs-1</h2><p><img src="/../images/upload-labs1/image-20230914142612836.png" alt="image-20230914142612836"></p>
-<h3 id="关卡简介："><a href="#关卡简介：" class="headerlink" title="关卡简介："></a>关卡简介：</h3><p>上传点使用前端来验证后缀名，使用bp绕过上传木马脚本获取webshell。</p>
-<h3 id="查看源码"><a href="#查看源码" class="headerlink" title="查看源码"></a>查看源码</h3><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">checkFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-    <span class="token keyword">var</span> file <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByName</span><span class="token punctuation">(</span><span class="token string">' upload_file'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>file <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> file <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"请选择要上传的文件!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-    <span class="token comment">//定义允许上传的文件类型</span>
-    <span class="token keyword">var</span> allow_ext <span class="token operator">=</span> <span class="token string">".jpg|.png|.gif"</span><span class="token punctuation">;</span>
-    <span class="token comment">//提取上传文件的类型</span>
-    <span class="token keyword">var</span> ext_name <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    <span class="token comment">//判断上传文件类型是否允许上传</span>
-    <span class="token keyword">if</span> <span class="token punctuation">(</span>allow_ext<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>ext_name <span class="token operator">+</span> <span class="token string">"|"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-        <span class="token keyword">var</span> errMsg <span class="token operator">=</span> <span class="token string">"该文件不允许上传，请上传"</span> <span class="token operator">+</span> allow_ext <span class="token operator">+</span> <span class="token string">"类型的文件,当前文件类型为："</span> <span class="token operator">+</span> ext_name<span class="token punctuation">;</span>
-        <span class="token function">alert</span><span class="token punctuation">(</span>errMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
-        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
-    <span class="token punctuation">}</span>
-<span class="token punctuation">}</span>
-</code></pre>
-
-<p>只允许上传.jpg|.png|.gif类型文件</p>
-<p><img src="/../../../zy/Documents/image-20230914150230885.png" alt="image-20230914150230885"></p>
-<p>1.查看前端代码删除check函数，或者禁用js</p>
-<p><img src="/../images/upload-labs1/image-20230914150556990.png" alt="image-20230914150556990"></p>
-<p>2.bp抓包修改后缀</p>
-]]></content>
-      <tags>
-        <tag>文件上传</tag>
-        <tag>uoload-labs</tag>
       </tags>
   </entry>
   <entry>
@@ -251,6 +138,16 @@ refs - 存储各个分支指向的目标提交
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2222/09/01/hello-world/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<p>记录美好</p>
+<!-- more -->
+
+]]></content>
+  </entry>
+  <entry>
     <title>sql注入</title>
     <url>/2024/03/03/sql%E6%B3%A8%E5%85%A5/</url>
     <content><![CDATA[<h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><p>sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上传webshell，篡改网页信息等。</p>
@@ -331,6 +228,109 @@ refs - 存储各个分支指向的目标提交
       </categories>
       <tags>
         <tag>sql注入</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>train-www-robots</title>
+    <url>/2022/09/11/train-www-robots/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<h2 id="training-www-Robots"><a href="#training-www-Robots" class="headerlink" title="training-www-Robots"></a>training-www-Robots</h2><h3 id="考察的知识点"><a href="#考察的知识点" class="headerlink" title="考察的知识点"></a>考察的知识点</h3><p>robots.txt 文件是一个文本文件，使用任何一个常见的文 本编辑器，比如 Windows 系统自带的 Notepad，就可以创 建和编辑它[1] 。robots.txt 是一个协议，而不是一个命令。 robots.txt 是搜索引擎中访问网站的时候要查看的第一个 文件。robots.txt 文件告诉蜘蛛程序在服务器上什么文件 是可以被查看的。 当一个搜索蜘蛛访问一个站点时，它会首先检查该站点根 目录下是否存在 robots.txt，如果存在，搜索机器人就会 按照该文件中的内容来确定访问的范围；如果该文件不存 在，所有的搜索蜘蛛将能够访问网站上所有没有被口令保 护的页面。百度官方建议，仅当您的网站包含不希望被搜 索引擎收录的内容时，才需要使用 robots.txt 文件。如果 您希望搜索引擎收录网站上所有内容，请勿建立 robots.txt 文件。 如果将网站视为酒店里的一个房间，robots.txt 就是主人 在房间门口悬挂的“请勿打扰”或“欢迎打扫”的提示牌。这 个文件告诉来访的搜索引擎哪些房间可以进入和参观，哪 些房间因为存放贵重物品，或可能涉及住户及访客的隐私 而不对搜索引擎开放。但 robots.txt 不是命令，也不是防 火墙，如同守门人无法阻止窃贼等恶意闯入者。</p>
+<p><a href="https://zhuanlan.zhihu.com/p/29675312#:~:text=%E4%B8%80%E3%80%81%E4%BB%80%E4%B9%88%E6%98%AFRobots%E5%8D%8F%E8%AE%AE%EF%BC%9F,Robots%E5%8D%8F%E8%AE%AE%EF%BC%88%E4%B9%9F%E7%A7%B0%E4%B8%BA%E7%88%AC%E8%99%AB%E5%8D%8F%E8%AE%AE%E3%80%81%E6%9C%BA%E5%99%A8%E4%BA%BA%E5%8D%8F%E8%AE%AE%E7%AD%89%EF%BC%89%E7%9A%84%E5%85%A8%E7%A7%B0%E6%98%AF%E2%80%9C%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB%E6%8E%92%E9%99%A4%E6%A0%87%E5%87%86%E2%80%9D%EF%BC%8Crobots.txt%E6%98%AF%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E8%AE%BF%E9%97%AE%E7%BD%91%E7%AB%99%E6%97%B6%E7%AC%AC%E4%B8%80%E4%B8%AA%E6%9F%A5%E7%9C%8B%E7%9A%84%E6%96%87%E4%BB%B6%EF%BC%8C%E5%BD%93%E6%88%91%E4%BB%AC%E7%BD%91%E7%AB%99%E6%9C%89%E9%83%A8%E5%88%86%E5%86%85%E5%AE%B9%E4%B8%8D%E5%B8%8C%E6%9C%9B%E6%94%B6%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%8A%93%E5%8F%96%E6%97%B6%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87Robots%E5%8D%8F%E8%AE%AE%E6%9D%A5%E5%91%8A%E8%AF%89%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E5%93%AA%E4%BA%9B%E9%A1%B5%E9%9D%A2%E6%98%AF%E4%B8%8D%E8%83%BD%E6%8A%93%E5%8F%96%E7%9A%84%EF%BC%8C%E5%A4%A7%E5%A4%9A%E7%94%A8%E6%9D%A5%E4%BF%9D%E6%8A%A4%E7%BD%91%E7%AB%99%E7%9A%84%E9%9A%90%E7%A7%81%EF%BC%8C%E4%BB%A5%E5%8F%8A%E4%B8%80%E4%BA%9B%E6%AD%BB%E9%93%BE%E3%80%81%E9%87%8D%E5%A4%8D%E9%A1%B5%E9%9D%A2%E7%AD%89%E7%AD%89%E3%80%82">什么是robots协议？robots.txt文件怎么写？ - 知乎 (zhihu.com)</a></p>
+<p><img src="/../images/traning-www-robots/image-20230910204135962.png" alt="image-20230910204135962"></p>
+<p>打开网页得到这个阅读一下，发现使用robots</p>
+<p>在网页链接加上robots.txt</p>
+<p><img src="/../images/traning-www-robots/image-20230910204201240.png" alt="image-20230910204201240"></p>
+<p>看到flag信息查看flag</p>
+<p><img src="/../images/traning-www-robots/image-20230910204211916.png" alt="image-20230910204211916"></p>
+<p>拿到flag。</p>
+]]></content>
+      <categories>
+        <category>攻防世界</category>
+      </categories>
+      <tags>
+        <tag>-web -robots</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>upload-labs1</title>
+    <url>/2023/09/14/upload-labs1/</url>
+    <content><![CDATA[<h2 id="upload-labs-1"><a href="#upload-labs-1" class="headerlink" title="upload-labs-1"></a>upload-labs-1</h2><p><img src="/../images/upload-labs1/image-20230914142612836.png" alt="image-20230914142612836"></p>
+<h3 id="关卡简介："><a href="#关卡简介：" class="headerlink" title="关卡简介："></a>关卡简介：</h3><p>上传点使用前端来验证后缀名，使用bp绕过上传木马脚本获取webshell。</p>
+<h3 id="查看源码"><a href="#查看源码" class="headerlink" title="查看源码"></a>查看源码</h3><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">checkFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">var</span> file <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByName</span><span class="token punctuation">(</span><span class="token string">' upload_file'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>file <span class="token operator">==</span> <span class="token keyword">null</span> <span class="token operator">||</span> file <span class="token operator">==</span> <span class="token string">""</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span><span class="token string">"请选择要上传的文件!"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token comment">//定义允许上传的文件类型</span>
+    <span class="token keyword">var</span> allow_ext <span class="token operator">=</span> <span class="token string">".jpg|.png|.gif"</span><span class="token punctuation">;</span>
+    <span class="token comment">//提取上传文件的类型</span>
+    <span class="token keyword">var</span> ext_name <span class="token operator">=</span> file<span class="token punctuation">.</span><span class="token function">substring</span><span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">lastIndexOf</span><span class="token punctuation">(</span><span class="token string">"."</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">//判断上传文件类型是否允许上传</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>allow_ext<span class="token punctuation">.</span><span class="token function">indexOf</span><span class="token punctuation">(</span>ext_name <span class="token operator">+</span> <span class="token string">"|"</span><span class="token punctuation">)</span> <span class="token operator">==</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">var</span> errMsg <span class="token operator">=</span> <span class="token string">"该文件不允许上传，请上传"</span> <span class="token operator">+</span> allow_ext <span class="token operator">+</span> <span class="token string">"类型的文件,当前文件类型为："</span> <span class="token operator">+</span> ext_name<span class="token punctuation">;</span>
+        <span class="token function">alert</span><span class="token punctuation">(</span>errMsg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre>
+
+<p>只允许上传.jpg|.png|.gif类型文件</p>
+<p><img src="/../../../zy/Documents/image-20230914150230885.png" alt="image-20230914150230885"></p>
+<p>1.查看前端代码删除check函数，或者禁用js</p>
+<p><img src="/../images/upload-labs1/image-20230914150556990.png" alt="image-20230914150556990"></p>
+<p>2.bp抓包修改后缀</p>
+]]></content>
+      <tags>
+        <tag>uoload-labs</tag>
+        <tag>文件上传</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文件上传</title>
+    <url>/2023/09/14/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/</url>
+    <content><![CDATA[<h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p><img src="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433334141-cb693e43-53e8-4e28-80b9-b2c08e23f2f6.png" alt="web漏洞文件上传.png"></p>
+<h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><p>在某处用户可以上传文件到服务器端，比如个人资料，头像，且后端不对用户上传的文件做处理，攻击者可以利用这个功能上传恶意文件，比如木马，病毒，恶意脚本，后门等。</p>
+<h2 id="利用："><a href="#利用：" class="headerlink" title="利用："></a>利用：</h2><p>各种绕过，上传一句话木马。</p>
+<p><img src="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433817849-28573285-fa9c-4d1d-9864-2f822f372ee5.png" alt="文件上传利用思路.png"></p>
+<h2 id="文件上传漏洞如何查找及判断"><a href="#文件上传漏洞如何查找及判断" class="headerlink" title="文件上传漏洞如何查找及判断?"></a>文件上传漏洞如何查找及判断?</h2><p>1.黑盒查找：通过工具扫描网站敏感文件、路径，以期获得文件上传地址。或者通过类似于会员中心的上传图片功能进行漏洞测试。网站后台也有上传功能（后台权限不等同于网站权限）。</p>
+<p>2.白盒测试：审计代码，寻找上传漏洞。通过抓包、上传等操作判断漏洞是否有效。</p>
+<h3 id="文件上传常见验证"><a href="#文件上传常见验证" class="headerlink" title="文件上传常见验证:"></a>文件上传常见验证:</h3><p>后缀名，类型，文件头等<br>后缀名:黑名单,白名单<br>文件类型:MIME<br>信息文件头:内容头信息</p>
+<p>简要上传表单代码分析解释</p>
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><pre class="language-none"><code class="language-none">trim() 函数移除字符串两侧的空白字符或其他预定义字符。
+
+str_ireplace() 函数替换字符串中的一些字符（不区分大小写）。
+
+substr() 函数返回字符串的一部分。
+
+strrpos() 函数查找字符串在另一字符串中最后一次出现的位置。</code></pre>
+
+
+
+<h2 id="防御："><a href="#防御：" class="headerlink" title="防御："></a>防御：</h2><p>1.前端js脚本检测后缀名。（可以有burp抓包修改文件后缀名绕过）</p>
+<p>2.后端黑白名单检测（黑名单检测可以通过测试检测规则绕过，白名单检测可以用00截断绕过）</p>
+<p>3.content-type检测过滤（bp抓包修改content-type绕过）</p>
+<p>4.getimagesize(_)函数检测图片大小是否正常（将木马写入图片绕过）</p>
+<p>5.图片二次渲染</p>
+<p>6.文件重命名</p>
+<h2 id="常见绕过方式"><a href="#常见绕过方式" class="headerlink" title="常见绕过方式"></a>常见绕过方式</h2><p>数据溢出-防匹配(xxx.. .)</p>
+<p>符号变异-防匹配（’” ;)</p>
+<p>数据截断-防匹配(%00 ;换行)</p>
+<p>重复数据-防匹配(参数多次)</p>
+<h2 id="上传的参数名解析"><a href="#上传的参数名解析" class="headerlink" title="上传的参数名解析"></a>上传的参数名解析</h2><p>可以修改的东西有？</p>
+<pre class="language-none"><code class="language-none">Content-Disposition:	一般可更改
+
+name:	表单参数值，不能更改
+
+filename :文件名，可以更改
+
+Content-Type:文件MIME，视情况更改
+</code></pre>
+
+]]></content>
+      <tags>
+        <tag>文件上传</tag>
       </tags>
   </entry>
 </search>
