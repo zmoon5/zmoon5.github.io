@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>sql注入 - zylyy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="lucky,sql注入原理sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上,"> 
+    <meta name="author" content="zmoon"> 
+    <link rel="alternative" href="atom.xml" title="zylyy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://bangdream.moe/img/ident.png"/>
+    <meta name="twitter:creator" content="@yourtwitteridhere"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="sql注入 - zylyy"/>
+    <meta name="twitter:description" content="lucky,sql注入原理sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上,"/>
+    <meta property="og:image" content="https://bangdream.moe/img/ident.png"/>
+    <meta property="og:image:alt" content="lucky,sql注入原理sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="zylyy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="sql注入 - zylyy"/>
+    <meta property="og:description" content="lucky,sql注入原理sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上,"/>   
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">zylyy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">sql注入</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+        
+        <div class="post_cover_mask"></div>
+        <div class="post_text">
+            <h1>sql注入</h1>
+            <div>
+                <span>三月 03, 2024</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag">sql注入</a></li></ul>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+<div class="article">
+    <div class='main'>
+        <!-- 帖子视图 -->
+        
+
+
+
+        <h1 class="title">sql注入</h1>
+        <div class="stuff">
+            <span>三月 03, 2024</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/sql%E6%B3%A8%E5%85%A5/" rel="tag">sql注入</a></li></ul>
+
+
+        </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2024.03.03</span>
+        </div>
+
+        <div class="content markdown">
+            <h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><p>sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上传webshell，篡改网页信息等。</p>
+<p>sqlmap常用注入语句</p>
+<ol>
+<li>扫描目标URL：sqlmap -u &lt;目标URL&gt;</li>
+<li>扫描目标URL并检测注入：sqlmap -u &lt;目标URL&gt; –dbs</li>
+<li>指定注入参数进行测试：sqlmap -u &lt;目标URL&gt; -p &lt;注入参数&gt;</li>
+<li>指定数据库类型进行测试：sqlmap -u &lt;目标URL&gt; –dbms &lt;数据库类型&gt;</li>
+<li>使用Cookie进行测试：sqlmap -u &lt;目标URL&gt; –cookie “&lt;Cookie数据&gt;”</li>
+<li>执行具体的SQL注入攻击：sqlmap -u &lt;目标URL&gt; –data “&lt;POST数据&gt;” –method POST –level 5 –risk 3</li>
+</ol>
+<h2 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h2><h3 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h3><p>sql注入一般流程：</p>
+<ol>
+<li>判断注入点是否存在以及类型</li>
+<li>order by猜字段数</li>
+<li>联合查询寻找输出点</li>
+<li>查库名 union select 1,2,3,database()</li>
+<li>查表名 </li>
+<li>查字段</li>
+</ol>
+<h3 id="头部注入"><a href="#头部注入" class="headerlink" title="头部注入"></a>头部注入</h3><p>HTTP头部注入是指注入字段在HTTP请求头的字段中，一般是user-agent，referer。</p>
+<p>user-agent：提供浏览器类型，操作系统版本，插件信息等</p>
+<p>referer：指明当前请求来自那里</p>
+<h4 id="user-agent案例-以sqllibs18为例"><a href="#user-agent案例-以sqllibs18为例" class="headerlink" title="user-agent案例-以sqllibs18为例"></a>user-agent案例-以sqllibs18为例</h4><p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303144412570.png" alt="image-20240303144412570"></p>
+<p>输入用户名和密码发现屏幕回显user-agent</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145726412.png" alt="image-20240303145726412"></p>
+<p>猜测注入点可能在此bp抓包看看</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145942758.png" alt="image-20240303145942758"></p>
+<p>修改user-agent后面内容试试，改为 ’</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303150234394.png" alt="image-20240303150234394"></p>
+<p>发现报错，闭合方式应该为‘#</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303151704182.png" alt="image-20240303151704182"></p>
+<p>接下来入正常进行即可。</p>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>在攻击过程中服务器开启错误回显，页面会返回错误信息，利用报错函数来获取信息</p>
+<ol>
+<li>updatexml()</li>
+</ol>
+<p>updatexml(XML_document,XPayh_string,new_value);</p>
+<p>简单来说就是updatexml(目标xml内容，xml文档路径，更新的内容)</p>
+<p>我们在xml文档路径写入了子查询，和特俗字符拼接在其，因为不符合输入路径规则报错，先执行了子查询可以得到我们需要的消息。0x7e是~的16进制表示。</p>
+<p>语句L:select * from aaa where id=1 and updatexml(1,concat（0x7e,(select user()),1)</p>
+<ol start="2">
+<li>floor()</li>
+</ol>
+<p>floor和count和group by三个函数在一起会报错。</p>
+<p>语句：select * from aaa where id=1 and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a);</p>
+<ol start="3">
+<li>extractvalue()</li>
+</ol>
+<p>原理同updatexml().</p>
+<p>语句：select * from aaa where id =1 and(extractvalue(1,concat(0x7e,(select user(),0x7e)));</p>
+<h3 id="布尔型盲注"><a href="#布尔型盲注" class="headerlink" title="布尔型盲注"></a>布尔型盲注</h3><p>主要用于网站无输出点，并且关闭了错误回显。</p>
+<p>常用函数：</p>
+<ul>
+<li>length（）：函数返回值为字符串长度。</li>
+<li>substr():截取字符串，substr(string,start,length)</li>
+<li>ascii():返回字符串中第一关字符的ascii值</li>
+</ul>
+<h3 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h3><p>有时候会遇到无论如何操作页面返回都是正常的情况，这时候考虑使用延时注入</p>
+<p>使用函数：sleep（）。</p>
+<h3 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h3><p>在一些老版本的php中可以开启防御函数magic_quotes_gpc，也叫魔术引号，作用是判断用户提交的数据，包括有get、post、cookie过来的数据里面的特殊字符增加转义字符”\”，以确保这些数据不会因为特殊字符引起的污染而出现致命的错误。单引号(‘)、双引号(“)、反斜线（\）等字符都会被加上反斜线。</p>
+<p>因为单引号和双引号里面的内容都是字符串，如果我们输入的东西不能闭合掉单引号双引号，就无法产生sql注入，在新版本中虽然取消了魔术引号，但是很多cms依然会用一些函数替代，比如addslashes()等。</p>
+<p>那么我们怎么逃逸出这个转义呢？这时候可以使用宽字节注入。</p>
+<p>原理：如果程序设计数据库编码的时候设置了非英文编码，php发送请求到mysql时经过一次gbk编码，因为gbk是双字节编码，当设置gbk编码后，遇到了连续两个字节都符合gbk取值范围，会自动解析成一个汉字，输入%df%27，本来\会转义%27（’）,但\（%5c）的编码数为92，%df的编码数为223，符合取值范围，于是%df%5c会解析成为一个汉字“運”，单引号就逃逸了出来，从而绕过转义造成注入。</p>
+<ul>
+<li>注：1.POST注入并不会进行URL转码，所以需要改hex。</li>
+<li>2.在查询时用到的表名字段名不能用原来的‘admin’形式，这时候可以转换十六进制，或者用子查询。</li>
+<li>3.还可以用汉字绕过。</li>
+</ul>
+<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>在SQL中，分号表示一条SQL语句的介绍，在结束语句后再构造一条语句，就会造成堆叠注入。</p>
+<h3 id="DNSlog注入"><a href="#DNSlog注入" class="headerlink" title="DNSlog注入"></a>DNSlog注入</h3><p>利用场景：在某些无法直接利用漏洞获得回显时如果用盲注来做效率低下且容易被waf拦截，但是目标可以发起请求，这个时候我们可以通过DNS解析把我们想要获得的数据外带出来。</p>
+<p>注入过程：通过子查询将内容拼接到域名内，让load_file()去访问共享文件，访问的域名被记录，读取远程共享文件，通过拼接出函数做查询，拼接到域名中，访问时将访问服务器，记录后查询该日志。</p>
+<p>这里需要用到一个mysql函数LOAD_FILE()：读取一个文件并将其内容作为字符串返回。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/#/song?id=1325114607"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/#/song?id=1465114465"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#sql%E6%B3%A8%E5%85%A5%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">sql注入原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL%E6%B3%A8%E5%85%A5%E5%88%86%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">SQL注入分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%81%94%E5%90%88%E6%B3%A8%E5%85%A5"><span class="toc-number">2.1.</span> <span class="toc-text">联合注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%B4%E9%83%A8%E6%B3%A8%E5%85%A5"><span class="toc-number">2.2.</span> <span class="toc-text">头部注入</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#user-agent%E6%A1%88%E4%BE%8B-%E4%BB%A5sqllibs18%E4%B8%BA%E4%BE%8B"><span class="toc-number">2.2.1.</span> <span class="toc-text">user-agent案例-以sqllibs18为例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99%E6%B3%A8%E5%85%A5"><span class="toc-number">2.3.</span> <span class="toc-text">报错注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%83%E5%B0%94%E5%9E%8B%E7%9B%B2%E6%B3%A8"><span class="toc-number">2.4.</span> <span class="toc-text">布尔型盲注</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E6%97%B6%E6%B3%A8%E5%85%A5"><span class="toc-number">2.5.</span> <span class="toc-text">延时注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%BD%E5%AD%97%E8%8A%82%E6%B3%A8%E5%85%A5"><span class="toc-number">2.6.</span> <span class="toc-text">宽字节注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E5%8F%A0%E6%B3%A8%E5%85%A5"><span class="toc-number">2.7.</span> <span class="toc-text">堆叠注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DNSlog%E6%B3%A8%E5%85%A5"><span class="toc-number">2.8.</span> <span class="toc-text">DNSlog注入</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSKCZ36W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14MSKCZ36W');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

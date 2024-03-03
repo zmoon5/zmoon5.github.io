@@ -222,4 +222,115 @@ refs - 存储各个分支指向的目标提交
         <tag>web入门</tag>
       </tags>
   </entry>
+  <entry>
+    <title>ZooKeeper</title>
+    <url>/2024/02/27/ZooKeeper/</url>
+    <content><![CDATA[<h2 id="ZooKeeper概念"><a href="#ZooKeeper概念" class="headerlink" title="ZooKeeper概念"></a>ZooKeeper概念</h2><ul>
+<li>zookeeper是apache Hadoop项目下的一个子项目，是一个树形目录服务。</li>
+<li>Zookeeper翻译过来就是动物园管理员，用来管理Hadoop（大象）、Hive（蜜蜂）、Pig</li>
+<li>分布式的，开源的分布式应用程序的协调服务</li>
+<li>主要功能包括：<ul>
+<li>配置管理</li>
+<li>分布式锁</li>
+<li>集群管理</li>
+</ul>
+</li>
+</ul>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>Zookeeper:一个领导者（Leader)，多个跟随者（Follower）组成的集群。</li>
+<li>集群中只要有半数以上节点存活，Zookeeper集群就能正常服务。所以Zookeeper适合安装奇数台服务器。</li>
+<li>全局数据一致:每个Server保存一份相同的数据副本，Client无论连接到哪个Server，数据都是一致的。</li>
+<li>更新请求顺序执行，来白同一个Client的更新请求按其发送顺序依次执行。</li>
+<li>数据更新原子性，一次数据更新要么成功，要么失败。</li>
+<li>实时性,在一定时间范围内，Client能读到最新数据。</li>
+</ol>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="/../images/ZooKeeper/image-20240301162933691.png" alt="image-20240301162933691"></p>
+]]></content>
+      <tags>
+        <tag>ZooKeeper</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql注入</title>
+    <url>/2024/03/03/sql%E6%B3%A8%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="sql注入原理"><a href="#sql注入原理" class="headerlink" title="sql注入原理"></a>sql注入原理</h2><p>sql注入本质就是把用户输入的参数当作SQL语句执行，web应用程序对用户输入数据的合法性没有判断和过滤，攻击者可以通过构造不同的SQL语句来实现对数据库的操作。其可能造成信息泄露，上传webshell，篡改网页信息等。</p>
+<p>sqlmap常用注入语句</p>
+<ol>
+<li>扫描目标URL：sqlmap -u &lt;目标URL&gt;</li>
+<li>扫描目标URL并检测注入：sqlmap -u &lt;目标URL&gt; –dbs</li>
+<li>指定注入参数进行测试：sqlmap -u &lt;目标URL&gt; -p &lt;注入参数&gt;</li>
+<li>指定数据库类型进行测试：sqlmap -u &lt;目标URL&gt; –dbms &lt;数据库类型&gt;</li>
+<li>使用Cookie进行测试：sqlmap -u &lt;目标URL&gt; –cookie “&lt;Cookie数据&gt;”</li>
+<li>执行具体的SQL注入攻击：sqlmap -u &lt;目标URL&gt; –data “&lt;POST数据&gt;” –method POST –level 5 –risk 3</li>
+</ol>
+<h2 id="SQL注入分类"><a href="#SQL注入分类" class="headerlink" title="SQL注入分类"></a>SQL注入分类</h2><h3 id="联合注入"><a href="#联合注入" class="headerlink" title="联合注入"></a>联合注入</h3><p>sql注入一般流程：</p>
+<ol>
+<li>判断注入点是否存在以及类型</li>
+<li>order by猜字段数</li>
+<li>联合查询寻找输出点</li>
+<li>查库名 union select 1,2,3,database()</li>
+<li>查表名 </li>
+<li>查字段</li>
+</ol>
+<h3 id="头部注入"><a href="#头部注入" class="headerlink" title="头部注入"></a>头部注入</h3><p>HTTP头部注入是指注入字段在HTTP请求头的字段中，一般是user-agent，referer。</p>
+<p>user-agent：提供浏览器类型，操作系统版本，插件信息等</p>
+<p>referer：指明当前请求来自那里</p>
+<h4 id="user-agent案例-以sqllibs18为例"><a href="#user-agent案例-以sqllibs18为例" class="headerlink" title="user-agent案例-以sqllibs18为例"></a>user-agent案例-以sqllibs18为例</h4><p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303144412570.png" alt="image-20240303144412570"></p>
+<p>输入用户名和密码发现屏幕回显user-agent</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145726412.png" alt="image-20240303145726412"></p>
+<p>猜测注入点可能在此bp抓包看看</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145942758.png" alt="image-20240303145942758"></p>
+<p>修改user-agent后面内容试试，改为 ’</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303150234394.png" alt="image-20240303150234394"></p>
+<p>发现报错，闭合方式应该为‘#</p>
+<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303151704182.png" alt="image-20240303151704182"></p>
+<p>接下来入正常进行即可。</p>
+<h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>在攻击过程中服务器开启错误回显，页面会返回错误信息，利用报错函数来获取信息</p>
+<ol>
+<li>updatexml()</li>
+</ol>
+<p>updatexml(XML_document,XPayh_string,new_value);</p>
+<p>简单来说就是updatexml(目标xml内容，xml文档路径，更新的内容)</p>
+<p>我们在xml文档路径写入了子查询，和特俗字符拼接在其，因为不符合输入路径规则报错，先执行了子查询可以得到我们需要的消息。0x7e是~的16进制表示。</p>
+<p>语句L:select * from aaa where id=1 and updatexml(1,concat（0x7e,(select user()),1)</p>
+<ol start="2">
+<li>floor()</li>
+</ol>
+<p>floor和count和group by三个函数在一起会报错。</p>
+<p>语句：select * from aaa where id=1 and (select 1 from (select count(*),concat(user(),floor(rand(0)*2))x from information_schema.tables group by x)a);</p>
+<ol start="3">
+<li>extractvalue()</li>
+</ol>
+<p>原理同updatexml().</p>
+<p>语句：select * from aaa where id =1 and(extractvalue(1,concat(0x7e,(select user(),0x7e)));</p>
+<h3 id="布尔型盲注"><a href="#布尔型盲注" class="headerlink" title="布尔型盲注"></a>布尔型盲注</h3><p>主要用于网站无输出点，并且关闭了错误回显。</p>
+<p>常用函数：</p>
+<ul>
+<li>length（）：函数返回值为字符串长度。</li>
+<li>substr():截取字符串，substr(string,start,length)</li>
+<li>ascii():返回字符串中第一关字符的ascii值</li>
+</ul>
+<h3 id="延时注入"><a href="#延时注入" class="headerlink" title="延时注入"></a>延时注入</h3><p>有时候会遇到无论如何操作页面返回都是正常的情况，这时候考虑使用延时注入</p>
+<p>使用函数：sleep（）。</p>
+<h3 id="宽字节注入"><a href="#宽字节注入" class="headerlink" title="宽字节注入"></a>宽字节注入</h3><p>在一些老版本的php中可以开启防御函数magic_quotes_gpc，也叫魔术引号，作用是判断用户提交的数据，包括有get、post、cookie过来的数据里面的特殊字符增加转义字符”\”，以确保这些数据不会因为特殊字符引起的污染而出现致命的错误。单引号(‘)、双引号(“)、反斜线（\）等字符都会被加上反斜线。</p>
+<p>因为单引号和双引号里面的内容都是字符串，如果我们输入的东西不能闭合掉单引号双引号，就无法产生sql注入，在新版本中虽然取消了魔术引号，但是很多cms依然会用一些函数替代，比如addslashes()等。</p>
+<p>那么我们怎么逃逸出这个转义呢？这时候可以使用宽字节注入。</p>
+<p>原理：如果程序设计数据库编码的时候设置了非英文编码，php发送请求到mysql时经过一次gbk编码，因为gbk是双字节编码，当设置gbk编码后，遇到了连续两个字节都符合gbk取值范围，会自动解析成一个汉字，输入%df%27，本来\会转义%27（’）,但\（%5c）的编码数为92，%df的编码数为223，符合取值范围，于是%df%5c会解析成为一个汉字“運”，单引号就逃逸了出来，从而绕过转义造成注入。</p>
+<ul>
+<li>注：1.POST注入并不会进行URL转码，所以需要改hex。</li>
+<li>2.在查询时用到的表名字段名不能用原来的‘admin’形式，这时候可以转换十六进制，或者用子查询。</li>
+<li>3.还可以用汉字绕过。</li>
+</ul>
+<h3 id="堆叠注入"><a href="#堆叠注入" class="headerlink" title="堆叠注入"></a>堆叠注入</h3><p>在SQL中，分号表示一条SQL语句的介绍，在结束语句后再构造一条语句，就会造成堆叠注入。</p>
+<h3 id="DNSlog注入"><a href="#DNSlog注入" class="headerlink" title="DNSlog注入"></a>DNSlog注入</h3><p>利用场景：在某些无法直接利用漏洞获得回显时如果用盲注来做效率低下且容易被waf拦截，但是目标可以发起请求，这个时候我们可以通过DNS解析把我们想要获得的数据外带出来。</p>
+<p>注入过程：通过子查询将内容拼接到域名内，让load_file()去访问共享文件，访问的域名被记录，读取远程共享文件，通过拼接出函数做查询，拼接到域名中，访问时将访问服务器，记录后查询该日志。</p>
+<p>这里需要用到一个mysql函数LOAD_FILE()：读取一个文件并将其内容作为字符串返回。</p>
+]]></content>
+      <categories>
+        <category>sql</category>
+      </categories>
+      <tags>
+        <tag>sql注入</tag>
+      </tags>
+  </entry>
 </search>
