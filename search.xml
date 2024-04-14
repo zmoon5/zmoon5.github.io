@@ -133,8 +133,12 @@ refs - 存储各个分支指向的目标提交
 </ol>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p><img src="/../images/ZooKeeper/image-20240301162933691.png" alt="image-20240301162933691"></p>
 ]]></content>
+      <categories>
+        <category>大数据</category>
+      </categories>
       <tags>
         <tag>ZooKeeper</tag>
+        <tag>大数据</tag>
       </tags>
   </entry>
   <entry>
@@ -224,7 +228,7 @@ refs - 存储各个分支指向的目标提交
 <p>这里需要用到一个mysql函数LOAD_FILE()：读取一个文件并将其内容作为字符串返回。</p>
 ]]></content>
       <categories>
-        <category>sql</category>
+        <category>web漏洞</category>
       </categories>
       <tags>
         <tag>sql注入</tag>
@@ -332,5 +336,148 @@ Content-Type:文件MIME，视情况更改
       <tags>
         <tag>文件上传</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>owasp top10</title>
+    <url>/2024/03/05/owasp-top10/</url>
+    <content><![CDATA[<h2 id="注入"><a href="#注入" class="headerlink" title="注入"></a>注入</h2><p>注入通常是指将不受信任的数据作为命令或查询的一部分发送到解析器时，会产生注入SQL注入、OS注入和LDAP注入的缺陷。攻击者的恶意数据可以诱使解析器在没有适当授权的情况下执行非预期命令访问数据。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>一般常见的SQL注入和OS注入</p>
+<ul>
+<li><p>SQL注入：</p>
+</li>
+<li><p>SQL注入防御：</p>
+<ol>
+<li>对输入进行严格过滤和转义</li>
+<li>关闭错误回显</li>
+<li>限制SQL服务的远程访问，只开放给特定开发人员</li>
+<li>代码审计–最有效的检测应用程序的注入风险的方法之一</li>
+<li>使用成熟的waf</li>
+</ol>
+</li>
+<li><p>os注入：web开发使用的编程语言中，大多数能通过shell执行os命令。通过shell执行OS命令时或者开发中用到某个方法其内部利用了shell时，就有可能出现OS命令被任意执行的情况。</p>
+</li>
+<li><p>OS注入的防御：</p>
+<ol>
+<li>使用安全的函数对传递给OS命令参数进行转义</li>
+<li>不将外界传入的字符串传递给命令行参数</li>
+<li>选择不调用OS命令的方法实现</li>
+</ol>
+<p>（不利用 shell的功能，既能杜绝os命令注入漏洞，又消除了调用os命令的系统开销，提高应用性能）</p>
+</li>
+</ul>
+<h2 id="敏感数据泄露"><a href="#敏感数据泄露" class="headerlink" title="敏感数据泄露"></a>敏感数据泄露</h2><p>原理：应用维护或者开发人员无意间上传敏感数据，如GitHub文件泄露敏感数据文件的权限设置错误。</p>
+<p>常见攻击方式主要是扫描应用程序获得敏感数据</p>
+<p>防御：</p>
+<ol>
+<li>对系统处理、存储或传输的数据分类进行访问控制。</li>
+<li>确保存储的敏感数据被加密</li>
+<li>确保使用了强大的标准算法或密码、参数。协议和秘钥，</li>
+<li>禁止缓存对包含敏感数据的响应</li>
+</ol>
+<h2 id="失效的身份认证"><a href="#失效的身份认证" class="headerlink" title="失效的身份认证"></a>失效的身份认证</h2><p>原理：应用中负责认证会话管理的部分没有正确实现，使得攻击者得以泄露密码，口令或令牌，进而可能获取其他用户的身份。</p>
+<p>影响：</p>
+<ul>
+<li>盗用账号与身份（撞库，弱密码尝试之类）</li>
+</ul>
+<p>防御：</p>
+<ul>
+<li>使用强密码</li>
+<li>限制或延迟失败的登录尝试，并记录所有失败尝试</li>
+<li>网站应该具备良好的权限控制与管理</li>
+<li>使用SSL对数据流进行加密</li>
+</ul>
+<h2 id="XSS"><a href="#XSS" class="headerlink" title="XSS"></a>XSS</h2><p>往网站上注入恶意脚本，当用户浏览网页时候恶意代码执行，从而获取用户敏感信息。分为存储型，DOM型，反射型</p>
+<h4 id="反射型XSS："><a href="#反射型XSS：" class="headerlink" title="反射型XSS："></a>反射型XSS：</h4><p>非持久化攻击，需要欺骗用户点击链接才能触发XSS代码。应用程序或API包括未验证和未转义的用户输入作为html输出的一部分。</p>
+<h4 id="存储型XSS："><a href="#存储型XSS：" class="headerlink" title="存储型XSS："></a>存储型XSS：</h4><p> 持久化攻击，代码存在服务器中，如个人信息里。访问该页面时候触发代码执行，容易造成蠕虫，盗窃cookie。</p>
+<h4 id="DOM型："><a href="#DOM型：" class="headerlink" title="DOM型："></a>DOM型：</h4><p>不经过后端，domxss是基于文档对象模型（document object model，dom)的漏洞</p>
+<p>，攻击者向服务器发送一个带有恶意js代码的请求，服务器的响应不i会以任何形式包含攻击者的脚本。当用户的浏览器处理这个响应时，DOM对象就会处理XSS代码，导致XSS漏洞。</p>
+<h4 id="防御："><a href="#防御：" class="headerlink" title="防御："></a>防御：</h4><ul>
+<li>存储型：后台编写过滤器，对一些HTML标签和特殊的字符进行转义</li>
+<li>反射型：对特殊字符转义</li>
+<li>dom:检测是否包含一些特殊的函数可以造成危害的地方</li>
+<li>使用字段转义的xss框架，如react js</li>
+<li>启用CSP（content security policy），这是一种对抗XSS纵深防御弥补控制。</li>
+</ul>
+<h2 id="外部实体（XXE）"><a href="#外部实体（XXE）" class="headerlink" title="外部实体（XXE）"></a>外部实体（XXE）</h2><p>XXE（XML external entity injection）外部实体注入漏洞，XML在引用外部实体时候，攻击者可以构造恶意的XML代码，以造成任意文件读取、命令执行甚至是中断服务器。</p>
+<p>主要成因是因为XML协议文档本身的设计特性，可以引入外部的资源，定义XML文件时使用的外部实体引入功能。 </p>
+<p>影响：读取服务器敏感资料比如/etc/password</p>
+<p>读取源码</p>
+<p>防御：关闭DTD，禁止外部实体引入，过滤用户提交的XML数据</p>
+<h2 id="安全配置错误"><a href="#安全配置错误" class="headerlink" title="安全配置错误"></a>安全配置错误</h2><p>原理：操作者不当配置（默认配置，临时配置，开源云存储，HTTP标头配置），导致攻击者可以利用这些配置获取到更高权限，安全配置错误可以发生在各个层面，包含平台、web服务器、数据库、架构和代码</p>
+<p>防御：</p>
+<ul>
+<li>使用的服务不包含任何不必要的功能、组件、文档和用例，移除或不安装不适用的功能和框架</li>
+<li>即使检测系统服务版本打上漏洞补丁</li>
+<li>自动化安装部署</li>
+</ul>
+<h2 id="失效访问控制"><a href="#失效访问控制" class="headerlink" title="失效访问控制"></a>失效访问控制</h2><p>水平越权：系统只验证能够访问数据的角色没有对数据做细分导致A能访问B的数据。</p>
+<p>垂直越权：后台未对权限做限制，导致攻击者可以通过猜测其他管理页面的url或者敏感的参数信息变更权限。</p>
+<p>防御：</p>
+<ul>
+<li>对参数的白名单过滤</li>
+<li>对权限的控制管理重新设计与限制</li>
+<li>前后端同时校验，双重验证机制</li>
+<li>用户注销后使其jwt令牌失效</li>
+</ul>
+<h2 id="不安全的反序列化"><a href="#不安全的反序列化" class="headerlink" title="不安全的反序列化"></a>不安全的反序列化</h2><p>介绍：</p>
+<p>序列化：序列化 (Serialization)是将对象的状态信息转换为可以存储或传输(一般是以二进制的形式保存)的形式的过程。<br>反序列化： 与序列化的过程刚好相反。</p>
+<p>原理：如果应用对恶意构造的用户输入数据进行反序列化，会产生非预期对象，从而可能导致远程代码执行。或者应用中存在可以反序列化过程中或者之后被改变行为的类，则攻击者可以通过改变应用逻辑或者失实现远程代码执行攻击，称为对象和数据结构攻击。</p>
+<p>防御</p>
+<ol>
+<li>对序列化对象进行完整性检测，比如数字签名防止数据篡改或恶意对象。</li>
+<li>在反序列化过程中强制严格的类型限制</li>
+<li>在低权限环境中独立运行反序列化代码</li>
+<li>不接受来自不信任源的序列化对象，或使用只允许原始数据类型的序列化媒体</li>
+<li>对反序列化过程进行日志记录，监控反序列化过程，在发现疑似反序列化攻击时进行警报。</li>
+</ol>
+<h2 id="使用含已知漏洞的组件"><a href="#使用含已知漏洞的组件" class="headerlink" title="使用含已知漏洞的组件"></a>使用含已知漏洞的组件</h2><p>限制的服务器都需要使用很多组件，库、框架等软件组件和应用有着相同权限。如果存在有漏洞的组件，那么攻击就能导致数据泄露甚至控制服务器。组件中的漏洞会导致整个应用和API安全性下降。</p>
+<p>防御：</p>
+<ul>
+<li>移除不使用的功能组件</li>
+<li>从正规渠道获取组件</li>
+<li>及时更新、修复组件漏洞</li>
+</ul>
+<h2 id="不足的日志记录和监控"><a href="#不足的日志记录和监控" class="headerlink" title="不足的日志记录和监控"></a>不足的日志记录和监控</h2><p>日志和监控不足，再加上缺失或无效的事件响应，允许攻击者进一步攻击系统。</p>
+<p>防御：</p>
+<ul>
+<li>启用日志监控、告警机制</li>
+<li>尽可能的完整记录所有日志</li>
+</ul>
+<h2 id="其他常见web漏洞"><a href="#其他常见web漏洞" class="headerlink" title="其他常见web漏洞"></a>其他常见web漏洞</h2><hr>
+<h2 id="CSRF跨站请求伪造"><a href="#CSRF跨站请求伪造" class="headerlink" title="CSRF跨站请求伪造"></a>CSRF跨站请求伪造</h2><p><img src="/../images/owasp-top10/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2NoZW5saWppYW4=,size_16,color_FFFFFF,t_70.png"></p>
+<p>简单来说就是用户拥有网站A的cookie,攻击者诱导用户点击网站B从而获得用户cookie假装为用户去访问网站A</p>
+<p>防御：</p>
+<ul>
+<li>在请求参数中增加一个随机token</li>
+<li>敏感操作使用POST以表单形式提交，避免token泄露。</li>
+</ul>
+<h2 id="SSRF服务器端请求伪造"><a href="#SSRF服务器端请求伪造" class="headerlink" title="SSRF服务器端请求伪造"></a>SSRF服务器端请求伪造</h2><p>SSRF是一种由攻击者构造形成由服务器端发起请求的安全的一个安全漏洞。</p>
+<p>原理：服务器端提供了从其他服务器应用获取数据的功能且没有对目标地址做过滤与限制。</p>
+<p>ssrf是利用存在缺陷的web应用作为代理攻击远程和本地服务器。</p>
+<p>防御：</p>
+<ol>
+<li>过滤返回信息，验证远程服务器对请求的响应是比较容易的方法。如果web应用是去获取某一类型的文件，那么在返回结果展示给用户之前先验证返回是信息是否符合标准。</li>
+<li>统一错误信息，避免用户可以根据错误信息来判断远端服务器的端口状态。</li>
+<li>限制请求的端口为哦HTTP常用端口，如80，8080，8090，443</li>
+<li>黑名单内网IP。避免应用被用来获取内网数据，攻击内网。</li>
+<li>禁止不需要的协议。</li>
+</ol>
+<p>参考文章：</p>
+<p><a href="https://blog.csdn.net/qq_43378996/article/details/124050308">SSRF漏洞原理攻击与防御(超详细总结)-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/angry_program/article/details/107855078">目录穿越/遍历漏洞 – 学习笔记_目录遍历漏洞描述-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/qq_32261191/article/details/101686779">常见的Web漏洞——命令注入_命令注入漏洞-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/weixin_50464560/article/details/120926097">WAF绕过思路整理(挺全)_waf绕过总结-CSDN博客</a></p>
+]]></content>
+      <categories>
+        <category>web漏洞</category>
+      </categories>
+      <tags>
+        <tag>常见web漏洞</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>随便看看</title>
+    <url>/2024/04/14/%E9%9A%8F%E4%BE%BF%E7%9C%8B%E7%9C%8B/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
