@@ -81,7 +81,7 @@
 
     <div class="post_cover" >
         
-            <img src="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
         
     </div>
 
@@ -142,15 +142,15 @@
 <h3 id="头部注入"><a href="#头部注入" class="headerlink" title="头部注入"></a>头部注入</h3><p>HTTP头部注入是指注入字段在HTTP请求头的字段中，一般是user-agent，referer。</p>
 <p>user-agent：提供浏览器类型，操作系统版本，插件信息等</p>
 <p>referer：指明当前请求来自那里</p>
-<h4 id="user-agent案例-以sqllibs18为例"><a href="#user-agent案例-以sqllibs18为例" class="headerlink" title="user-agent案例-以sqllibs18为例"></a>user-agent案例-以sqllibs18为例</h4><p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303144412570.png" alt="image-20240303144412570"></p>
+<h4 id="user-agent案例-以sqllibs18为例"><a href="#user-agent案例-以sqllibs18为例" class="headerlink" title="user-agent案例-以sqllibs18为例"></a>user-agent案例-以sqllibs18为例</h4><p><img src="/img/loading.gif" data-original="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303144412570.png" alt="image-20240303144412570"></p>
 <p>输入用户名和密码发现屏幕回显user-agent</p>
-<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145726412.png" alt="image-20240303145726412"></p>
+<p><img src="/img/loading.gif" data-original="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145726412.png" alt="image-20240303145726412"></p>
 <p>猜测注入点可能在此bp抓包看看</p>
-<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145942758.png" alt="image-20240303145942758"></p>
+<p><img src="/img/loading.gif" data-original="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303145942758.png" alt="image-20240303145942758"></p>
 <p>修改user-agent后面内容试试，改为 ’</p>
-<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303150234394.png" alt="image-20240303150234394"></p>
+<p><img src="/img/loading.gif" data-original="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303150234394.png" alt="image-20240303150234394"></p>
 <p>发现报错，闭合方式应该为‘#</p>
-<p><img src="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303151704182.png" alt="image-20240303151704182"></p>
+<p><img src="/img/loading.gif" data-original="/../images/sql%E6%B3%A8%E5%85%A5/image-20240303151704182.png" alt="image-20240303151704182"></p>
 <p>接下来入正常进行即可。</p>
 <h3 id="报错注入"><a href="#报错注入" class="headerlink" title="报错注入"></a>报错注入</h3><p>在攻击过程中服务器开启错误回显，页面会返回错误信息，利用报错函数来获取信息</p>
 <ol>
@@ -212,6 +212,10 @@
                             <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
                         
                     
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
                 </ul>
             
         </div>
@@ -240,7 +244,20 @@
 
     </div>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 <!--动态线条背景-->
 <script type="text/javascript"
 color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">

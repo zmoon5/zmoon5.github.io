@@ -93,7 +93,7 @@
 
     <div class="post_cover" >
         
-            <img src="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
         
     </div>
 
@@ -132,7 +132,7 @@
         </div>
 
         <div class="content markdown">
-            <h2 id="upload-labs-1"><a href="#upload-labs-1" class="headerlink" title="upload-labs-1"></a>upload-labs-1</h2><p><img src="/../images/upload-labs1/image-20230914142612836.png" alt="image-20230914142612836"></p>
+            <h2 id="upload-labs-1"><a href="#upload-labs-1" class="headerlink" title="upload-labs-1"></a>upload-labs-1</h2><p><img src="/img/loading.gif" data-original="/../images/upload-labs1/image-20230914142612836.png" alt="image-20230914142612836"></p>
 <h3 id="关卡简介："><a href="#关卡简介：" class="headerlink" title="关卡简介："></a>关卡简介：</h3><p>上传点使用前端来验证后缀名，使用bp绕过上传木马脚本获取webshell。</p>
 <h3 id="查看源码"><a href="#查看源码" class="headerlink" title="查看源码"></a>查看源码</h3><pre class="language-javascript" data-language="javascript"><code class="language-javascript"><span class="token keyword">function</span> <span class="token function">checkFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
     <span class="token keyword">var</span> file <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementsByName</span><span class="token punctuation">(</span><span class="token string">' upload_file'</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
@@ -154,9 +154,9 @@
 </code></pre>
 
 <p>只允许上传.jpg|.png|.gif类型文件</p>
-<p><img src="/../../../zy/Documents/image-20230914150230885.png" alt="image-20230914150230885"></p>
+<p><img src="/img/loading.gif" data-original="/../../../zy/Documents/image-20230914150230885.png" alt="image-20230914150230885"></p>
 <p>1.查看前端代码删除check函数，或者禁用js</p>
-<p><img src="/../images/upload-labs1/image-20230914150556990.png" alt="image-20230914150556990"></p>
+<p><img src="/img/loading.gif" data-original="/../images/upload-labs1/image-20230914150556990.png" alt="image-20230914150556990"></p>
 <p>2.bp抓包修改后缀</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
@@ -176,6 +176,10 @@
                     
                         
                             <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
                         
                     
                 </ul>
@@ -206,7 +210,20 @@
 
     </div>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 <!--动态线条背景-->
 <script type="text/javascript"
 color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">

@@ -89,7 +89,7 @@
 
     <div class="post_cover" >
         
-            <img src="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
         
     </div>
 
@@ -128,10 +128,10 @@
         </div>
 
         <div class="content markdown">
-            <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p><img src="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433334141-cb693e43-53e8-4e28-80b9-b2c08e23f2f6.png" alt="web漏洞文件上传.png"></p>
+            <h1 id="文件上传"><a href="#文件上传" class="headerlink" title="文件上传"></a>文件上传</h1><p><img src="/img/loading.gif" data-original="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433334141-cb693e43-53e8-4e28-80b9-b2c08e23f2f6.png" alt="web漏洞文件上传.png"></p>
 <h2 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h2><p>在某处用户可以上传文件到服务器端，比如个人资料，头像，且后端不对用户上传的文件做处理，攻击者可以利用这个功能上传恶意文件，比如木马，病毒，恶意脚本，后门等。</p>
 <h2 id="利用："><a href="#利用：" class="headerlink" title="利用："></a>利用：</h2><p>各种绕过，上传一句话木马。</p>
-<p><img src="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433817849-28573285-fa9c-4d1d-9864-2f822f372ee5.png" alt="文件上传利用思路.png"></p>
+<p><img src="/img/loading.gif" data-original="/../images/%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/1627433817849-28573285-fa9c-4d1d-9864-2f822f372ee5.png" alt="文件上传利用思路.png"></p>
 <h2 id="文件上传漏洞如何查找及判断"><a href="#文件上传漏洞如何查找及判断" class="headerlink" title="文件上传漏洞如何查找及判断?"></a>文件上传漏洞如何查找及判断?</h2><p>1.黑盒查找：通过工具扫描网站敏感文件、路径，以期获得文件上传地址。或者通过类似于会员中心的上传图片功能进行漏洞测试。网站后台也有上传功能（后台权限不等同于网站权限）。</p>
 <p>2.白盒测试：审计代码，寻找上传漏洞。通过抓包、上传等操作判断漏洞是否有效。</p>
 <h3 id="文件上传常见验证"><a href="#文件上传常见验证" class="headerlink" title="文件上传常见验证:"></a>文件上传常见验证:</h3><p>后缀名，类型，文件头等<br>后缀名:黑名单,白名单<br>文件类型:MIME<br>信息文件头:内容头信息</p>
@@ -186,6 +186,10 @@ Content-Type:文件MIME，视情况更改
                             <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
                         
                     
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
                 </ul>
             
         </div>
@@ -214,7 +218,20 @@ Content-Type:文件MIME，视情况更改
 
     </div>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
 <!--动态线条背景-->
 <script type="text/javascript"
 color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
