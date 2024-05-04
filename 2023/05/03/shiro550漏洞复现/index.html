@@ -1,0 +1,322 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>shrio550复现 - zylyy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="lucky,前言shiro550漏洞编号为CVE-2020-1957，算是比较好用的RCE漏洞之一，原因在于shiro框架使用的比较多，漏洞影响范围比较广泛，payload会经过AES加密，很多安全设备无法识别,"> 
+    <meta name="author" content="zmoon"> 
+    <link rel="alternative" href="atom.xml" title="zylyy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://bangdream.moe/img/ident.png"/>
+    <meta name="twitter:creator" content="@yourtwitteridhere"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="shrio550复现 - zylyy"/>
+    <meta name="twitter:description" content="lucky,前言shiro550漏洞编号为CVE-2020-1957，算是比较好用的RCE漏洞之一，原因在于shiro框架使用的比较多，漏洞影响范围比较广泛，payload会经过AES加密，很多安全设备无法识别,"/>
+    <meta property="og:image" content="https://bangdream.moe/img/ident.png"/>
+    <meta property="og:image:alt" content="lucky,前言shiro550漏洞编号为CVE-2020-1957，算是比较好用的RCE漏洞之一，原因在于shiro框架使用的比较多，漏洞影响范围比较广泛，payload会经过AES加密，很多安全设备无法识别,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="zylyy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="shrio550复现 - zylyy"/>
+    <meta property="og:description" content="lucky,前言shiro550漏洞编号为CVE-2020-1957，算是比较好用的RCE漏洞之一，原因在于shiro框架使用的比较多，漏洞影响范围比较广泛，payload会经过AES加密，很多安全设备无法识别,"/>   
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">zylyy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">shrio550复现</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+        
+    </div>
+
+
+
+<div class="article">
+    <div class='main'>
+        <!-- 帖子视图 -->
+        
+            <h1 class="title">shrio550复现</h1>
+            <div class="stuff">
+                <span>五月 03, 2023</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/shiro/" rel="tag">shiro</a></li></ul>
+
+
+            </div>
+        
+
+
+
+        <h1 class="title">shrio550复现</h1>
+        <div class="stuff">
+            <span>五月 03, 2023</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/shiro/" rel="tag">shiro</a></li></ul>
+
+
+        </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2023.05.03</span>
+        </div>
+
+        <div class="content markdown">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>shiro550漏洞编号为CVE-2020-1957，算是比较好用的RCE漏洞之一，原因在于shiro框架使用的比较多，漏洞影响范围比较广泛，payload会经过AES加密，很多安全设备无法识别。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>shiro&lt;=1.2.4版本默认使用的是cookieremembermemanager，其处理cookie的流程是：先获取cookie中的remeberme值，然后对其进行base64解码，aes解码，对解密的值反序列化</p>
+<p>因为AES的秘钥是硬编码的，导致攻击者可以构造恶意数据造成反序列化的RCE漏洞</p>
+<p>payload的构造反着来的</p>
+<pre class="language-none"><code class="language-none">构造恶意指令--&gt;序列化--&gt;AES加密--&gt;base64编码--&gt;发生cookie值</code></pre>
+
+<p><img src="/img/loading.gif" data-original="/../images/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/9b6832bdb67c401dbfd28f43c777b9d4.png" alt="img"></p>
+<p>漏洞利用过程中比较重要的是AES加密密钥，密钥默认是硬编码，所以如果没有修改默认密钥，就可以生成恶意构造的cookie。</p>
+<h2 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h2><p>靶场为vulhub</p>
+<p>用bp抓包观察一下rememberme字段，选择保存密码，</p>
+<p><img src="/img/loading.gif" data-original="/../images/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/image-20240504223126056.png" alt="image-20240504223126056"></p>
+<p>关于判断是否存在shiro漏洞：</p>
+<pre><code>* 未登录情况下请求包的cookie中没有rememberme字段，返回包的setcookie里也没有deleteme字段
+* 登录失败情况下不管勾选了rememberme字段，返回包里都会有rememberMe=deleteMe字段
+* 不勾选rememberMe字段，登录成功的话，返回包set-cookie里会有rememberMe=deleteMe字段，但是后续所有请求的cookie中都不带rememberMe字段。
+* 勾选rememberMe字段，登录成功的话，返回包的set-cookie里会有rememberMe=deleteMe字段还会有rememberMe字段，后续所有请求的cookie中有rememberMe字段。
+</code></pre>
+<p><strong>shiro_attack工具</strong></p>
+<p>对于shiro550而言，漏洞的核心原因在于cookie中的身份信息是经过AES加解密的，这个密钥应该是保密的，但是在shiro&lt;=1.2.24的版本使用的密钥是固定的。</p>
+<p>所以验证这个漏洞是否存在关键在于是否能获得AES密钥，如果确实是固定的密钥**<code>kPH+bIxk5D2deZiIxcaaaA==</code>**或者其他我们通过工具爆破处理的密钥，那么shiro-550漏洞一定存在。</p>
+<p>利用shiro_attack工具进行图形化的分析</p>
+<p>利用java -jar 启动里面的.jar文件</p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">java -jar shiro_attack-2.2.jar</code></pre>
+
+<p><img src="/img/loading.gif" data-original="/../images/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/image-20240504225650802.png" alt="image-20240504225650802"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/#/song?id=1325114607"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/#/song?id=1465114465"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">复现过程</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSKCZ36W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14MSKCZ36W');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

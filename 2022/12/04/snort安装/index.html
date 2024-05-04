@@ -1,0 +1,498 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>snort安装 - zylyy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="lucky,Windows下snort一、实验知识Snort的软件模块组成：
+　（1）数据包嗅探模块——负责监听网络数据包，对网络进行分；
+　（2）预处理模块——该模块用相应的插件来检查原始数据包，从中发现原始,"> 
+    <meta name="author" content="zmoon"> 
+    <link rel="alternative" href="atom.xml" title="zylyy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://bangdream.moe/img/ident.png"/>
+    <meta name="twitter:creator" content="@yourtwitteridhere"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="snort安装 - zylyy"/>
+    <meta name="twitter:description" content="lucky,Windows下snort一、实验知识Snort的软件模块组成：
+　（1）数据包嗅探模块——负责监听网络数据包，对网络进行分；
+　（2）预处理模块——该模块用相应的插件来检查原始数据包，从中发现原始,"/>
+    <meta property="og:image" content="https://bangdream.moe/img/ident.png"/>
+    <meta property="og:image:alt" content="lucky,Windows下snort一、实验知识Snort的软件模块组成：
+　（1）数据包嗅探模块——负责监听网络数据包，对网络进行分；
+　（2）预处理模块——该模块用相应的插件来检查原始数据包，从中发现原始,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="zylyy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="snort安装 - zylyy"/>
+    <meta property="og:description" content="lucky,Windows下snort一、实验知识Snort的软件模块组成：
+　（1）数据包嗅探模块——负责监听网络数据包，对网络进行分；
+　（2）预处理模块——该模块用相应的插件来检查原始数据包，从中发现原始,"/>   
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">zylyy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">snort安装</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+        
+    </div>
+
+
+
+<div class="article">
+    <div class='main'>
+        <!-- 帖子视图 -->
+        
+            <h1 class="title">snort安装</h1>
+            <div class="stuff">
+                <span>十二月 04, 2022</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81/" rel="tag">数字取证</a></li></ul>
+
+
+            </div>
+        
+
+
+
+        <h1 class="title">snort安装</h1>
+        <div class="stuff">
+            <span>十二月 04, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81/" rel="tag">数字取证</a></li></ul>
+
+
+        </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2022.12.04</span>
+        </div>
+
+        <div class="content markdown">
+            <h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="Windows下snort"><a href="#Windows下snort" class="headerlink" title="Windows下snort"></a>Windows下snort</h1><h2 id="一、实验知识"><a href="#一、实验知识" class="headerlink" title="一、实验知识"></a>一、实验知识</h2><p><strong>Snort的软件模块组成：</strong></p>
+<p>　（1）数据包嗅探模块——负责监听网络数据包，对网络进行分；</p>
+<p>　（2）预处理模块——该模块用相应的插件来检查原始数据包，从中发现原始数据的“行为”，如端口扫描，IP碎片等，数据包经过预处理后才传到检测引擎；</p>
+<p>　（3）检测模块——该模块是Snort的核心模块。当数据包从预处理器送过来后，检测引擎依据预先设置的规则检查数据包，一旦发现数据包中的内容和某条规则相匹配，就通知报警模块；</p>
+<p>　（4）报警/日志模块——经检测引擎检查后的Snort数据需要以某种方式输出。如果检测引擎中的某条规则被匹配，则会触发一条报警，这条报警信息会通过网络、UNIXsocket、WindowsPopup(SMB)、SNMP协议的trap命令传送给日志文件，甚至可以将报警传送给第三方插件（如SnortSam），另外报警信息也可以记入SQL数据库。</p>
+<p><strong>snort工作模式：</strong>嗅探器、数据包记录器、入侵检测系统。</p>
+<p>做嗅探器时，它只读取网络中传输的数据包，然后显示在控制台上。</p>
+<p>作数据包记录器时，它可以将数据包记录到硬盘上，已备分析之用。</p>
+<p>入侵检测模式功能强大，可通过配置实现，但稍显复杂，snort可以根据用户事先定义的一些规则分析网络数据流，并根据检测结果采取一定的动作</p>
+<h2 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h2><p>Snort具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索/匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps1.jpg" alt="img"> </p>
+<p>图4-1 Snort IDS 体系结构</p>
+<h2 id="三、实验环境"><a href="#三、实验环境" class="headerlink" title="三、实验环境"></a>三、实验环境</h2><p>一台安装VirtualBox软件的计算机；Windows系统计算机一台，Linux系统主机一台，使用网卡桥接方式构成实验环境。</p>
+<h2 id="四、-实验步骤"><a href="#四、-实验步骤" class="headerlink" title="四、 实验步骤"></a>四、 实验步骤</h2><p>安装snort:</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps2.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps3.jpg" alt="img"> </p>
+<p><em><strong>*（一）．Snort数据包嗅探*</strong></em></p>
+<p>1.启动Snort进入实验平台，单击工具栏“控制台”按钮，进入IDS工作目录，运行Snort对网络接口进行监听，要求如下：</p>
+<p>　（1）仅捕获同组主机发出的icmp回显请求数据包。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps4.jpg" alt="img"> </p>
+<p>　（2）采用详细模式在终端显示数据包链路层、应用层信息。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps5.jpg" alt="img"> </p>
+<p>​	2.查看Snort日志记录。</p>
+<p>「说明」默认snort日志记录最后一级目录会以触发数据包的源IP命名。可使用组合键Ctrl+C停止snort运行。<img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps6.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps7.jpg" alt="img"></p>
+<p><em><strong>*（二）．简单报警规则*</strong></em></p>
+<p>1.在snort规则集目录ids/rules下新建snort规则集文件new.rules，对来自外部主机的、目标为当前主机80/tcp端口的请求数据包进行报警，报警消息自定义。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps8.jpg" alt="img"> </p>
+<p>​	2.编辑snort.conf配置文件，使其包含new.rules规则集文件，具体操作如下：编辑器打开snort.conf，添加包含规则集文件new.rules。添加包含new.rules规则集文件语句include $RULE_PATH/new.rules。<img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps9.jpg" alt="img"></p>
+<p>​	3.以入侵检测方式启动snort，进行监听。同组主机访问当前主机telnet服务。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps10.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps11.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps12.jpg" alt="img"> </p>
+<p><em><strong>（三）．报警规则设计和测试</strong></em></p>
+<p>1.编写一个规则，通过捕捉关键字Search记录打开Google网页的动作，并将符合规则的数据包输出到Alert文件中。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps13.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps14.jpg" alt="img"> </p>
+<ol start="2">
+<li>尝试定义几个更为实用的规则，并在使用中检验它们的效果。</li>
+</ol>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps15.jpg" alt="img"> </p>
+<p>(1)在new.rules中添加如下3条规则：alert icmp any any -&gt; any any (dsize:0;itype:8;msg:”NMAP PING SCAN”;)</p>
+<p>alert tcp any any -&gt; any any (flags:SF;msg:”NMAP SYN FIN SCAN”;)</p>
+<p>aler tcp any any -&gt; any any (flags:A;ack:0;msg:”NMAP TCP PING”;)</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps16.jpg" alt="img"> </p>
+<p>(2)运行Snort，在局域网另一台主机上运行Nmap，对主机进行端口扫描。首先使用Nmap的-sP选项进行ping扫描，然后使用-sS选项的SYN扫描，最后使用-sA选项进行ACK扫描。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps17.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps18.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps19.jpg" alt="img"> </p>
+<p>(3)扫描完成后，回到主机查看Alert文件。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps20.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps21.jpg" alt="img"> </p>
+<p><strong>（四）</strong><em><strong>*．查阅资料，选则一种网络攻击方式，对攻击方式进行特征提取，设计相应的报警规则。*</strong></em></p>
+<p>向规则集文件new.rules写入规则。以入侵检测方式启动snort，进行监听。然后以同组主机向目标主机发起攻击，测试Snort是否能够检测到该攻击。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps22.jpg" alt="img"> </p>
+<p>规则为针对检测来自UDP的访问攻击</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps23.jpg" alt="img"> </p>
+<p>里边包含的 -Pn 参数是绕过ping进行扫描，如果有些服务器是放在防火墙下面的禁PING的，就有可能会被跳过。所以用-Pn来强制性地扫描</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps24.jpg" alt="img"> </p>
+<h2 id="五、-遇到问题"><a href="#五、-遇到问题" class="headerlink" title="五、 遇到问题"></a>五、 遇到问题</h2><p>1、告警日志生成老是没反应，重启解决</p>
+<p>2、检测来自UDP的访问攻击的时候，使用kali下的nmap -sU -Pn命令迟迟不见结果返回于是改用 namp -sU得到结果。 </p>
+<p>3、snort -l ..\log -b使用此命令，可以把所有的包记录到一个单一的二进制文件中，方便以二进制的日志文件格式分析。</p>
+<h1 id="Linux下snort"><a href="#Linux下snort" class="headerlink" title="Linux下snort"></a>Linux下snort</h1><h2 id="一、-实验知识"><a href="#一、-实验知识" class="headerlink" title="一、 实验知识"></a>一、 实验知识</h2><p>1、Snort的结构由4大软件模块组成，它们分别是数据包嗅探模块、预处理模块、检测模块、报警/日志模块</p>
+<p>2、Snort 的主要优点是能够在网络上执行实时流量分析和数据包记录。凭借协议分析，内容搜索和各种预处理器的功能，Snort 被广泛接受为检测各种蠕虫，攻击，端口扫描和其他恶意威胁的工具。它可以配置三种主要模式嗅探器，数据包记录器和网络入侵检测。在嗅探器模式下，程序将只读取数据包并在控制台上显示信息。在数据包记录器模式下，数据包将被记录在磁盘上。在入侵检测模式下，程序将监控实时流量并将其与用户定义的规则进行比较。</p>
+<p>3、规则头包括4个部分：规则行为；协议；源信息；目的信息。</p>
+<p>4、snort规则头Snort预置的规则动作有5种：</p>
+<p>　　****（1）pass：****动作选项pass将忽略当前的包，后继捕获的包将被继续分析。</p>
+<p>　　****（2）log：****动作选项log将按照自己配置的格式记录包。</p>
+<p>　　****（3）alert：****动作选项alert将按照自己配置的格式记录包，然后进行报警。它的功能强大，但是必须恰当的用，因为如果报警记录过多，从中攫取有效信息的工作量增大，反而会使安全防护工作变得低效。　</p>
+<p>　　****（4）dynamic：****动作选项dynamic是比较独特的一种，它保持在一种潜伏状态，直到activate类型的规则将其触发，之后它将像log动作一样记录数据包。</p>
+<p>　　****（5）activate：****动作选项activate功能强大，当被规则触发时生成报警，并启动相关的dynamic类型规则。在检测复杂的攻击，或对数据进行归类时，该动作选项相当有用。</p>
+<h2 id="二、-原理"><a href="#二、-原理" class="headerlink" title="二、 原理"></a>二、 原理</h2><p>Snort的基本工作流程：根据客户事先编写好的规则，进行预处理，通过数据包嗅探模块监听网络数据包，对网络进行分析，接下来预处理模块用相应的插件来检查原始数据包，从中发现原始数据的“行为”，如端口扫描，IP碎片等，数据包经过预处理后才传到检测引擎；然后检测模块是Snort的核心模块，当数据包从预处理器送过来后，检测引擎依据预先设置的规则检查数据包，一旦发现数据包中的内容和某条规则相匹配，就通知报警模块；经检测引擎检查后的Snort数据需要以某种方式输出。如果检测引擎中的某条规则被匹配，则会触发一条报警，这条报警信息会通过网络传送给日志文件，另外报警信息也可以记入数据库。</p>
+<h2 id="三、-环境"><a href="#三、-环境" class="headerlink" title="三、 环境"></a>三、 环境</h2><p>一台安装VirtualBox软件的计算机、Linux系统主机一台（Ubuntu）</p>
+<p>3.0.2-5.tar.gz、gperftools-2.8.tar.gz、libdaq-3.0.0-alpha7.tar.gz、libdnet-1.11.tar.gz、snort3-3.0.2-5.tar.gz、zlib-1.2.11.tar.gz提前放在Ubuntu的Home文件夹下。</p>
+<h2 id="四、-步骤"><a href="#四、-步骤" class="headerlink" title="四、 步骤"></a>四、 步骤</h2><p><em><strong>*将所需的压缩包提前放到Ubuntu的Home文件夹下*</strong></em></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps25.jpg" alt="img"> </p>
+<p><em><strong>*1、安装所需的依赖包：*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ sudo apt install cmake
+
+ids@ubuntu-VirtualBox:~$ sudo apt install pkg-config
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libdaq-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libdaq2
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libhwloc-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install luajit
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libluajit-5.1-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libpcap-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libpcre3-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install liblzma-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt-get install libssl-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt-get install autoconf</code></pre>
+
+<p><em><strong>*2、安装zlib*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ tar -xf zlib-1.2.11.tar.gz
+
+ids@ubuntu-VirtualBox:~$ cd zlib-1.2.11
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ ./configure
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ make 
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ make check
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ sudo make install</code></pre>
+
+<p><em><strong>*3、安装libdnet库*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~/zlib-1.2.11$ cd ~
+
+ids@ubuntu-VirtualBox:~$ tar -xf libdnet-1.11.tar.gz 
+
+ids@ubuntu-VirtualBox:~$ cd libdnet-1.11/
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ ./configure 
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ 
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ sudo make install
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ cd ..</code></pre>
+
+<p><em><strong>*4、安装libdaq，这里使用版本3.0.0。*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$wget https://github.com/snort3/libdaq/archive/v3.0.0-alpha7.tar.gz
+
+ids@ubuntu-VirtualBox:~$ tar -xf libdaq-3.0.0-alpha7.tar.gz 
+
+ids@ubuntu-VirtualBox:~$ cd libdaq-3.0.0-alpha7/
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ ./bootstrap 
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ ./configure 
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ make
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ sudo make install </code></pre>
+
+<p><em><strong>*5、由github下载源码，这里使用3.0.2版本。*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ cd ~
+
+ids@ubuntu-VirtualBox:~$wget https://github.com/snort3/snort3/archive/3.0.2-5.tar.gz</code></pre>
+
+<p><em><strong>*6、解压snort安装包：*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ tar -xf 3.0.2-5.tar.gz 
+
+ids@ubuntu-VirtualBox:~$ cd snort3-3.0.2-5/
+
+运行configure_cmake.sh脚本：
+
+ids@ubuntu-VirtualBox:~/snort3-3.0.2-5$ ./configure_cmake.sh 
+
+</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps26.jpg" alt="img"> </p>
+<p><em><strong>*7、编译snort3:*</strong></em></p>
+<p>ids@ubuntu-VirtualBox:~/snort3-3.0.2-5$ cd build/</p>
+<p>ids@ubuntu-VirtualBox:~/snort3-3.0.2-5/build$ make -j 2</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps27.jpg" alt="img"> </p>
+<p><em><strong>*8、ids@ubuntu-VirtualBox:~/snort3-3.0.2-5/build$ sudo ./src/snort –help-options查看帮助*</strong></em></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps28.jpg" alt="img"> </p>
+<p><strong>9、</strong><em><strong>*查看网络配置*</strong></em></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps29.jpg" alt="img"> </p>
+<p><em><strong>*10、*</strong></em><em><strong>*抓取一个经过enp0s3网卡的报文。*</strong></em></p>
+<p>ids@ubuntu-VirtualBox:~/snort3-3.0.2-5/build$ sudo ./src/snort -d -e -v -X  -L dump -Q -n 1 -i enp0s3</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps30.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps31.jpg" alt="img"> </p>
+<p>从源码安装的snort还需要设置规则和配置，因此我们需要复制规则和配置到/etc/snort下面。我们已经创建了单独的bash脚本来用于设置规则和配置。它会设置下面这些snort设置。</p>
+<h2 id="五、-问题"><a href="#五、-问题" class="headerlink" title="五、 问题"></a>五、 问题</h2><p>1.运行时出现了新的报错</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps33.jpg" alt="img"> </p>
+<p>于是重新进行一遍liadaq库的重新安装，再次运行snort3，成功。</p>
+<p>2、选装包有部分无法安装对使用无影响不去再次安装跳过安装下一个。</p>
+<p>3、告警日志生成报错</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps34.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps35.jpg" alt="img"> </p>
+<p>规则编写出了问题，在etc/snort里新编写一个new.rule，再次进行告警日志查看成功</p>
+<h2 id="额外"><a href="#额外" class="headerlink" title="额外"></a>额外</h2><p>Ping一下unbutu ip</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps36.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps37.jpg" alt="img"> </p>
+<p>开启snort记录模式sudo /opt/snort/bin/snort -i ens32 -L dump -d</p>
+<p>看一下包输出</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps38.jpg" alt="img"> </p>
+<p>包统计：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps39.jpg" alt="img"> </p>
+<p>告警日志生成，编写规则：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps40.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps41.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps42.jpg" alt="img"> </p>
+<p>进行告警日志测试：./src/snort -c ‘/home/zy/snort3-3.0.2-5/lua/snort.lua’  -i ens32 -A fast</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps43.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps44.jpg" alt="img"> </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/#/song?id=1325114607"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/#/song?id=1465114465"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Windows%E4%B8%8Bsnort"><span class="toc-number">2.</span> <span class="toc-text">Windows下snort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.</span> <span class="toc-text">一、实验知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%8E%9F%E7%90%86"><span class="toc-number">2.2.</span> <span class="toc-text">二、原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">2.3.</span> <span class="toc-text">三、实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81-%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.4.</span> <span class="toc-text">四、 实验步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81-%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98"><span class="toc-number">2.5.</span> <span class="toc-text">五、 遇到问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Linux%E4%B8%8Bsnort"><span class="toc-number">3.</span> <span class="toc-text">Linux下snort</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81-%E5%AE%9E%E9%AA%8C%E7%9F%A5%E8%AF%86"><span class="toc-number">3.1.</span> <span class="toc-text">一、 实验知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81-%E5%8E%9F%E7%90%86"><span class="toc-number">3.2.</span> <span class="toc-text">二、 原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81-%E7%8E%AF%E5%A2%83"><span class="toc-number">3.3.</span> <span class="toc-text">三、 环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81-%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.4.</span> <span class="toc-text">四、 步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81-%E9%97%AE%E9%A2%98"><span class="toc-number">3.5.</span> <span class="toc-text">五、 问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%9D%E5%A4%96"><span class="toc-number">3.6.</span> <span class="toc-text">额外</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSKCZ36W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14MSKCZ36W');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>可信计算 - zylyy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="lucky,实验一:PGP实验一． *实验目的与配置*
+了解PGP软件的功能与使用
+掌握加解密的原理和公钥体制
+掌握PGP的加密原理
+
+二． *实验环境*Win10
+三． *实验工具*
+PGP加密软件
+测试客户,"> 
+    <meta name="author" content="zmoon"> 
+    <link rel="alternative" href="atom.xml" title="zylyy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://bangdream.moe/img/ident.png"/>
+    <meta name="twitter:creator" content="@yourtwitteridhere"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="可信计算 - zylyy"/>
+    <meta name="twitter:description" content="lucky,实验一:PGP实验一． *实验目的与配置*
+了解PGP软件的功能与使用
+掌握加解密的原理和公钥体制
+掌握PGP的加密原理
+
+二． *实验环境*Win10
+三． *实验工具*
+PGP加密软件
+测试客户,"/>
+    <meta property="og:image" content="https://bangdream.moe/img/ident.png"/>
+    <meta property="og:image:alt" content="lucky,实验一:PGP实验一． *实验目的与配置*
+了解PGP软件的功能与使用
+掌握加解密的原理和公钥体制
+掌握PGP的加密原理
+
+二． *实验环境*Win10
+三． *实验工具*
+PGP加密软件
+测试客户,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="zylyy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="可信计算 - zylyy"/>
+    <meta property="og:description" content="lucky,实验一:PGP实验一． *实验目的与配置*
+了解PGP软件的功能与使用
+掌握加解密的原理和公钥体制
+掌握PGP的加密原理
+
+二． *实验环境*Win10
+三． *实验工具*
+PGP加密软件
+测试客户,"/>   
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">zylyy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">可信计算</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+        
+    </div>
+
+
+
+<div class="article">
+    <div class='main'>
+        <!-- 帖子视图 -->
+        
+            <h1 class="title">可信计算</h1>
+            <div class="stuff">
+                <span>十一月 15, 2022</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97/" rel="tag">可信计算</a></li></ul>
+
+
+            </div>
+        
+
+
+
+        <h1 class="title">可信计算</h1>
+        <div class="stuff">
+            <span>十一月 15, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97/" rel="tag">可信计算</a></li></ul>
+
+
+        </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2022.11.15</span>
+        </div>
+
+        <div class="content markdown">
+            <h1 id="实验一-PGP实验"><a href="#实验一-PGP实验" class="headerlink" title="实验一:PGP实验"></a>实验一:PGP实验</h1><h2 id="一．-实验目的与配置"><a href="#一．-实验目的与配置" class="headerlink" title="一． *实验目的与配置*"></a><strong>一．</strong> <em><strong>*实验目的与配置*</strong></em></h2><ol>
+<li>了解PGP软件的功能与使用</li>
+<li>掌握加解密的原理和公钥体制</li>
+<li>掌握PGP的加密原理</li>
+</ol>
+<h2 id="二．-实验环境"><a href="#二．-实验环境" class="headerlink" title="二． *实验环境*"></a><strong>二．</strong> <em><strong>*实验环境*</strong></em></h2><p>Win10</p>
+<h2 id="三．-实验工具"><a href="#三．-实验工具" class="headerlink" title="三． *实验工具*"></a><strong>三．</strong> <em><strong>*实验工具*</strong></em></h2><ol>
+<li>PGP加密软件</li>
+<li>测试客户机一台，安装Windows系统</li>
+<li>测试用文件若干</li>
+</ol>
+<h2 id="四．-实验过程与步骤"><a href="#四．-实验过程与步骤" class="headerlink" title="四． *实验过程与步骤*"></a><strong>四．</strong> <em><strong>*实验过程与步骤*</strong></em></h2><p>1、PGP加密软件的安装（<a target="_blank" rel="noopener" href="https://www.cr173.com/soft/739160.html">下载PGP10</a>）</p>
+<p>　　参见安装说明<a target="_blank" rel="noopener" href="https://www.cr173.com/soft/739160.html%E3%80%82">https://www.cr173.com/soft/739160.html。</a></p>
+<p>打开PGP Desktop,点击“Help”-&gt;“License…”下看到PGP的5个产品功能已激活，表示成功安装PGP。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps273.jpg" alt="img"> </p>
+<p>2、生成密钥</p>
+<p>要使用该软件进行加密的话，首先要生成一对密钥。也就是一个公钥和一个私钥。其中公钥是发送给别人用来加密钥发送给自己的文件的，私钥是自己保存，用于解密别人用公钥加密的文件，或者起数字签名的作用。</p>
+<p>PGP有很好的创建密钥对的向导，跟着向导很容易生成一对密钥。每一对密钥都对应着一个确定的用户。用户名不一定要真实，但是要方便通信者看到该用户名能知道这个用户名对应的真实的人；邮件地址也是一样不需要真实，但是要能方便与你通信的人在多个公钥中快速的找出你的公钥。</p>
+<p>密钥对的私钥还必须进一步用密码加密，这个加密是对你的私钥加密。这个密码非常重要，切记不要泄漏了，为安全起见，密码长度至少8位，而且应该包含非字母的字符。</p>
+<p>操作步骤：“File” →“New” →“PGP Key”，然后按照向导填入如下信息：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps274.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps275.jpg" alt="img"> </p>
+<p>3、导出并发送公钥</p>
+<p>我们刚才生成了一个名为“zy”的密钥对，如下图：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps276.jpg" alt="img"> </p>
+<p>现在将这个密钥导出，在这个密钥上右击选择“Export…”</p>
+<p>导出密钥后，把密钥文件保存在硬盘上，并把公钥文件发送到一个“公钥管理”文件夹（例如QQ群文件中建一个公钥管理文件夹），大家的公钥整理后都放在这个夹里。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps277.jpg" alt="img"> </p>
+<p>用记事本打开其中一个观察</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps278.jpg" alt="img"> </p>
+<p>　　注意：如果想同时导出公钥和私钥，就把“Include Private Key（s）”选上。如果只想导出公钥给别人加密使用，千万不能选上。</p>
+<p>4、文件加密与解密</p>
+<p>(1) 若Alice想给Bob发送加密文件，则从“公钥管理”文件夹获取Bob的公钥，即bob.asc，放到指定的位置，然后双击这个公钥文件，点击“Import”，即将这个文件导入到密钥盘上。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps279.jpg" alt="img"> </p>
+<p>(2) Alice用Bob的公钥将一个文件加密,例如文件“A Practical Guide To TPM2.0.pdf”，方法如下：</p>
+<p>右键单击该文件→选择“PGP Desktop” →选择“Secure “A Practical Guide To TPM2.0.pdf” with key…”,在弹出的对话框中选择Bob 的公钥“<a href="mailto:Bob@qq.com">Bob@qq.com</a>”，并点击“Add…”。最终得到一个加密文件“A Practical Guide To TPM2.0.pdf.pgp”。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps280.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps281.jpg" alt="img"> </p>
+<p>(3)Alice通过邮件或其他通信软件，将加文件密文“A Practical Guide To TPM2.0.pdf.pgp”发送给Bob。</p>
+<p>(4)Bob收到文件后，利用自己的私钥将文件解密。方法如下：右键单击加密后的文件“A Practical Guide To TPM2.0.pdf.pgp”，选择“PGP Desktop” →选择“Decrypt &amp; Verify “A Practical Guide To TPM2.0.pdf.pgp””。从而得到原文件明文，即 “A Practical Guide To TPM2.0.pdf”。</p>
+<p>对比解密加密：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps282.jpg" alt="img"> </p>
+<p>5、数字签名</p>
+<p>　　对文件签名只能证明是你发出该文件，但是文件的内容并没有被加密，同时，进行数字签名时，关注的是表明该文件是从自己这里发出，因此对于文件的内容并不在意被别人看到，经过数字签名的文件要同原明文文件一同发送给对方，对方才能验证数字签名是否有效。操作方法如下：</p>
+<p>(1) 右键单击文件“A Practical Guide To TPM2.0.pdf”，选择“PGP Desktop” →选择“Sign as…”→选择使用“Alice &lt;Alice @153.com&gt;”的私钥签名，从而得到签名文件“A Practical Guide To TPM2.0.pdf.sig”。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps283.jpg" alt="img"> </p>
+<p>(2) Alice通过邮件或其他通信软件，将原文件“A Practical Guide To TPM2.0.pdf”和签名文件“A Practical Guide To TPM2.0.pdf.sig”发送给Bob。</p>
+<p>Bob将两个文件方法同一目录下，双击签名文件“A Practical Guide To TPM2.0.pdf.sig”即可验证签名。</p>
+<p>（3）Bob从“公钥管理”文件夹获取Alice的公钥，即alice.asc，然后双击这个公钥文件，点击“Import”，即将这个文件导入到密钥盘上。</p>
+<p>导入Bob的公钥以后，打开PGP Desktop，选择“All Keys” →右键单击“Bob” →选择“Sign”（使“Bob”的“Verified”状态变为“✔”）。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps284.jpg" alt="img"> </p>
+<p>Bob将两个文件方法同一目录下，双击签名文件“A Practical Guide To TPM2.0.pdf.sig”即可验证签名。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps285.jpg" alt="img"> </p>
+<h1 id="实验二-TPM实验"><a href="#实验二-TPM实验" class="headerlink" title="实验二:TPM实验"></a>实验二:TPM实验</h1><h2 id="一．-实验目的与配置-1"><a href="#一．-实验目的与配置-1" class="headerlink" title="一． *实验目的与配置*"></a><strong>一．</strong> <em><strong>*实验目的与配置*</strong></em></h2><ol start="4">
+<li>初步了解TPM的工作原理</li>
+<li>理解TPM使用不同策略加解密时函数接口和相应的输入输出</li>
+<li>进一步了解TPM的设计</li>
+</ol>
+<h2 id="二．-实验环境-1"><a href="#二．-实验环境-1" class="headerlink" title="二． *实验环境*"></a><strong>二．</strong> <em><strong>*实验环境*</strong></em></h2><p>Win10系统</p>
+<h2 id="三．-实验工具-1"><a href="#三．-实验工具-1" class="headerlink" title="三． *实验工具*"></a><strong>三．</strong> <em><strong>*实验工具*</strong></em></h2><p>TPM模拟器、Visual Studio 2020</p>
+<h2 id="四．-实验原理与步骤"><a href="#四．-实验原理与步骤" class="headerlink" title="四． *实验原理与步骤*"></a><strong>四．</strong> <em><strong>*实验原理与步骤*</strong></em></h2><p>1.搭建TPM环境</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps286.jpg" alt="img"> </p>
+<p>2.运行TSS.CPP.Samples</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps287.jpg" alt="img"> </p>
+<p>3.hash（）</p>
+<p>TPM2.0规范允许使用多种不同的哈希算法，这其中包括SHA-1，SHA-256，SHA-384。 通常情况下，一个TPM硬件实现的算法是规范中所有算法的一个子集。</p>
+<p>调用TPM API，使用SHA-1和SHA-256分别进行生成简单哈希值，如果期望值与生成值相同，则输出</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps288.jpg" alt="img"> </p>
+<ol start="4">
+<li>HMAC（）</li>
+</ol>
+<p>HMAC被广泛用于证明一个用户拥有一个TPM资源实体的使用权限。TPM2.0也支持这种授权方式。HMAC密钥是TPM设备和用户都知道的共享秘密。用户在使用这个TPM对象之前需要首先构造一个命令消息，然后由对象的权限信息派生出HMAC密钥，接着使用HMAC密钥对命令消息做HMAC操作。当TPM收到命令消息和前述的HMAC操作结果之后，使用同样的方法产生HMAC结果。如果两个HMAC值相同就说明命令没有在传输过程中被修改，即命令消息具备完整性。并且命令的发送者确实知道与这个TPM对象关联的HMAC密钥，这意味着命令发送者是经过授权的。这就是一个基于HMAC的授权过程。</p>
+<p>调用TPM API，利用SHA-1生成哈希运算消息认证码</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps289.jpg" alt="img"> </p>
+<ol start="5">
+<li>EncryptDecryptSample（）</li>
+</ol>
+<p>AES对称加密算法在TPM中有以下三种不同的应用：</p>
+<p>1.保证TPM数据的机密性。此时对称密钥不会被存储到TPM之外，所以只有TPM可以创建和访问它们。当一种密钥因为存储空间的原因需要被存储到TPM之外时，它首先会被只有TPM可以访问的对称密钥加密。</p>
+<p>2.加密进出TPM的通信数据。此时对称密钥由消息发送者和TPM都知道秘密信息派生而来。通信过程中的数据会被这个密钥加密。</p>
+<p>3.把TPM当作一个对称加解密协处理器。因为TPM完全具备对称加解密的功能，这是完全可行的。你可以将一个对称密钥导入TPM，然后让TPM使用这个密钥来对数据加密。因为TPM的运算速度很慢，所以单纯的加解密功能通常用于少量数据加密。但是这个功能可以避免软件工程师使用密码运算函数库。如果加解密功能在TPM中是非必需的功能，TPM厂商倾向于不加入这个功能。因为在硬件中实现加解密功能常常会遇到商业授权方面的限制。</p>
+<p>调用TPM API，利用AES进行加密解密演示，对明文加密再解密后得到一致的消息</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps290.jpg" alt="img"> </p>
+<ol start="6">
+<li>RsaEncryptDecrypt()</li>
+</ol>
+<p>RSA是广为人知的一种非对称加密算法。它使用一种能将大数转换成大素数的函数作为单向函数（这里的大就理解为位数很长很长的数，通常编码实现上利用一个大的数组来存储）。对于RSA来说，一个消息分别经过RSA的公钥和私钥作用之后，会返回成原来的样子，并且与两个密钥作用的顺序无关。</p>
+<p>调用TPM API ，使用RSA对明文进行加密解密</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps291.jpg" alt="img"> </p>
+<ol start="7">
+<li>NV（）</li>
+</ol>
+<p>TPM使用非易失性内存来存储两种类型的数据：</p>
+<p>1.TPM架构定义的数据结构。</p>
+<p>2.用户或者平台相关的规范定义的非结构性数据。</p>
+<p>TPM非易失性内存的一个应用是用于存储架构或者TPM软件规范定义的数据。这些数据包括授权值，种子，凭据以及TPM从不会暴露在安全边界之外的私有数据。</p>
+<p>NV最基本的应用包括给TPM设备初始配置证书或者公钥。高级一点的应用是将NV授权信息应用于一个policy中，然后让多个TPM实体共享这个policy。一个使用位域索引或者计数器索引的policy可以被用于撤销密钥访问权限。一个扩展的索引提供与PCR相同的特性，它可以支持不同的算法，支持授权，并且具有相同的生命周期特性。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps292.jpg" alt="img"> </p>
+<p>8.PCR（）</p>
+<p>平台配置寄存器是TPM必需的特性之一。它们最初的应用是用于提供一种密码学的方式记录（测量）软件的状态：包括平台上运行的软件和软件使用的配置数据。PCR的更新方法叫做扩展，扩展是一种单向的哈希操作，从而保证测量值不被篡改。这些用于测量的PCR可以被读取来报告这些软件的状态。这些PCR的值可以被签名然后用于更加安全的报告，这被称作认证（或者说引用）。PCR还可以被用于扩展的授权policy从而限制其他TPM对象的使用。</p>
+<p>TPM从来不对测量的结果做任何判定。单单根据TPM内部的信息来看，并不能确定测量结果的好坏，或者结果是否安全可信。在测量软件时，TPM仅仅用PCR来记录测量值。至于是否安全，这要到应用程序真正使用PCR用于policy授权的时候，或者是远程请求者请求一个签名认证（quote，引用）然后判定可信性。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps293.jpg" alt="img"> </p>
+<p>遇到问题及解决方法：</p>
+<p>直接点击项目进入vs时因为版本适配问题会弹出工具适配下载，一定要选择同意才能进行下一步，然后进去之后有两个文件，直接点击运行的话会优先运行TSS.CPP，</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps294.jpg" alt="img"> </p>
+<p>弹出如下错误</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps295.jpg" alt="img"> </p>
+<p>百度上所述方法未能解决，将TSS.Cpp从项目里移除只运行TSS.CPP.Samples即可</p>
+<p>运行成功：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps296.jpg" alt="img"> </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/#/song?id=1325114607"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/#/song?id=1465114465"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%B8%80-PGP%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.</span> <span class="toc-text">实验一:PGP实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%E4%B8%8E%E9%85%8D%E7%BD%AE"><span class="toc-number">1.1.</span> <span class="toc-text">一． *实验目的与配置*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">1.2.</span> <span class="toc-text">二． *实验环境*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E5%B7%A5%E5%85%B7"><span class="toc-number">1.3.</span> <span class="toc-text">三． *实验工具*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B%E4%B8%8E%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.4.</span> <span class="toc-text">四． *实验过程与步骤*</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E4%BA%8C-TPM%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.</span> <span class="toc-text">实验二:TPM实验</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E7%9B%AE%E7%9A%84%E4%B8%8E%E9%85%8D%E7%BD%AE-1"><span class="toc-number">2.1.</span> <span class="toc-text">一． *实验目的与配置*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83-1"><span class="toc-number">2.2.</span> <span class="toc-text">二． *实验环境*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E5%B7%A5%E5%85%B7-1"><span class="toc-number">2.3.</span> <span class="toc-text">三． *实验工具*</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%EF%BC%8E-%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86%E4%B8%8E%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.4.</span> <span class="toc-text">四． *实验原理与步骤*</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSKCZ36W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14MSKCZ36W');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

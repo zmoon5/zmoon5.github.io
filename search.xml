@@ -900,4 +900,1311 @@ WHERE condition;</code></pre>
         <tag>面面</tag>
       </tags>
   </entry>
+  <entry>
+    <title>IDS设备的配置和使用</title>
+    <url>/2022/12/11/IDS%E8%AE%BE%E5%A4%87%E7%9A%84%E9%85%8D%E7%BD%AE%E5%92%8C%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="一、-原理"><a href="#一、-原理" class="headerlink" title="一、 原理"></a>一、 原理</h1><p>通过对GNS3和SecureCRT的配置以及安装，关联之后IDS和虚拟机网络以桥接的方式连接，并将云设置为与虚拟机相同的网卡，在IDS和虚拟主机双向ping通后，配置telnet服务，在虚拟机上使用浏览器对IDS进行配置，最后对IDS进行图形化配置。</p>
+<h1 id="二、-实验环境"><a href="#二、-实验环境" class="headerlink" title="二、 实验环境"></a>二、 实验环境</h1><p>Win7虚拟机、GNS3安装包、SecureCRT_6.5.3.490、Wireshark-win64-1.10.0</p>
+<h1 id="三、-实验步骤及结果"><a href="#三、-实验步骤及结果" class="headerlink" title="三、 实验步骤及结果"></a>三、 实验步骤及结果</h1><p><em><strong>*1、GNS3安装与基本操作*</strong></em></p>
+<p>(1).双击安装包安装GNS3</p>
+<p>一路next就行，安装成功后以管理员身份运行</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps135.jpg" alt="img"> </p>
+<p>(2).设置语言为中文</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps136.jpg" alt="img"> </p>
+<p>(3) .导入路由器IOS镜像</p>
+<p>一定要全英路径<img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps137.jpg" alt="img"></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps138.jpg" alt="img"> </p>
+<p>(4).配置路由器并添加网卡</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps139.jpg" alt="img"> </p>
+<p>(4) .启动后资源消耗比较高：（可以优化，降低资源消耗）</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps140.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps141.jpg" alt="img"> </p>
+<p>(6).安装SecureCRT并与GNS3关联</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps142.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps143.jpg" alt="img"> </p>
+<p>(7) .GNS3中路由器右键，点击console:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps144.jpg" alt="img"> </p>
+<p>(8) 修改控制台的外观设置(配色﹑透明﹑字体大小等等)</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps145.jpg" alt="img"> </p>
+<p>(9) 关联WireShark并抓包</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps146.jpg" alt="img"> </p>
+<p>（10）路由器配置</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps147.jpg" alt="img"> </p>
+<p><em><strong>*2、IDS配置：*</strong></em></p>
+<p>(1).载入IDS镜像</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps148.jpg" alt="img"> </p>
+<p><em><strong>*3、构建IDS、云、路由器结构，实现对IDS的图形化配置*</strong></em></p>
+<p>(1).拖一台IDS，有3个接口，e0是管理口，另外两个是监控口。</p>
+<p>(2).先设置好准备管理IDS的一台虚拟电脑（win7系统），对虚拟主机的网络进行设置，让虚拟主机的网络以桥接的方式连接到物理主机的一个网卡上（以太网卡或者无线网卡都可以）：</p>
+<p>(3).拖两个路由器，配置两个高速以太网接口，与IDS的e1，e2口分别连接。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps149.jpg" alt="img"> </p>
+<p>(4).IDS默认用户名密码是cisco/net527</p>
+<p>(5).启动IDS，登录：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps150.jpg" alt="img"> </p>
+<p>(6).开始配置IDS</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps151.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps152.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps153.jpg" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>入侵检测</category>
+      </categories>
+      <tags>
+        <tag>入侵检测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>arp欺骗</title>
+    <url>/2022/08/04/arp%E6%AC%BA%E9%AA%97/</url>
+    <content><![CDATA[<h2 id="一、实验环境"><a href="#一、实验环境" class="headerlink" title="一、实验环境"></a><strong>一、实验环境</strong></h2><p>1.系统环境: Windows环境，kail环境，XP环境</p>
+<p>2.软件工具: packEth、ettercap</p>
+<h2 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a><strong>二、原理</strong></h2><h3 id="1-ARP缓存。"><a href="#1-ARP缓存。" class="headerlink" title="1.ARP缓存。"></a><strong>1.ARP缓存。</strong></h3><p>在每台安装有TCP/IP协议的电脑里都有一个ARP缓存表，表里的IP地址与MAC地址是一——对应的，如下图所示是window10主机的ARP缓存表:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps175.jpg" alt="img"> </p>
+<p>在上图所示的ARP缓存表中，IP地址192.168.64.161映射的MAC地址为00-0c-29-df-02-7c,下面我们以主体X(192.168.64.161)向主机Y (192.168.64.162)发送数据为例，说明ARP工作过程。当主机X发送数据时，它会在自己的ARP缓存表中寻找是否有主机Y的IP地址。如果找到了，也就知道了主机Y的MAC地址，直接把目标MAC地址写入数据包里面发送就可以了;如果在ARP缓存表中没有找到主机Y的IP地址，主机X就会在网络上发送一个广播，目标MAC地址是”FF-FF-FF-FF-FF-FF”,这个表示向同一网段内的所有主机发出这样的询问:</p>
+<p>192.168.64.162的MAC地址是什么?网络上其他主机并不响应ARP询问，只有主机Y接收到这个数据包时，才会向主机X做出这样的回应:192.168.64.162的MAC地址是00-0c-29-00-03-41。这样，主机X就知道了主机Y的MAC地址，他就可以向主机Y发送信息了，同时它还更新了自己的ARP缓存表，下次再向主机Y发送信息时，直接从ARP缓存表里查找就可以了。ARP缓存表采用了老化机制，在一段时间内如果表中的某一行没有使用就会被删除，这样可以大大减少ARP缓存表的长度，加快查询速度。</p>
+<h3 id="2-ARP欺骗定义"><a href="#2-ARP欺骗定义" class="headerlink" title="2.ARP欺骗定义"></a><strong>2.ARP欺骗定义</strong></h3><p>从前面的介绍可以看出，ARP的致命缺陷是:他不具备任何的认证机制，当有个人请求某个IP地址的MAC时，任何人都可以用MAC地址进行回复，并且这种响应也会被认为是合法的。</p>
+<p>ARP并不只在发送了ARP请求后才接收ARP应答。当主机接收到ARP应答数据包的时候，就会对本机的ARP缓存进行更新，将应答中的IP和MAC地址存储在ARP缓存表中。此外，由于局域网中数据包不是根据IP地址，而是按照MAC地址进行传输的。所有对主机实施ARP欺骗就成为可能。</p>
+<h3 id="3-ARP常用命令"><a href="#3-ARP常用命令" class="headerlink" title="3. ARP常用命令:"></a>3. <strong>ARP常用命令:</strong></h3><p>arp -a</p>
+<p>用于查看缓存表中的所有项目</p>
+<p>arp -a ip</p>
+<p>只显示包含指定IP的缓存表项目</p>
+<p>arp -s ip mac</p>
+<p>向ARP缓存表中添加静态目录，该项目在计算机启动过程中一直有效</p>
+<p>arp -d ip</p>
+<p>删除ARP缓存表中静态项目</p>
+<h2 id="三、步骤"><a href="#三、步骤" class="headerlink" title="三、步骤"></a><strong>三、步骤</strong></h2><p>下面PC2(Win10)要对PC1(WinXP)进行ARP欺骗攻击，目标是更改PC1缓存表中网关的MAC地址更新为aa:aa:aa:aa:aa:aa实施欺骗,导致PC1无法正常上网</p>
+<p>更新前:PC1的缓存表如下图所示网关IP:192.168.64.2对应的MAC地址是:00-50-56-f9-ae-5f</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps176.jpg" alt="img"> </p>
+<p>此时PC1是可以上网的</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps177.jpg" alt="img"> </p>
+<p>打开Windows10将packEth压缩包解压成文件夹后，找到packEth.exe文件双击打开</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps178.jpg" alt="img"> </p>
+<p>打开packEth.exe文件，选择第二个网卡，选择ARP packet模式</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps179.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps180.jpg" alt="img"> </p>
+<p>更新后:此时我们返回到WinXP里使用命令arp -a查看网关的MAC地址成功被我们修改成了aa:aa:aa:aa:aa:aa</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps181.jpg" alt="img"> </p>
+<p>如果ARP表中的网关地址不正确，那么该电脑将无法正常访问外网。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps182.jpg" alt="img"> </p>
+<p>PC2向PC1发送一个自己伪造的ARP应答包，而这个应答数据中发送方IP地址是网关的192.168.70.2映射的MAC更新为aa:aa:aa:aa:aa:aa(网关的MAC地址本来应该是0O-50-56-e5-d2-ff，此时已经被我们伪造了)。当PC1收到PC2伪造的ARP应答，就会更新本地的ARP缓存表(PC1不知道MAC已经被伪造了)，而且PC1不知道这个ARP应答包是从PC2发送过来的。这样PC1发送给网关的数据包都变成了发给PC2了。PC1对所发生的变化一点儿都没有意识到，但是接下来的事情就让PC1产生了怀疑，因为它无法正常上网了，这是因为PC2只是接收PC1发给网关的数据，并没有转发给网关。</p>
+<p>2.PC2做”maninthemiddle”(中间人)，进行ARP重定向。打开自己的IP转发功能，将PC1发送过来的数据包转发给网关，就好比一个路由器一样，而网关接收到数据包完全认为是PC1发送过来的。不过，网关发送的数据包又直接传递给PC1，倘若再次进行对网关的ARP欺骗，那么PC2就完全成为PC1和网关的中间桥梁，对于PC1与网关的通讯就可以了如指堂了</p>
+<p>启动kali虚拟机，打开终端，输入命令: ettercap -G如图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps183.jpg" alt="img"> </p>
+<p>在进行中间人攻击之前首先需要扫描当前局域网中存在的活动主机，确认攻击目标机器。点击菜单中的Hosts，选中Scan for hosts扫描和本机(kali)同网关所有的主机，如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps184.jpg" alt="img"> </p>
+<p>点击菜单Host list列出同网关所有互动的主机，扫描结果如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps185.jpg" alt="img"> </p>
+<p>其中192.168.64.2是网关地址，192.168.64.161是Win10主机地址，192.168.64.162是WinXP主机地址。</p>
+<p>接下来选择攻击目标，右键Win10目标lP点击Add to Target 1，选择第二个攻击目标IP (WinXP)）点击Add to Target 2，如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps186.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps187.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps188.jpg" alt="img"> </p>
+<p>然后确定攻击方式，此处点击菜单Mitm，选中ARP posoning采用ARP欺骗的攻击方式，如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps189.jpg" alt="img"> </p>
+<p>在弹出窗口勾选Sniff remote connections (默认），点击确认按钮，如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps190.jpg" alt="img"> </p>
+<p>点击菜单start,选中Start sniffing,开始监听</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps191.jpg" alt="img"> </p>
+<p>在Windows7虚拟机中，打开cmd命令控制窗口，输入arp -a查看arp缓存表，结果发现网关(192.168.70.2)的MAC地址变成了和kali主机的MAC地址相同，如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps192.jpg" alt="img"> </p>
+<p>到此为止我们开始验证ARP中间人欺骗是否成功了，点击ettercap的view选项，可以选择Connections监视Win7和和WinXP之间建立了哪些连接:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps193.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps194.jpg" alt="img"> </p>
+<p>返回到WindowsXP虚拟机，使用teInet命令连接Win10，输入登录用户名和密码，如下图所示:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps195.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps196.jpg" alt="img"> </p>
+<p>返回到kali主机我们就可以看到Win7和Win10两台机器建立的telnet连接以及实时交互情况，但是由于Kali在执行中间人攻击，冒充Win7将Win10发送给Win7的包截获，然后再发给Win7，冒充Win10将Win7发送给Win10的包截获，然后再发给Win10，在这个过程中可能会出现Win10端乱码的情况以及telnet连接不稳定、ettercap崩溃等情况。</p>
+<h2 id="四、ARP攻击防范"><a href="#四、ARP攻击防范" class="headerlink" title="四、ARP攻击防范:"></a><strong>四、ARP攻击防范:</strong></h2><h3 id="1-双向绑定"><a href="#1-双向绑定" class="headerlink" title="1.双向绑定:"></a><strong>1.双向绑定:</strong></h3><p>一般来说，在小规模网络中，比较推荐使用双向绑定，也就是在路由器和终端上都进行IP-MAC绑定的措施，它可以对ARP欺骗的两边，伪造网关和截获数据，都具有约束的作用。这是从ARP欺骗原理上进行的防范措施，也是最普遍应用的办法。它对付最普通的ARP欺骗是有效的。</p>
+<h3 id="2-ARP防火墙"><a href="#2-ARP防火墙" class="headerlink" title="2.ARP防火墙:"></a><strong>2.ARP防火墙:</strong></h3><p>在一些杀毒软件中加入了ARP防火墙的功能，它是通过在终端电脑上对网关进行绑定，保证不受网络中假网关的影响，从而保护自身数据不被窃取的措施。ARP防火墙使用范围很广，但也会有问题，如，它不能保证绑定的网关一定是正确的。如果一个网络中已经发生了ARP欺骗，有人在伪造网关，那么，ARP防火墙上来就会绑定这个错误的网关，这是具有极大风险的。</p>
+<h3 id="3-VLAN和交换机端口绑定"><a href="#3-VLAN和交换机端口绑定" class="headerlink" title="3.VLAN和交换机端口绑定:"></a><strong>3.VLAN和交换机端口绑定:</strong></h3><p>通过划分VLAN和交换机端口绑定来防范ARP，也是常用的防范方法。做法是细致地划分VLAN，减小广播域的范围，使ARP在小范围内起作用，而不至于发生大面积影响。同时，一些网管交换机具有MAC地址学习的功能，学习完成后，再关闭这个功能，就可以把对应的MAC和端口进行绑定，避免了病毒利用ARP攻击篡改自身地址。也就是说，把ARP攻击中被截炔数据的风险解除了</p>
+<h2 id="报错与处理"><a href="#报错与处理" class="headerlink" title="报错与处理"></a><strong>报错与处理</strong></h2><p>1.修改xpmac地址时修改不成功，改用第一个网卡，send重复多次迅速切换到xp查看修改成功</p>
+<p>2.因为win10默认没有telnet服务端并且xp版本问题telnet服务端也没有导致两台计算机之间不能进行telnet连接，将xp改用为win7即可。</p>
+<p>3.在telnet时第一遍一闪而过没有跳出选项直接连接上，重新telnet时报错如下</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps197.jpg" alt="img"> </p>
+<p>WIN+R -&gt; lusrmgr.msc -&gt; 组 -&gt; TelnetClients -&gt; 属性 -&gt; 添加 -&gt; 用户名（root) -&gt; 确认</p>
+<p>再次连接成功。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>shrio550复现</title>
+    <url>/2023/05/03/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>shiro550漏洞编号为CVE-2020-1957，算是比较好用的RCE漏洞之一，原因在于shiro框架使用的比较多，漏洞影响范围比较广泛，payload会经过AES加密，很多安全设备无法识别。</p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>shiro&lt;=1.2.4版本默认使用的是cookieremembermemanager，其处理cookie的流程是：先获取cookie中的remeberme值，然后对其进行base64解码，aes解码，对解密的值反序列化</p>
+<p>因为AES的秘钥是硬编码的，导致攻击者可以构造恶意数据造成反序列化的RCE漏洞</p>
+<p>payload的构造反着来的</p>
+<pre class="language-none"><code class="language-none">构造恶意指令--&gt;序列化--&gt;AES加密--&gt;base64编码--&gt;发生cookie值</code></pre>
+
+<p><img src="/../images/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/9b6832bdb67c401dbfd28f43c777b9d4.png" alt="img"></p>
+<p>漏洞利用过程中比较重要的是AES加密密钥，密钥默认是硬编码，所以如果没有修改默认密钥，就可以生成恶意构造的cookie。</p>
+<h2 id="复现过程"><a href="#复现过程" class="headerlink" title="复现过程"></a>复现过程</h2><p>靶场为vulhub</p>
+<p>用bp抓包观察一下rememberme字段，选择保存密码，</p>
+<p><img src="/../images/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/image-20240504223126056.png" alt="image-20240504223126056"></p>
+<p>关于判断是否存在shiro漏洞：</p>
+<pre><code>* 未登录情况下请求包的cookie中没有rememberme字段，返回包的setcookie里也没有deleteme字段
+* 登录失败情况下不管勾选了rememberme字段，返回包里都会有rememberMe=deleteMe字段
+* 不勾选rememberMe字段，登录成功的话，返回包set-cookie里会有rememberMe=deleteMe字段，但是后续所有请求的cookie中都不带rememberMe字段。
+* 勾选rememberMe字段，登录成功的话，返回包的set-cookie里会有rememberMe=deleteMe字段还会有rememberMe字段，后续所有请求的cookie中有rememberMe字段。
+</code></pre>
+<p><strong>shiro_attack工具</strong></p>
+<p>对于shiro550而言，漏洞的核心原因在于cookie中的身份信息是经过AES加解密的，这个密钥应该是保密的，但是在shiro&lt;=1.2.24的版本使用的密钥是固定的。</p>
+<p>所以验证这个漏洞是否存在关键在于是否能获得AES密钥，如果确实是固定的密钥**<code>kPH+bIxk5D2deZiIxcaaaA==</code>**或者其他我们通过工具爆破处理的密钥，那么shiro-550漏洞一定存在。</p>
+<p>利用shiro_attack工具进行图形化的分析</p>
+<p>利用java -jar 启动里面的.jar文件</p>
+<pre class="language-csharp" data-language="csharp"><code class="language-csharp">java -jar shiro_attack-2.2.jar</code></pre>
+
+<p><img src="/../images/shiro550%E6%BC%8F%E6%B4%9E%E5%A4%8D%E7%8E%B0/image-20240504225650802.png" alt="image-20240504225650802"></p>
+]]></content>
+      <categories>
+        <category>web漏洞</category>
+      </categories>
+      <tags>
+        <tag>shiro</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SEDD</title>
+    <url>/2022/11/09/SEDD/</url>
+    <content><![CDATA[<h1 id="SEED实验-PKI证书"><a href="#SEED实验-PKI证书" class="headerlink" title="SEED实验-PKI证书"></a>SEED实验-PKI证书</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  公钥加密是当今安全通信的基础，但是当通信的一方向另一方发送公钥时，却容易遭受到中间人攻击。根本问题在于没有一个简单的方式验证公钥所有者的身份。也就是说当收到一个公钥和它的所有者信息时，无法确定该公钥确实为这个所有者所拥有。公钥基础设施（PKI）就是解决此问题的一个方案。</p>
+<p>  本次实验涉及到PKI、CA、Apache、HTTPS这几个知识点，所通过本次实验一系列的任务期望能够到达如下几个目的。</p>
+<p>  1. 了解PKI的工作原理；</p>
+<p>  2. 掌握如何使用PKI保护网络；</p>
+<h2 id="一、实验原理"><a href="#一、实验原理" class="headerlink" title="一、实验原理"></a>一、实验原理</h2><p>  PKI是一种遵循标准的利用公钥理论和技术建立的提供安全服务的基础设施。公钥基础设置的目的是从技术上解决网上身份认证、电子信息的完整性和不可抵赖性等安全问题，为网络应用（如浏览器、电子邮件、电子交易）提供可高安全的服务。本次实验就是利用PKI技术为一个浏览器提供服务。</p>
+<h3 id="1-中间人攻击"><a href="#1-中间人攻击" class="headerlink" title="1. 中间人攻击"></a><strong>1. 中间人攻击</strong></h3><p>  在发明公钥加密之前，加密依赖私钥。这种加密方法的挑战在于密钥交换，也就是在加密通道建立之前，如何让通信双方把密钥确定下来。公钥解决了这个问题，因为她的加密密钥时公开的，可以用明文发送。然而，经管它可以防御窃听攻击，但是还是为遭遇到中间人攻击。</p>
+<p>  中间人攻击时发生在两个设备之间的流量被截获的情况下。当一台计算机向另外一台计算机发送数据时，数据会在多个设备之间传输，例如路由器。这些设备如果被攻击，就可以被用来实施中间人攻击。如下图所示：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps198.jpg" alt="img"> </p>
+<p>图1：中间人攻击的原理</p>
+<p>  中间人攻击的基本问题是通信双方无法确定这个公钥是否属于对方，如果能够提供一个机制把公钥和所有者的身份绑定在一起，那么就可以解决这个问题。公钥基础设施（PKI）就是解决此问题的一个方案。</p>
+<h3 id="2-PKI"><a href="#2-PKI" class="headerlink" title="2. PKI"></a><strong>2. PKI</strong></h3><h4 id="2-1-PKI体系结构"><a href="#2-1-PKI体系结构" class="headerlink" title="2.1 PKI体系结构"></a><strong>2.1 PKI体系结构</strong></h4><p>  PKI体系包含证书机构（Certificate Authority, CA）、注册机构（Registration Authority,RA）、策略管理、密钥（Key）与证书管理、密钥备份与恢复、模型运算等功能模块。本实验中我们主要用到CA与证书管理模块，因此PKI可以简化为下图所示：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps199.jpg" alt="img"> </p>
+<p>图2： PKI结构</p>
+<h4 id="2-1-数字证书"><a href="#2-1-数字证书" class="headerlink" title="2.1 数字证书"></a><strong>2.1 数字证书</strong></h4><p>  数字证书是一个经证书授权中心（CA机构）数字签名的文件，包含拥有者的公钥及相关身份信息。证书有四种类型，分别是自签名证书、CA证书、本地证书和设备本地证书。本次实验中我们用到了前两种自签名证书和CA证书。</p>
+<p>   自签名证书：它的拥有者和证书的颁发者是同一个人。用于没办法去跟CA申请证书的情况下。比如本实验中我们用于虚拟的CA并给自己颁发的证书就是自签名证书。</p>
+<p>  CA证书，是CA机构给某一申请终端颁发的证书。</p>
+<h3 id="3-Https访问的认证过程"><a href="#3-Https访问的认证过程" class="headerlink" title="3. Https访问的认证过程"></a><strong>3. Https访问的认证过程</strong></h3><p>   我们通过下图看以下Https访问web时的证书应用场景，Https服务器通过访问CA申请并获得一个证书，客户端管理员通过这个证书来验证服务器的身份就可以了。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps200.jpg" alt="img"> </p>
+<p>图2-3 Https访问web时的认证过程</p>
+<p>三、实验内容</p>
+<p>  本次实验来自于<a href="https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_PKI/%EF%BC%8C%E5%85%B1%E9%9C%80%E8%A6%81%E5%AE%8C%E6%88%90%E5%A6%82%E4%B8%8B6%E4%B8%AA%E5%B0%8F%E4%BB%BB%E5%8A%A1%E3%80%82%E9%80%9A%E8%BF%87%E8%BF%996%E4%B8%AA%E4%BB%BB%E5%8A%A1%E6%88%91%E4%BB%AC%E5%AE%8C%E6%88%90%E4%B8%80%E4%B8%AA%E9%93%B6%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%99%A8bank32.com%E7%9A%84%E9%83%A8%E7%BD%B2%E3%80%81%E8%AE%A4%E8%AF%81%E3%80%81%E6%94%BB%E5%87%BB%E8%BF%87%E7%A8%8B%E3%80%82">https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_PKI/，共需要完成如下6个小任务。通过这6个任务我们完成一个银行服务器bank32.com的部署、认证、攻击过程。</a></p>
+<p>  Task1 成为认证颁发机构（CA）</p>
+<p>  Task2 为web server生成签名请求</p>
+<p>  Task3 为web server生成签名证书</p>
+<p>  Task4 在网络服务器中部署公钥证书</p>
+<p>四、实验环境</p>
+<p>  本次实验需要一个服务器产生证书，另外我们还需要一个容器来模拟web服务器，分两步完成。</p>
+<ol>
+<li>搭建Seed服务器，需要在Oracle VM VirtualBox上部署Seed实验室的Ubuntu20.04。</li>
+</ol>
+<p>  查看IP地址，使用下面的MobaXterm从主机连接虚拟机。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps201.jpg" alt="img"> </p>
+<h3 id="2-安装连接虚拟机的工具MobaXterm"><a href="#2-安装连接虚拟机的工具MobaXterm" class="headerlink" title="2. 安装连接虚拟机的工具MobaXterm"></a><strong>2. 安装连接虚拟机的工具MobaXterm</strong></h3><p>  安装好虚拟机后，如何方便的从主机方便的上传下载文件呢？这次实验我们给大家介绍一个新的工具来实现——MobaXterm。</p>
+<p>  下载本次绿色版压缩包MobaXterm_Portable_v21.1.zip，直接解压到后，点击MobaXterm_Personal_21.1.exe文件即可使用。</p>
+<p>  打开后，按照下图即可连接虚拟机。IP地址为安装完虚拟机后用ip addr命令查看到的地址。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps202.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps203.jpg" alt="img"> </p>
+<p>  连接后的界面如下，就可以直接从主机往虚拟机拖动文件了。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps204.jpg" alt="img"> </p>
+<h3 id="3-部署容器"><a href="#3-部署容器" class="headerlink" title="3. 部署容器"></a><strong>3. 部署容器</strong></h3><p>  Step1：下载本次实验需要的容器压缩包PKI_Labsetup.zip。</p>
+<p>  Step2：将容器压缩包上传到Seed镜像环境中，建议先新建一个文件夹PKI，让压缩包传到/home/seed/PKI路径下并解压。使用命令为 unzip PKI_Labsetup.zip，注意建立PKI目录后要用MobaXterm把PKI_Labsetup.zip传到PKI目录下，然后再解压。</p>
+<p>mkdir PKI</p>
+<p>cd PKI</p>
+<p>unzip PKI_Labsetup.zip</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps205.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps206.jpg" alt="img"> </p>
+<p>  Step3：Build容器    </p>
+<p>cd Labsetup/    </p>
+<p>docker-compose build</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps207.jpg" alt="img"> </p>
+<p>这里有点慢，跟网络联通情况有关。</p>
+<p>  Step4：启动 命令为 dcup</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps208.jpg" alt="img"> </p>
+<p>图： 容器正常启动</p>
+<p>  Step5: 最后，在主机（seed虚拟机）的/etc/hosts文件增加如下一条配置10.9.0.80 <a href="http://www.bank32.com/">www.bank32.com</a> ，其中10.9.0.80是容器的IP地址中。待web服务器配置完成后就可以通过主机访问了。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps209.jpg" alt="img"> </p>
+<p>图：配置主机hosts文件</p>
+<p><em><strong>*说明*</strong></em> </p>
+<p>  容器启动后如果要进入容器的shell，需要通过如下两个命令；在主机终端中输入 dockps 命令，查看刚启动的容器ID；输入命令 docksh ID的前两个字符</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps211.jpg" alt="img"> </p>
+<p>图1-6 查看正在启动的容器ID</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps212.jpg" alt="img"> </p>
+<p>图1-7 进入容器的shell</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>  本次实验通过4个分解的任务模拟证书签发和认证过程。首先将本地主机作为一个CA,完成签发证书的过程；接着用签发的证书去配置安全的Web服务器，通过这个配置，分析验证整个证书验证的过程。在整个实验过程中，大家要学习和体会：</p>
+<p>1.使用openssl颁发一个证书的方法</p>
+<p>2.一个公钥证书包含哪些内容</p>
+<p>3.为一个Web服务器配置证书的方法</p>
+<p>4.在客户端配置CA的方法以及客户端为什么能够对服务器的身份进行验证</p>
+<h3 id="Task1-成为认证颁发机构（CA）"><a href="#Task1-成为认证颁发机构（CA）" class="headerlink" title="Task1. 成为认证颁发机构（CA）"></a><strong>Task1. 成为认证颁发机构（CA）</strong></h3><p>  认证颁发机构（CA）是一个可信的、能够签发数字证书的实体。在签发证书之前，CA需要验证证书申请者的身份。CA的核心功能有如下两个：（1）验证Subject域；（2）对证书进行数字签名。</p>
+<p>  一些商业性的CAs被视为根类CAs，想要获得商业核证机关发出的数字证书的用户需要向这些核证机关支付费用。在实验中，我们不使用商业的CA而是让自己成为根CA，然后使用此CA为其他人（例如服务器）颁发证书。</p>
+<p>  任务1中，我们将使本地主机设置成为根CA，并为此CA生成证书。根CA的证书是自签名的，通常预加载到大多数操作系统、web浏览器和其他依赖PKI的软件中。</p>
+<h4 id="Step1-部署CA。"><a href="#Step1-部署CA。" class="headerlink" title="Step1.部署CA。"></a><strong>Step1.部署CA。</strong></h4><p>  签名时，openssl会使用一个默认的配置文件（/usr/lib/ssl/openssl.cnf）,该文件中已经配置了需要的文件夹和文件的名字，因为我们要修改这个配置文件，因此我们拷贝这个文件到自己的目录下，新拷贝的文件命名为myCA_openssl.cnf。Openssl.cnf文件部分配置内容如下,将unique_subject前面的注释去掉。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps213.jpg" alt="img"> </p>
+<p>图3-1 openssl.conf</p>
+<p>  因此需要在/home/seed/PKI下创建一个demoCA的目录，并在该文件夹下创建三个文件夹certs、crl和newcerts和两个文件index.txt和serial。Seiral文件包含证书的序列号可以将任意数字反正文件中来初始化序列号，我们采用1000为例。具体命令如下</p>
+<pre class="language-none"><code class="language-none">sudo mkdir PKIlib //在 /home/seed目录下创建本次实验的文件夹 PKIlib
+
+cp /usr/lib/ssl/openssl.cnf myCA_openssl.cnf //将openssl.cnf 拷贝一份到myCA_openssl.cnf中
+
+vi myCA_openssl.cnf //查看文件的配置内容，并把unique_subject和copy_extensions前面的注释去掉
+
+ 
+
+sudo mkdir demoCA //根据myCA_openssl.cnf中的内容创建需要的文件夹和文件
+
+cd demoCA
+
+sudo mkdir certs crl newcerts
+
+ 
+
+sudo touch index.txt serial
+
+sudo vi serial //最后打开serial写入1000</code></pre>
+
+<p>  设置好配置文件myCA_openssl.cnf中需要的信息之后，就可以创建和颁发证书了。具体文件路径如下：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps214.jpg" alt="img"> </p>
+<h4 id="Step2-生成自签名证书ca-key-私钥证书-和-ca-crt-公钥证书-。"><a href="#Step2-生成自签名证书ca-key-私钥证书-和-ca-crt-公钥证书-。" class="headerlink" title="Step2.生成自签名证书ca.key (私钥证书)和 ca.crt (公钥证书)。"></a><strong>Step2.生成自签名证书ca.key (私钥证书)和 ca.crt (公钥证书)。</strong></h4><p>  在PKI或者PKIlib(自己所建目录下)，执行如下命令，具体命令如下：</p>
+<p>sudo openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -keyout ca.key -out ca.crt -subj “/CN=<a href="http://www.modelca.com/O=Model">www.modelCA.com/O=Model</a> CA LTD./C=US” -passout pass:dees</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps215.jpg" alt="img"> </p>
+<p>  其中-subj用来设置Subject域信息，-passout是使用证书时需要的密码信息，因为每次要使用此CA为其他人签名证书时，都必须输入该密码（dees）。</p>
+<p>  利用下面两个命令查看ca.crt和ca.key的内容： </p>
+<pre class="language-none"><code class="language-none">openssl x509 -in ca.crt -text -noout
+
+ </code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps216.jpg" alt="img"> </p>
+<p>sudo openssl rsa -in ca.key -text -noout</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps217.jpg" alt="img"> </p>
+<p>回答下面两个问题：  </p>
+<p>问题1：证书的哪个部分表明这是CA的证书？</p>
+<p>问题2：证书的哪个部分表明这是自签名证书？</p>
+<p>  可参考证书的说明如下图所示：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps218.jpg" alt="img"> </p>
+<p>图3-2 证书说明</p>
+<h3 id="Task2-为web-server生成签名请求"><a href="#Task2-为web-server生成签名请求" class="headerlink" title="Task2. 为web server生成签名请求"></a><strong>Task2. 为web server生成签名请求</strong></h3><p>  如果银行要部署一个基于HTTPS的网络服务器（比如<a href="http://www.bank32.com)来保护客户与服务器之间的交互,就需要从根ca那里获取一个公钥证书.首先需要生成一个签名请求(csr—certificate/">www.bank32.com）来保护客户与服务器之间的交互，就需要从根CA那里获取一个公钥证书。首先需要生成一个签名请求（CSR—Certificate</a> Singing Request），CSR中包含银行的公钥与其身份细节，如机构名称、地址与域名等信息。</p>
+<p>  生成CSR的命令如下，与Task1中生成自签名的证书类似，去掉了-x509的选项，没有这个选项就是生成了CSR，有这个选项就是生成了自签名证书。命令如下，其中bank32A和bank32B是bank32网站的别名。</p>
+<p>sudo openssl req -newkey rsa:2048 -sha256 -keyout server.key -out server.csr -subj “/CN=<a href="http://www.bank32.com/O=Bank32">www.bank32.com/O=Bank32</a> Inc./C=US” -addext “subjectAltName = DNS:<a href="http://www.bank32.com/">www.bank32.com</a>, DNS:<a href="http://www.bank32a.com/">www.bank32A.com</a>, DNS:<a href="http://www.bank32b.com/">www.bank32B.com</a>“ -passout pass:dees</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps219.jpg" alt="img"> </p>
+<h3 id="Task3-为web-server生成签名证书"><a href="#Task3-为web-server生成签名证书" class="headerlink" title="Task3. 为web server生成签名证书"></a><strong>Task3. 为web server生成签名证书</strong></h3><p>根据task2中生成的证书请求文件server.csr用如下命令生成证书文件server.crt.</p>
+<p>首先把前面生成的demoCA文件夹和myCA_openssl.cnf文件拷贝到PKIlib文件夹下：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps220.jpg" alt="img"> </p>
+<p>现在可以执行下面命令：</p>
+<pre class="language-none"><code class="language-none">sudo openssl ca -config myCA_openssl.cnf -policy policy_anything -md sha256 -days 3650 -in server.csr -out server.crt -batch -cert ca.crt -keyfile ca.key</code></pre>
+
+<p>在接下来需要输入密码的地方输入dees</p>
+<pre class="language-none"><code class="language-none">Using configuration from myCA_openssl.cnf
+
+Enter pass phrase for ca.key:
+
+Check that the request matches the signature</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps221.jpg" alt="img"> </p>
+<p>  下面的命令可以查看server.crt的内容，观察下与ca.crt有什么不同？</p>
+<p>openssl x509 -in server.crt -text –noout</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps222.jpg" alt="img"> </p>
+<p>server.crt内容：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps223.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps224.jpg" alt="img"> </p>
+<p>ca.crt内容：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps225.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps226.jpg" alt="img"> </p>
+<h3 id="Task4-在网络服务器中部署公钥证书"><a href="#Task4-在网络服务器中部署公钥证书" class="headerlink" title="Task4. 在网络服务器中部署公钥证书"></a><strong>Task4. 在网络服务器中部署公钥证书</strong></h3><p>  一旦银行收到了数字证书，它就可以在HTTPS网站中部署该证书。我们会基于Apache部署一个HTTPS web服务器。首先需要将在主机中生成的证书server.crt和私钥server.key通过volumes文件夹传递给容器（volumes这个文件夹为主机和容器共享的文件夹，主机中放入这个文件夹的文件，容器中可以直接获取到）。</p>
+<p>  Step1 将证书和私钥拷贝到volumes路径下，volumes目录在我们建的目录PKI路径下的Labsetup路径下</p>
+<pre class="language-none"><code class="language-none">cp ~/PKIlib/server.crt ~/PKI/Labsetup/volumes
+
+cp ~/PKIlib/server.key ~/PKI/Labsetup/volumes</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps227.jpg" alt="img"> </p>
+<p>  Step2 在Lapsetup路径下启动容器服务器，进入shell，dockps 命令查看容器ID，docksh id的前两个符号即可进入容器shell</p>
+<p>docker  ps</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps228.jpg" alt="img"> </p>
+<pre class="language-none"><code class="language-none">docker exec -it 8b28d68072db bash</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps229.jpg" alt="img">  </p>
+<p>Step3 将主机传递过来的证书和私钥放到/certs路径下</p>
+<pre class="language-none"><code class="language-none">cd volumes
+
+cp server.crt server.key ../certs</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps230.jpg" alt="img"> </p>
+<p>  Step4 进入到目录/etc/apache2/sites-available中查看文件,site-available是存放的所有可用站点信息。下面我们需要修改文件bank32_apache_ssl.conf。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps231.jpg" alt="img"> </p>
+<p>修改可以有两种方式，一种是直接在容器中下载vi编辑器。命令如下： </p>
+<pre class="language-none"><code class="language-none">apt-get update 
+
+apt-get install vim
+
+（这种方式可能因为网络问题不容易实现）
+
+  另一种是通过共享目录volumes传递文件进行修改，主机volumes路径为Lapsetup路径下，容器在根目录下。
+
+​		SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
+
+​		SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps232.jpg" alt="img"> </p>
+<p>修改文件中的配置如下bank32_apache_ssl.conf：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps233.jpg" alt="img"> </p>
+<p>图3-3 配置bank32网站信息1</p>
+<p>其中&lt;VirtualHost*:443&gt;代表着当以HTTPS协议访问443端口时服务器相关配置：</p>
+<p>ServerName条目指定网站的名称，而DocumentRoot条目指定网站文件存储的位置。同时我们需要告诉Apache服务器证书和私钥存储在哪里，后两行为证书和私钥文件的位置。</p>
+<p>而下方&lt;VirtualHost*:80&gt;代表着当以HTTP协议访问80端口时服务器相关配置：</p>
+<p>注意DirectoryIndex项的区别，访问80端口时为index_red.html；而访问443端口时为index.html</p>
+<p>在seed系统里编辑好bank32_apache_ssl.conf后，进入容器，把这个文件从/volumes拷贝到/etc/apache2/sites-available</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps234.jpg" alt="img"> </p>
+<p>  Step5 在容器shell中重启apache</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps235.jpg" alt="img"> </p>
+<p>这里需要输入证书口令：dees</p>
+<pre class="language-none"><code class="language-none">a2enmod ssl // 使能SSL模式
+
+a2ensite bank32_apache_ssl //使能文件中的配置信息
+
+service apache2 restart //重启服务器，如果报错，根据提示修改配置文件即可</code></pre>
+
+<p>  Step6 进入主机，打开浏览器输入<a href="https://www.bank32.com/">https://www.bank32.com</a> <img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps236.jpg" alt="img"></p>
+<p>可以打开网站，但是背景是红色的，在网址前会有安全提示：Connection is not secure. 提醒你可能有风险。</p>
+<p>点开看详情：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps237.jpg" alt="img">提示网站没有进行网页加密，实际是以HTTP协议访问的服务器80端口，获得的是index_red.html这个网页（红色）</p>
+<p>下面我们解决这个问题，需要添加证书。服务器的证书我已经添加到容器中，而且在配置文件中进行了设置，之所以无法使用，是因为server证书是由我们自己建立的CA发放的，我们的这个CA还没有被浏览器认可，所以下面要设置Firefox，添加一个信任的Authority：</p>
+<p>1.打开FireFox的设置</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps238.jpg" alt="img"> </p>
+<p>2.在Privacy&amp;Security中向下找，找到Certificates：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps239.jpg" alt="img"> </p>
+<p>图4-2 添加证书1</p>
+<p>3.在Authorities这项里，把CA的证书添加进去。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps240.jpg" alt="img"> </p>
+<p>图4-3 添加证书2</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps241.jpg" alt="img"> </p>
+<p>图4-4 选择CA证书，点击“Open”</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps242.jpg" alt="img"> </p>
+<p>再次访问<a href="https://www.bank32.com(注意,要把整个网址都敲进去,包括https//www.bank32.com%EF%BC%89">https://www.bank32.com（注意，要把整个网址都敲进去，包括https://www.bank32.com）</a></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps243.jpg" alt="img"> </p>
+<p>图4-5 能够正常访问</p>
+<p>  请将能够正确访问<a href="http://www.bank32.com的截图放到实验报告中./">www.bank32.com的截图放到实验报告中。</a></p>
+<h1 id="SEDD实验—TLS协议"><a href="#SEDD实验—TLS协议" class="headerlink" title="SEDD实验—TLS协议"></a>SEDD实验—TLS协议</h1><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>  传输层安全协议（transport layer security, TLS）是一种在两个通信应用程序之间提供安全通道的协议，该通道中的数据传输时加密的，数据的完整性也是被保护的。从先前的SSL(secure socket layer)发展而来，并逐渐取代SSL。通过本次实验的系列任务期望能够达到如下几个目的。</p>
+<p>  1. 了解TLS的工作原理；</p>
+<p>  2. 通过抓包分析，理解TLS握手过程中的各字段的含义；</p>
+<p>  3. 掌握TLS协议的工作过程。</p>
+<h2 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>  本次实验来自于SEED安全实验室，我们需要完成下面2个任务。通过任务1，我们完成TLS客户端的握手抓包分析过程和TLS的证书验证过程，并理解分析TLS的客户端编程；通过任务2我们利用多种方式完成TLS的服务器端响应客户端的过程，并理解分析TLS的服务器端编程。任务列表如下：</p>
+<p>Task1 TLS 客户端</p>
+<p>  Task1.1 TLS握手</p>
+<p>  Task1.2 TLS协议中的CA认证</p>
+<p>  Task1.3 TLS认证中的校验服务器的主机名</p>
+<p>  Task1.4 利用TLS协议传输应用数据</p>
+<p>Task2 TLS 服务器端</p>
+<p>  Task2.1 实现一个简单的TLS服务器</p>
+<p>  Task2.2 利用主机浏览器测试实现的TLS服务器</p>
+<p>  Task2.3 测试服务器有别名的情况</p>
+<p>三、实验环境</p>
+<p>     本次实验需要的主机沿用实验一搭建好的SEED实验室虚拟环境，另外我们还需要三个容器来分别模拟客户端、服务器和中间代理（暂时用不上），因为实验一已经安装好了VM虚拟主机，本次只需要部署容器即可。</p>
+<h2 id="三、部署容器"><a href="#三、部署容器" class="headerlink" title="三、部署容器"></a>三、<strong>部署容器</strong></h2><p>  Step1：下载本次实验需要的容器压缩包<a href="https://gitee.com/hitsz-cslab/net-work-security/tree/master/stupkt">TLS_Labsetup.zip</a>。</p>
+<p>  Step2：将容器压缩包上传到Seed镜像环境中, 建议放在新建的文件/home/seed/TLS目录下，并解压。使用命令为 unzip TLS_Labsetup.zip</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps244.jpg" alt="img"> </p>
+<pre class="language-none"><code class="language-none">mkdir TLS
+
+cd TLS
+
+unzip TLS_Labsetup.zip
+
+  Step3：Build容器，并启动，启动后应该能够看到client，server和proxy三个容器
+
+cd Labsetup/
+
+dcbuild                # Alias for: docker-compose build
+
+dcup                   # Alias for: docker-compose up</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps245.jpg" alt="img"> </p>
+<p>容器启动后如果要进入容器的shell，需要通过如下两个命令；在新打开的主机终端中输入 dockps 命令，查看刚启动的容器ID；输入命令 docksh ID的前两个字符</p>
+<pre class="language-none"><code class="language-none">dockps                   // Alias for: docker ps --format "{{.ID}} {{.Names}}"
+
+docksh &lt;id&gt;              // Alias for: docker exec -it &lt;id&gt; /bin/bash  id的前两个字符就行
+
+exit               //退出容器shell返回主机shell
+
+ </code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps246.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps247.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps248.jpg" alt="img"></p>
+<h2 id="四、实验原理"><a href="#四、实验原理" class="headerlink" title="四、实验原理"></a>四、实验原理</h2><p>  数据在互联网中传输时如果未受到保护，很容易被其他人读取甚至修改。应用程序为了保证通信的安全性，需要加密数据并且检测数据的完整性。这可以用密码算法来实现，但是目前有很多密码算法，即使同一种算法，也有很多参数可以使用。为了方便不同的应用程序之间彼此通信，它们需要遵循一个共同的标准。传输层协议（TLS）就是这样一个标准。</p>
+<h3 id="1-TLS概述"><a href="#1-TLS概述" class="headerlink" title="1. TLS概述"></a><strong>1. TLS概述</strong></h3><p>  TLS位于应用层和传输层之间，应用程序将未受保护的数据传递给TLS层，TLS层负责加密、解密和完整性检查，然后TLS将受保护的数据提供给传输层进行传输。TLS提供的安全通道具有以下三个属性：</p>
+<p>  （1）保密性，除了通道两端以外，没有人可以看到通道内数据的实际内容；</p>
+<p>  （2）完整性，如果数据在传输过程中被他人篡改，通道应该能够检测到；</p>
+<p>  （3）身份验证：至少服务器端的身份需要被验证，如果没有身份验证，将会出现中间人攻击。</p>
+<p>  TLS是建立在TCP传输层上的，但它也可以建立在UDP上。建立的UDP上的TLS叫做DTLS，有兴趣的同学可以查看RFC 6347文件。</p>
+<p>  TLS是一个分层协议，它由两层组成。底层为记录层有记录协议，上层由5种消息协议组成，包括握手协议、警报协议、更改密码规范协议、心跳协议和应用协议，如下图所示，本次实验只关注握手协议和应用协议。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps249.jpg" alt="img"> </p>
+<p>图1-1 含有TLS层的TCP/IP网络协议栈</p>
+<p>  握手协议负责建立安全通道，让客户端和服务器共同商定使用的加密算法和密钥、MAC算法、密钥交换算法等加密参数并生成会话密钥；</p>
+<p>  警报协议用于通信双发发送警报信号，目的是向对方报告失败的原因。</p>
+<p>  更改密码规范协议用于通知对方改变正在使用的加密方法，通常用于在握手协议结束后告知对方从公钥加密模式切换到密钥加密模式。</p>
+<p>  心跳协议用于防止TLS会话因为闲置太久而被操作系统关闭。著名的心脏滴血攻击就是这个协议实现中的一个漏洞导致的，如果要详细了解可参考链接：<a href="https://heartbleed.com/%E3%80%82">https://heartbleed.com/。</a></p>
+<p>  应用协议用于通道的实际传输。</p>
+<h3 id="2-TLS握手"><a href="#2-TLS握手" class="headerlink" title="2. TLS握手"></a><strong>2. TLS握手</strong></h3><h4 id="2-1-TLS握手过程"><a href="#2-1-TLS握手过程" class="headerlink" title="2.1 TLS握手过程"></a><strong>2.1 TLS握手过程</strong></h4><p>  TLS握手协议的目的是让客户端和服务器共同商定加密参数并生成会话密钥。具体步骤如下图所示。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps250.jpg" alt="img"> </p>
+<p>图1-2 TLS握手协议</p>
+<p>  1、客户端：发送客户端问候消息（Client Hello），表明它自己支持哪些密码套件和客户端的一次性随机数（Client_random）。</p>
+<p>  2、服务器：发送服务器问候消息（Server Hello），根据客户端发来的问候消息，选择确认一个客户端和服务器都支持的密码套件，并提供服务器的一次性随机数（Server_random）。</p>
+<p>  3、服务器：发送公钥证书给客户端。</p>
+<p>  4、服务器：发送握手完成的消息，表明已完成握手协商。</p>
+<p>  5、客户端：发送客户端密钥交换消息。客户端随机生成一个预主密钥，然后用服务器的公钥对其进行加密，并将加密后的密钥发送给服务器。客户端和服务器首先使用预主密钥生成主密钥，然后再使用主密钥生成会话密钥。</p>
+<p>  6、客户端和服务器：互相发送更改密码规范消息。</p>
+<p>  7、客户端和服务器：互相发送一个加密完成的消息。必须包括一个哈希值和MAC(报文认证码)值，这些值使用握手协议中交换的所有数据生成。如果双发各自解密验证发来的哈希值和MAC值不对，就说明对方没有正确的密钥或者协议执行过程种出现失败，握手协议将失败，TLS链接会中断。</p>
+<h4 id="2-2-证书验证"><a href="#2-2-证书验证" class="headerlink" title="2.2 证书验证"></a><strong>2.2 证书验证</strong></h4><p>  在TLS握手协议中，上面的第五步，预主密钥在发送给服务器时用服务器的公钥进行加密，由上一次的PKI实验我们可以知道，如果直接发送服务器公钥可能会受到中间人攻击，因此服务器应该给发送一个公钥证书。</p>
+<p>  服务器的证书包含服务器的公钥、身份信息、截止日期、CA的签名及其他相关信息。当客户端受到服务器证书时，最重要的是检查证书是否有效。但是并不检查证书中包含的身份信息是否与目标服务器的身份匹配。这一点非常重要，需要应用程序进行检查，如果没有此项检查，中间人攻击也将成为可能。</p>
+<h4 id="2-3-密钥生成和交换"><a href="#2-3-密钥生成和交换" class="headerlink" title="2.3 密钥生成和交换"></a><strong>2.3 密钥生成和交换</strong></h4><p>  上面的第六步，之所以要更改密码规范，是因为公钥算法加密要比对称加密算法慢得多。因此，TLS仅使用公钥算法来帮助客户端和服务器生成一个共同的密钥，一旦密钥生成后，客户端和服务器将切换到对称加密算法。密钥生成过程分为生成预主密钥、生成主密钥和生成会话密钥三个步骤，如下图所示。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps251.jpg" alt="img"> </p>
+<p>图1-3 TLS密钥生成</p>
+<p>  预主密钥：服务器证书验证成功后，客户端程序会生成一个随机数，称为预主密钥。</p>
+<p>  主密钥：在TLS前两步中，客户端和服务器交换了两个随机数，分别是Client_random和Server_random。用这两个随机数和签名生成的预主密钥，客户端和服务器端会生成主密钥，长度为48字节。</p>
+<p>  会话密钥：客户端和服务器双方使用主密钥根据密码算法生成一个字节序列。这个序列进一步分成4个单独的会话密钥：两个MAC密钥和两个加密密钥。</p>
+<p>  TLS允许客户端和服务器在会话过程中改变加密参数，这不需要重新执行一次完整的握手协议，只需要将分别生成的Client_random和Server_random发给对方，然后重复主密钥扩展和会话密钥生成步骤即可，主密钥不需要变化。</p>
+<h3 id="3-TLS数据传输"><a href="#3-TLS数据传输" class="headerlink" title="3. TLS数据传输"></a><strong>3. TLS数据传输</strong></h3><p>  完成握手协议后，客户端和服务器双方就可以开始交换数据。数据放在TLS记录中传输，记录的格式由TLS记录协议定义。TLS记录不仅用于传输应用程序数据，还用于传输握手协议和其他TLS子协议中的消息。</p>
+<p>  每条记录包含一个头部和一个有效载荷，如下图所示。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps252.jpg" alt="img"> </p>
+<p>图1-4 TLS记录格式</p>
+<p>  内容类型: 表示当前记录携带TLS的哪个子协议</p>
+<p>  版本字段：表示消息的TLS主版本和次版本，例如TLS1.3</p>
+<p>  长度字段：表明有效载荷字段的长度.</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps253.jpg" alt="img"> </p>
+<h2 id="五、-实验步骤"><a href="#五、-实验步骤" class="headerlink" title="五、 实验步骤"></a>五、 实验步骤</h2><p>  本次实验通过2个程序来看TLS是如何在程序中来保护通信安全的，并讨论TLS编程中常见的错误。一个是HTTPS客户端程序，它可以从HTTPS网络服务器获取网页；另一个是HTTPS服务器程序，它可以给浏览器返回网页。HTTPS是建立在TLS之上的应用层协议。</p>
+<h3 id="1-TLS客户端"><a href="#1-TLS客户端" class="headerlink" title="1. TLS客户端"></a><strong>1. TLS客户端</strong></h3><h4 id="1-1-TLS握手"><a href="#1-1-TLS握手" class="headerlink" title="1.1 TLS握手"></a><strong>1.1 TLS握手</strong></h4><p>  在客户端容器中执行给出的TLS握手代码（在volume目录下有一个handshake.py程序，完成与输入参数服务器的一次TLS握手建立TLS连接的过程），观察执行结果，回答下面的几个问题。并通过主机的wireshark抓包工具，抓包分析TLS的握手协议。</p>
+<p>  查看客户端的容器id</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps254.jpg" alt="img"> </p>
+<p>  进入容器客户端端的shell，执行如下命令，可以根据结果查看到交换的密钥和证书等信息</p>
+<pre class="language-none"><code class="language-none">docksh 1a
+
+cd volumes/
+
+./handshake.py [www.baidu.com](http://www.baidu.com)     //以百度服务器为参数，执行handshake.py程序</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps255.jpg" alt="img"> </p>
+<p>  进入主机，打开wireshark工具，选择我们正在使用的网卡开始抓包。然后在客户端容器中重复执行 ./handshake.py <a href="http://www.baidu.com/">www.baidu.com</a> 命令，可以查看分析TLS握手协议。建议大家再通过主机的浏览器访问下<a href="http://www.baidu.com网站,抓包分析下,可以看到握手后的应用层的协议信息./">www.baidu.com网站，抓包分析下，可以看到握手后的应用层的协议信息。</a></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps256.jpg" alt="img"> </p>
+<p>图2-1 抓包网卡选择</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps257.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps258.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps259.jpg" alt="img"> </p>
+<p>仔细阅读上边程序输出的结果，回答下面问题1和问题2（如果有不清楚，百度一下看看）</p>
+<p>问题1：根据执行结果，客户端和服务器端使用的加密算法有哪些？</p>
+<p>  问题2：简单分析打印的服务器端的证书</p>
+<p>问题3：抓包分析握手协议</p>
+<p>提示：抓包结束后筛选目标数据包：</p>
+<p>1.ping一下<a href="http://www.baidu.com/">www.baidu.com</a>，获得服务器ip地址</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps260.jpg" alt="img"> </p>
+<p>2.以39.156.66.14作为筛选条件在wireshark中筛选数据包</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps261.jpg" alt="img"> </p>
+<p>可以看到所选数据包中有Client Hello、Server Hello、Client Key Exchange等过程，仔细阅读一下抓取到的每个数据包，结合wireshark给出的协议分析，印证SSL握手协议的数据交互过程。 </p>
+<h4 id="1-2-TLS协议中的CA认证"><a href="#1-2-TLS协议中的CA认证" class="headerlink" title="1.2 TLS协议中的CA认证"></a><strong>1.2 TLS协议中的CA认证</strong></h4><p>  将handshake.py代码中的证书文件路径改成 ./client-certs,再次在客户端容器运行 ./handshake.py <a href="http://www.baidu.com,观察出现的结果，想想为什么？">www.baidu.com,观察出现的结果，想想为什么？</a></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps262.jpg" alt="img"> 更改handshake.py代码中的证书文件路径</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps263.jpg" alt="img"> </p>
+<p>更改证书路径后，再进行握手时会报错。为什么？</p>
+<p>将<a href="http://www.baidu.com需要的证书copy到/">www.baidu.com需要的证书copy到</a> ./client-certs下，根据下面的命令生成hash并做个软链接，再次运行./handshake.py <a href="http://www.baidu.com/">www.baidu.com</a>，查看出现的结果。</p>
+<p>补充知识：</p>
+<p>1.要能够认证百度网站的证书，我们需要/etc/ssl/certs/目录下的GlobalSign_Root_CA.pem 证书，这个证书是Globalsign的根证书，GlobalSign的根证书是PKI生态系统中最古老，最受信任的根证书。当客户端程序拥有了这个证书，再结合百度网站提供的证书以及到根CA的证书链就可以完成对百度服务器的身份认证。</p>
+<p>2.PEM格式通常用于数字证书认证机构（Certificate Authorities，CA），扩展名为.pem，内容为Base64编码的ASCII码文件，有类似”—–BEGIN CERTIFICATE—–” 和 “—–END CERTIFICATE—–”的头尾标记。此外还有Der 、Cer、 Pfx等格式，它们都是扩展名（文件名的后缀，代表格式）.DER：用二进制DER编码的证书； .CER：存放公钥，没有私钥； .PFX：存放公钥和私钥。可以使用OpenSSL命令行工具在不同证书格式之间的转换。</p>
+<p>下面我们把需要的这个根证书拷贝到handshake.py代码中新更改的证书文件路径：</p>
+<p>cp /etc/ssl/certs/GlobalSign_Root_CA.pem client-certs/   </p>
+<p>//copy百度网站的证书</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps264.jpg" alt="img"> </p>
+<p>仍然不行的原因是证书系统中证书文件命名都是“哈希值.0 ”，所以计算出GlobalSign_Root_CA.pem的哈希值，给GlobalSign_Root_CA.pem证书再建立一个名为“哈希值.0 ”的软链接：</p>
+<pre class="language-none"><code class="language-none">openssl x509 -in GlobalSign_Root_CA.pem -noout -subject_hash
+
+5ad8a5d6
+
+ln -s GlobalSign_Root_CA.pem 5ad8a5d6.0</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps265.jpg" alt="img"> </p>
+<h3 id="2-TLS-服务器"><a href="#2-TLS-服务器" class="headerlink" title="2. TLS 服务器"></a><strong>2. TLS 服务器</strong></h3><h4 id="2-1-实现一个简单的TLS服务器"><a href="#2-1-实现一个简单的TLS服务器" class="headerlink" title="2.1 实现一个简单的TLS服务器"></a><strong>2.1 实现一个简单的TLS服务器</strong></h4><p>  这个任务中我们将使用实验一中生成的CA证书和<a href="http://www.bank32.com的证书和私钥,首先将ca证书copy到客户端的client-certs目录下并进行软链接,然后将bank32服务器的证书和私钥拷贝到到server-certs目录下./">www.bank32.com的证书和私钥，首先将CA证书copy到客户端的client-certs目录下并进行软链接，然后将bank32服务器的证书和私钥拷贝到到server-certs目录下。</a></p>
+<p>cp ca.crt ../TLS/Labsetup/volumes/client-certs/</p>
+<p>sudo cp server.crt server.key ../TLS/Labsetup/volumes/server-certs/</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps266.jpg" alt="img"> </p>
+<p>  在主机中，修改server.py的证书正确的路径和名称(server.crt 和server.key)，并绑定服务器的ip 10.9.0.43。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps267.jpg" alt="img"> </p>
+<p>在服务器容器中，启动服务器 ./server.py,输入我们实验中设置的证书密码dees</p>
+<p>在客户端容器中，将ca.crt做软链接，并将<a href="http://www.bank32.com的信息写入/etc/hosts%E4%B8%AD">www.bank32.com的信息写入/etc/hosts中</a></p>
+<pre class="language-none"><code class="language-none">openssl x509 -in ca.crt -noout -subject_hash
+
+dbb9c584
+
+ln -s ca.crt dbb9c584.0
+
+echo 10.9.0.43 www.bank32.com &gt;&gt; /etc/hosts</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps268.jpg" alt="img"> </p>
+<p>  更改client.py中证书的路径为 client-certs，并将端口号改为和服务器保持一致。</p>
+<p>  在客户端容器中,启动客户端。 ./client.py <a href="http://www.bank32.com/">www.bank32.com</a></p>
+<p>  再切换到服务器端可以看到有消息接收。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps269.jpg" alt="img"> </p>
+<p>  问题：请分析TLS客户端编程和server.py的代码，说明下服务器程序的关键步骤。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps270.jpg" alt="img"> </p>
+<h4 id="2-2-利用主机浏览器测试实现的TLS服务器"><a href="#2-2-利用主机浏览器测试实现的TLS服务器" class="headerlink" title="2.2 利用主机浏览器测试实现的TLS服务器"></a><strong>2.2 利用主机浏览器测试实现的TLS服务器</strong></h4><p>  从主机的浏览器进入到https://<a href="http://www.bank32.com网站/">www.bank32.com网站</a>，查看服务器的链接情况，如果还是在第一次的实验环境中，我们已经加入了证书，如果没有加入证书，需要在firefox浏览器加入ca.crt的证书。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps271.jpg" alt="img"> </p>
+]]></content>
+      <tags>
+        <tag>SEDD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>snort安装</title>
+    <url>/2022/12/04/snort%E5%AE%89%E8%A3%85/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><h1 id="Windows下snort"><a href="#Windows下snort" class="headerlink" title="Windows下snort"></a>Windows下snort</h1><h2 id="一、实验知识"><a href="#一、实验知识" class="headerlink" title="一、实验知识"></a>一、实验知识</h2><p><strong>Snort的软件模块组成：</strong></p>
+<p>　（1）数据包嗅探模块——负责监听网络数据包，对网络进行分；</p>
+<p>　（2）预处理模块——该模块用相应的插件来检查原始数据包，从中发现原始数据的“行为”，如端口扫描，IP碎片等，数据包经过预处理后才传到检测引擎；</p>
+<p>　（3）检测模块——该模块是Snort的核心模块。当数据包从预处理器送过来后，检测引擎依据预先设置的规则检查数据包，一旦发现数据包中的内容和某条规则相匹配，就通知报警模块；</p>
+<p>　（4）报警/日志模块——经检测引擎检查后的Snort数据需要以某种方式输出。如果检测引擎中的某条规则被匹配，则会触发一条报警，这条报警信息会通过网络、UNIXsocket、WindowsPopup(SMB)、SNMP协议的trap命令传送给日志文件，甚至可以将报警传送给第三方插件（如SnortSam），另外报警信息也可以记入SQL数据库。</p>
+<p><strong>snort工作模式：</strong>嗅探器、数据包记录器、入侵检测系统。</p>
+<p>做嗅探器时，它只读取网络中传输的数据包，然后显示在控制台上。</p>
+<p>作数据包记录器时，它可以将数据包记录到硬盘上，已备分析之用。</p>
+<p>入侵检测模式功能强大，可通过配置实现，但稍显复杂，snort可以根据用户事先定义的一些规则分析网络数据流，并根据检测结果采取一定的动作</p>
+<h2 id="二、原理"><a href="#二、原理" class="headerlink" title="二、原理"></a>二、原理</h2><p>Snort具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索/匹配。它能够检测各种不同的攻击方式，对攻击进行实时报警。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps1.jpg" alt="img"> </p>
+<p>图4-1 Snort IDS 体系结构</p>
+<h2 id="三、实验环境"><a href="#三、实验环境" class="headerlink" title="三、实验环境"></a>三、实验环境</h2><p>一台安装VirtualBox软件的计算机；Windows系统计算机一台，Linux系统主机一台，使用网卡桥接方式构成实验环境。</p>
+<h2 id="四、-实验步骤"><a href="#四、-实验步骤" class="headerlink" title="四、 实验步骤"></a>四、 实验步骤</h2><p>安装snort:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps2.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps3.jpg" alt="img"> </p>
+<p><em><strong>*（一）．Snort数据包嗅探*</strong></em></p>
+<p>1.启动Snort进入实验平台，单击工具栏“控制台”按钮，进入IDS工作目录，运行Snort对网络接口进行监听，要求如下：</p>
+<p>　（1）仅捕获同组主机发出的icmp回显请求数据包。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps4.jpg" alt="img"> </p>
+<p>　（2）采用详细模式在终端显示数据包链路层、应用层信息。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps5.jpg" alt="img"> </p>
+<p>​	2.查看Snort日志记录。</p>
+<p>「说明」默认snort日志记录最后一级目录会以触发数据包的源IP命名。可使用组合键Ctrl+C停止snort运行。<img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps6.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps7.jpg" alt="img"></p>
+<p><em><strong>*（二）．简单报警规则*</strong></em></p>
+<p>1.在snort规则集目录ids/rules下新建snort规则集文件new.rules，对来自外部主机的、目标为当前主机80/tcp端口的请求数据包进行报警，报警消息自定义。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps8.jpg" alt="img"> </p>
+<p>​	2.编辑snort.conf配置文件，使其包含new.rules规则集文件，具体操作如下：编辑器打开snort.conf，添加包含规则集文件new.rules。添加包含new.rules规则集文件语句include $RULE_PATH/new.rules。<img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps9.jpg" alt="img"></p>
+<p>​	3.以入侵检测方式启动snort，进行监听。同组主机访问当前主机telnet服务。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps10.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps11.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps12.jpg" alt="img"> </p>
+<p><em><strong>（三）．报警规则设计和测试</strong></em></p>
+<p>1.编写一个规则，通过捕捉关键字Search记录打开Google网页的动作，并将符合规则的数据包输出到Alert文件中。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps13.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps14.jpg" alt="img"> </p>
+<ol start="2">
+<li>尝试定义几个更为实用的规则，并在使用中检验它们的效果。</li>
+</ol>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps15.jpg" alt="img"> </p>
+<p>(1)在new.rules中添加如下3条规则：alert icmp any any -&gt; any any (dsize:0;itype:8;msg:”NMAP PING SCAN”;)</p>
+<p>alert tcp any any -&gt; any any (flags:SF;msg:”NMAP SYN FIN SCAN”;)</p>
+<p>aler tcp any any -&gt; any any (flags:A;ack:0;msg:”NMAP TCP PING”;)</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps16.jpg" alt="img"> </p>
+<p>(2)运行Snort，在局域网另一台主机上运行Nmap，对主机进行端口扫描。首先使用Nmap的-sP选项进行ping扫描，然后使用-sS选项的SYN扫描，最后使用-sA选项进行ACK扫描。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps17.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps18.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps19.jpg" alt="img"> </p>
+<p>(3)扫描完成后，回到主机查看Alert文件。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps20.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps21.jpg" alt="img"> </p>
+<p><strong>（四）</strong><em><strong>*．查阅资料，选则一种网络攻击方式，对攻击方式进行特征提取，设计相应的报警规则。*</strong></em></p>
+<p>向规则集文件new.rules写入规则。以入侵检测方式启动snort，进行监听。然后以同组主机向目标主机发起攻击，测试Snort是否能够检测到该攻击。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps22.jpg" alt="img"> </p>
+<p>规则为针对检测来自UDP的访问攻击</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps23.jpg" alt="img"> </p>
+<p>里边包含的 -Pn 参数是绕过ping进行扫描，如果有些服务器是放在防火墙下面的禁PING的，就有可能会被跳过。所以用-Pn来强制性地扫描</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps24.jpg" alt="img"> </p>
+<h2 id="五、-遇到问题"><a href="#五、-遇到问题" class="headerlink" title="五、 遇到问题"></a>五、 遇到问题</h2><p>1、告警日志生成老是没反应，重启解决</p>
+<p>2、检测来自UDP的访问攻击的时候，使用kali下的nmap -sU -Pn命令迟迟不见结果返回于是改用 namp -sU得到结果。 </p>
+<p>3、snort -l ..\log -b使用此命令，可以把所有的包记录到一个单一的二进制文件中，方便以二进制的日志文件格式分析。</p>
+<h1 id="Linux下snort"><a href="#Linux下snort" class="headerlink" title="Linux下snort"></a>Linux下snort</h1><h2 id="一、-实验知识"><a href="#一、-实验知识" class="headerlink" title="一、 实验知识"></a>一、 实验知识</h2><p>1、Snort的结构由4大软件模块组成，它们分别是数据包嗅探模块、预处理模块、检测模块、报警/日志模块</p>
+<p>2、Snort 的主要优点是能够在网络上执行实时流量分析和数据包记录。凭借协议分析，内容搜索和各种预处理器的功能，Snort 被广泛接受为检测各种蠕虫，攻击，端口扫描和其他恶意威胁的工具。它可以配置三种主要模式嗅探器，数据包记录器和网络入侵检测。在嗅探器模式下，程序将只读取数据包并在控制台上显示信息。在数据包记录器模式下，数据包将被记录在磁盘上。在入侵检测模式下，程序将监控实时流量并将其与用户定义的规则进行比较。</p>
+<p>3、规则头包括4个部分：规则行为；协议；源信息；目的信息。</p>
+<p>4、snort规则头Snort预置的规则动作有5种：</p>
+<p>　　****（1）pass：****动作选项pass将忽略当前的包，后继捕获的包将被继续分析。</p>
+<p>　　****（2）log：****动作选项log将按照自己配置的格式记录包。</p>
+<p>　　****（3）alert：****动作选项alert将按照自己配置的格式记录包，然后进行报警。它的功能强大，但是必须恰当的用，因为如果报警记录过多，从中攫取有效信息的工作量增大，反而会使安全防护工作变得低效。　</p>
+<p>　　****（4）dynamic：****动作选项dynamic是比较独特的一种，它保持在一种潜伏状态，直到activate类型的规则将其触发，之后它将像log动作一样记录数据包。</p>
+<p>　　****（5）activate：****动作选项activate功能强大，当被规则触发时生成报警，并启动相关的dynamic类型规则。在检测复杂的攻击，或对数据进行归类时，该动作选项相当有用。</p>
+<h2 id="二、-原理"><a href="#二、-原理" class="headerlink" title="二、 原理"></a>二、 原理</h2><p>Snort的基本工作流程：根据客户事先编写好的规则，进行预处理，通过数据包嗅探模块监听网络数据包，对网络进行分析，接下来预处理模块用相应的插件来检查原始数据包，从中发现原始数据的“行为”，如端口扫描，IP碎片等，数据包经过预处理后才传到检测引擎；然后检测模块是Snort的核心模块，当数据包从预处理器送过来后，检测引擎依据预先设置的规则检查数据包，一旦发现数据包中的内容和某条规则相匹配，就通知报警模块；经检测引擎检查后的Snort数据需要以某种方式输出。如果检测引擎中的某条规则被匹配，则会触发一条报警，这条报警信息会通过网络传送给日志文件，另外报警信息也可以记入数据库。</p>
+<h2 id="三、-环境"><a href="#三、-环境" class="headerlink" title="三、 环境"></a>三、 环境</h2><p>一台安装VirtualBox软件的计算机、Linux系统主机一台（Ubuntu）</p>
+<p>3.0.2-5.tar.gz、gperftools-2.8.tar.gz、libdaq-3.0.0-alpha7.tar.gz、libdnet-1.11.tar.gz、snort3-3.0.2-5.tar.gz、zlib-1.2.11.tar.gz提前放在Ubuntu的Home文件夹下。</p>
+<h2 id="四、-步骤"><a href="#四、-步骤" class="headerlink" title="四、 步骤"></a>四、 步骤</h2><p><em><strong>*将所需的压缩包提前放到Ubuntu的Home文件夹下*</strong></em></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps25.jpg" alt="img"> </p>
+<p><em><strong>*1、安装所需的依赖包：*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ sudo apt install cmake
+
+ids@ubuntu-VirtualBox:~$ sudo apt install pkg-config
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libdaq-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libdaq2
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libhwloc-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install luajit
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libluajit-5.1-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libpcap-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install libpcre3-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt install liblzma-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt-get install libssl-dev
+
+ids@ubuntu-VirtualBox:~$ sudo apt-get install autoconf</code></pre>
+
+<p><em><strong>*2、安装zlib*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ tar -xf zlib-1.2.11.tar.gz
+
+ids@ubuntu-VirtualBox:~$ cd zlib-1.2.11
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ ./configure
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ make 
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ make check
+
+ids@ubuntu-VirtualBox:~/zlib-1.2.11$ sudo make install</code></pre>
+
+<p><em><strong>*3、安装libdnet库*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~/zlib-1.2.11$ cd ~
+
+ids@ubuntu-VirtualBox:~$ tar -xf libdnet-1.11.tar.gz 
+
+ids@ubuntu-VirtualBox:~$ cd libdnet-1.11/
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ ./configure 
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ 
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ sudo make install
+
+ids@ubuntu-VirtualBox:~/libdnet-1.11$ cd ..</code></pre>
+
+<p><em><strong>*4、安装libdaq，这里使用版本3.0.0。*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$wget https://github.com/snort3/libdaq/archive/v3.0.0-alpha7.tar.gz
+
+ids@ubuntu-VirtualBox:~$ tar -xf libdaq-3.0.0-alpha7.tar.gz 
+
+ids@ubuntu-VirtualBox:~$ cd libdaq-3.0.0-alpha7/
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ ./bootstrap 
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ ./configure 
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ make
+
+ids@ubuntu-VirtualBox:~/libdaq-3.0.0-alpha7$ sudo make install </code></pre>
+
+<p><em><strong>*5、由github下载源码，这里使用3.0.2版本。*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ cd ~
+
+ids@ubuntu-VirtualBox:~$wget https://github.com/snort3/snort3/archive/3.0.2-5.tar.gz</code></pre>
+
+<p><em><strong>*6、解压snort安装包：*</strong></em></p>
+<pre class="language-none"><code class="language-none">ids@ubuntu-VirtualBox:~$ tar -xf 3.0.2-5.tar.gz 
+
+ids@ubuntu-VirtualBox:~$ cd snort3-3.0.2-5/
+
+运行configure_cmake.sh脚本：
+
+ids@ubuntu-VirtualBox:~/snort3-3.0.2-5$ ./configure_cmake.sh 
+
+</code></pre>
+
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps26.jpg" alt="img"> </p>
+<p><em><strong>*7、编译snort3:*</strong></em></p>
+<p>ids@ubuntu-VirtualBox:~/snort3-3.0.2-5$ cd build/</p>
+<p>ids@ubuntu-VirtualBox:~/snort3-3.0.2-5/build$ make -j 2</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps27.jpg" alt="img"> </p>
+<p><em><strong>*8、ids@ubuntu-VirtualBox:~/snort3-3.0.2-5/build$ sudo ./src/snort –help-options查看帮助*</strong></em></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps28.jpg" alt="img"> </p>
+<p><strong>9、</strong><em><strong>*查看网络配置*</strong></em></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps29.jpg" alt="img"> </p>
+<p><em><strong>*10、*</strong></em><em><strong>*抓取一个经过enp0s3网卡的报文。*</strong></em></p>
+<p>ids@ubuntu-VirtualBox:~/snort3-3.0.2-5/build$ sudo ./src/snort -d -e -v -X  -L dump -Q -n 1 -i enp0s3</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps30.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps31.jpg" alt="img"> </p>
+<p>从源码安装的snort还需要设置规则和配置，因此我们需要复制规则和配置到/etc/snort下面。我们已经创建了单独的bash脚本来用于设置规则和配置。它会设置下面这些snort设置。</p>
+<h2 id="五、-问题"><a href="#五、-问题" class="headerlink" title="五、 问题"></a>五、 问题</h2><p>1.运行时出现了新的报错</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps33.jpg" alt="img"> </p>
+<p>于是重新进行一遍liadaq库的重新安装，再次运行snort3，成功。</p>
+<p>2、选装包有部分无法安装对使用无影响不去再次安装跳过安装下一个。</p>
+<p>3、告警日志生成报错</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps34.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps35.jpg" alt="img"> </p>
+<p>规则编写出了问题，在etc/snort里新编写一个new.rule，再次进行告警日志查看成功</p>
+<h2 id="额外"><a href="#额外" class="headerlink" title="额外"></a>额外</h2><p>Ping一下unbutu ip</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps36.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps37.jpg" alt="img"> </p>
+<p>开启snort记录模式sudo /opt/snort/bin/snort -i ens32 -L dump -d</p>
+<p>看一下包输出</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps38.jpg" alt="img"> </p>
+<p>包统计：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps39.jpg" alt="img"> </p>
+<p>告警日志生成，编写规则：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps40.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps41.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps42.jpg" alt="img"> </p>
+<p>进行告警日志测试：./src/snort -c ‘/home/zy/snort3-3.0.2-5/lua/snort.lua’  -i ens32 -A fast</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps43.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps44.jpg" alt="img"> </p>
+]]></content>
+      <categories>
+        <category>数字取证</category>
+      </categories>
+      <tags>
+        <tag>数字取证</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>入侵检测与数字入侵</title>
+    <url>/2022/12/20/%E5%85%A5%E4%BE%B5%E6%A3%80%E6%B5%8B%E4%B8%8E%E6%95%B0%E5%AD%97%E5%85%A5%E4%BE%B5/</url>
+    <content><![CDATA[<p>​                 </p>
+<h1 id="一、课程内容总结"><a href="#一、课程内容总结" class="headerlink" title="一、课程内容总结"></a>一、课程内容总结</h1><p>—网络入侵检测与数字取证</p>
+<p>本学期开设的网络入侵检测与数字取证是一门非常实用的课程，它不仅向我们介绍了各种与入侵检测与数字取证相关的知识，更向我们模拟了在实际遇到相关情况时，我们应该如何使用相应的工具进行检测与取证。下面我将对这门课程进行简单总结。</p>
+<h2 id="入侵检测-："><a href="#入侵检测-：" class="headerlink" title="入侵检测****："></a><strong>入侵检测****：</strong></h2><h3 id="第一章-入侵检测概述"><a href="#第一章-入侵检测概述" class="headerlink" title="第一章 入侵检测概述"></a><strong>第一章 入侵检测概述</strong></h3><p>入侵是指在非授权的情况下，试图存取信息、处理信息或破坏系统以使系统不可靠、不可用的故意行为。</p>
+<p>入侵检测就是对入侵行为的发觉。</p>
+<p>对计算机系统风险和威胁分为外部渗透、内部渗透和不法行为3种。</p>
+<p>入侵检测系统基本的工作原理主要分为四个阶段：数据收集、数据处理、数据分析和响应处理。</p>
+<p>入侵检测系统的基本工作模式为：(1)从系统的不同环节收集信息；(2)分析该信息，试图寻找入侵活动的特征；(3)自动对检测到的行为做出响应；(4)纪录并报告检测过程结果。</p>
+<p>入侵检测系统所采用的技术可分为特征误用检测、异常检测和协议分析三种。</p>
+<h3 id="第二章-入侵方法与手段："><a href="#第二章-入侵方法与手段：" class="headerlink" title="第二章 入侵方法与手段："></a><strong>第二章 入侵方法与手段：</strong></h3><p>网络入侵是指通过计算机程序获得非法或未授权的网络或文件访问权限，进入内部网络的行为。</p>
+<p>黑客入侵的步骤如图、所示</p>
+<p>漏洞是在硬件、软件、协议的具体实现或系统安全策略上存在的缺陷</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps155.png" alt="img"></td>
+</tr>
+</tbody></table>
+<p>。</p>
+<p>漏洞具体而言表现在以下几个方面：存储介质不安全、数据的可访问性、信息的聚生性、保密的困难性、介质的剩磁效应、电磁的泄露性、通信网络的脆弱性、软件的漏洞。</p>
+<p>常见的漏洞扫描有TCP Connect扫描、TCP SYN扫描、TCP FIN扫描、TCP Xmas扫描、TCP 空扫描、TCP ACK扫描、UDP扫描、OS Fingerprint技术。</p>
+<p>拒绝服务攻击的主要目的是使被攻击的网络或服务器不能提供正常的服务。</p>
+<p>DoS的攻击方式有很多种。包括SYN湮没、Land攻击、Smurf攻击、Teardrop攻击、Ping of Death攻击、分布式拒绝服务攻击。最基本的DoS攻击就是利用合理的服务请求来占用过多的服务资源，致使服务超载，无法响应其他的请求。</p>
+<p>跨站脚本攻击（XSS）主要是基于JavaScript完成恶意攻击行为，可以利用网站漏洞（可以被黑客注入JS代码），从用户那里恶意盗取信息。</p>
+<h3 id="第三章-入侵检测系统模型"><a href="#第三章-入侵检测系统模型" class="headerlink" title="第三章 入侵检测系统模型"></a>第三章 <strong>入侵检测系统模型</strong></h3><p>入侵检测系统模型都是由信息收集模块、信息分析模块和告警与响应模块三部分组成。如图所示</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps156.jpg" alt="img"> </p>
+<p>IDS 发展到目前，按照不同的角度区分，已经出现了主机基和网络基的入侵检测系统；基于模式匹配、异常行为、协议分析等检测技术的系统。并且IDS 普遍存在误报问题，导致入侵检测的实用性大打折扣，采用智能处理模块解决这个问题。</p>
+<p>入侵检测的第一步是信息收集，内容包括系统、网络、数据及用户活动的状态和行为。入侵检测很大程度上依赖于收集信息的可靠性和正确性。</p>
+<p>信息收集来源于直接监控和间接监控、基于主机的数据收集和基于网络的数据收集、外部探测器和内部探测器三种方式。</p>
+<p>入侵检测利用的信息源一般来自以下四个方面：</p>
+<ol>
+<li>系统和网络日志文件，2. 目录和文件中的不期望的改变，3. 程序执行中的不期望行为，4. 物理形式的入侵信息。</li>
+</ol>
+<p>对收集到的四类有关系统、网络、数据及用户活动的状态和行为等信息，一般通过三种技术手段进行分析：模式匹配、统计分析、完整性分析，其中前两种方法用于实时的入侵检测，而完整性分析则用于事后分析。</p>
+<p>分布式IDS与集中式IDS的特点比较体现在四个方面：可靠性、容错性、增加额外的系统开销、可扩容性，由于分布式不易实现，目前的IDS产品多是集中式的。</p>
+<p>在入侵检测系统中，当完成系统安全状况分析并确定系统所出问题之后，就要让系统管理员知道这些问题的存在，这在入侵检测处理过程模型中称为告警与响应。告警通常以报告的形式告诉系统管理员被监测对象的安全状况。响应包括被动响应和主动响应。</p>
+<p> 主动响应主要包括入侵者采取反击行动、修正系统环境、收集额外信息三种选项。</p>
+<h3 id="第四章误用与异常入侵检测系统"><a href="#第四章误用与异常入侵检测系统" class="headerlink" title="第四章	误用与异常入侵检测系统"></a><strong>第四章</strong>	<strong>误用与异常入侵检测系统</strong></h3><p>误用入侵检测技术和异常入侵检测技术这两种技术主要是按照入侵检测的分析方法和检测原理来分类的。</p>
+<p>误用入侵检测(Misuse Intrusion Detection)的思想是，如果所有的入侵行为和手段（及其变种）都能够表达为一种模式或特征，那么所有已知的入侵方法就可以用匹配的方法来发现。</p>
+<p>误用入侵检测系统是假设入侵者活动可以用一种模式来表示，系统的目标是检测主体活动是否符合这些模式。误用检测的关键在于特征信息库的升级和特征的匹配搜索，难点在于如何设计模式既表达入侵又不会将正常的活动包含进来。 </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps157.jpg" alt="img"> </p>
+<p>误用入侵检测系统的基本工作模式为：</p>
+<p>(1) 从系统的不同环节收集信息；</p>
+<p>(2) 分析该信息，试图寻找入侵活动的特征；</p>
+<p>(3) 自动对检测到的行为做出响应；</p>
+<p>(4) 记录并报告检测过程结果。</p>
+<p>现在已提出的误用入侵检测系统主要有模式匹配方法、专家系统、状态转换分析系统。</p>
+<p>基于主机的误用入侵检测系统依赖于具体的系统，导致入侵检测系统的移植性和可扩展性差，以及系统维护工作量大等缺点。误用入侵检测的最大缺陷就在于只能检测已知的攻击。</p>
+<p>误用检测技术和异常检测技术相结合是入侵检测系统构成的趋势。</p>
+<p>异常入侵检测(Anomaly Intrusion Detection)是相对于误用入侵检测技术的另外一种入侵检测技术。</p>
+<p>典型的威胁模型将威胁分为外部闯入、内部渗透和不当行为三种类型。</p>
+<p>异常入侵检测的主要前提是入侵活动作为异常活动的子集。入侵性活动常常是由单个活动组合起来执行，单个活动却与异常性独立无关。</p>
+<p>入侵性活动并不总是与异常活动相符合，这里存在4种可能性，每种情况的概率都不为零，分别是入侵性而非异常、非入侵性且是异常的、非入侵性非异常、入侵且异常。</p>
+<p>异常入侵要解决的问题就是构造异常活动集并从中发现入侵性活动子集。异常入侵检测方法依赖于异常模型的建立，不同模型就构成不同的检测方法。</p>
+<p>异常检测的主要缺陷在于误检率很高，误用检测系统的漏报率很高。</p>
+<p>异常入侵检测方法有统计分析异常检测方法、基于模式预测异常检测、基于数据挖掘异常检测、基于神经网络异常检测、基于免疫系统异常检测、 基于特征选择异常检测等。常用的入侵检测有5种统计模型分别是可操作模型、方差、多元模型、马尔柯夫过程模型、时间序列分析。</p>
+<p>数据挖掘(Data Mining)是一种特定应用的数据分析过程，可以从包含大量冗余信息的数据中提取尽可能多的蕴藏的安全信息，抽象出有利于进行判断和比较的特征模型，这些特征模型可以是基于异常检测的特征向量模型，也可以是基于异常检测的行为描述模型。目前应用较多的数据挖掘算法是关联规则(association analysis)、序列挖掘(sequence mining)和数据分类(data classification)。</p>
+<p>基于神经网络的异常检测是指用神经网络对正常行为进行学习，从而检测潜在的攻击。神经网络学习过程包括三个阶段：(1) 网络构造及训练，(2) 网络修剪，(3) 规则提取。</p>
+<p>目前IDS商业产品，大多以基于误用检测为主要的检测技术；可以将异常检测的各种方法综合起来考虑，同时要与误用检测有效的结合起来、相辅相成，建立一个准确、高效的入侵检测系统。基于数据挖掘、神经网络、等的智能化入侵检测是未来入侵检测技术发展的主要方向。</p>
+<h3 id="第五章-串匹配与入侵检测"><a href="#第五章-串匹配与入侵检测" class="headerlink" title="第五章 串匹配与入侵检测"></a><strong>第五章 串匹配与入侵检测</strong></h3><p>串匹配算法就是在文本中搜索指定模式的所有出现位置的算法，在误用入侵检测当中用的比较多。</p>
+<p>串匹配算法的应用：</p>
+<p>文本处理程序</p>
+<p>网络内容分析和检索——病毒和入侵检测</p>
+<p>不良内容过滤</p>
+<p>生物信息学——功能基因组的寻找就是字符串的匹配</p>
+<p>串匹配算法按照它的功能可分为三类：精确匹配算法，近似匹配算法和正则表达式匹配算法。其中精确串匹配技术成为影响入侵检测系统性能的决定因素。</p>
+<p>根据目前字符串精确匹配算法检索符号序列的方式，主要可分为三种模式：前缀模式、后缀模式和结合模式。这三种模式的匹配算法都可以看作是使用一个固定长度的窗口来搜索文本的过程，在窗口内检验文本是否匹配，然后从左向右不断的移动窗口，直到扫描完整个文本。前缀模式使用 KMP（Knuth-Morris-Pratt）算法，后缀模式使用Boyer Moore 算法。</p>
+<p>蛮力法(BruteForce)是最简单的单模式串匹配算法，它通过一个二重循环来求解单模式串匹配问题。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps158.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps159.jpg" alt="img"> </p>
+<p>Boyer Moore 算法是一种基于后缀的匹配算法，它的特点是在窗口内部从右向左逆向匹配，通过两种启发式方法来决定下一次匹配动作匹配窗口的开始位置：良好后缀转移机制和不良字符转移机制。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps160.jpg" alt="img"> </p>
+<p>在处理不同数据时，这些算法各有所长，性能表现也互有胜负。算法的性能表现极大的取决于模式串的符号分布规律和模式串的长度。</p>
+<h3 id="第-六-章-基于主机的入侵检测技术"><a href="#第-六-章-基于主机的入侵检测技术" class="headerlink" title="第 六 章  基于主机的入侵检测技术"></a>第 六 章  基于主机的入侵检测技术</h3><p>在入侵检测系统中，根据系统数据来源的不同，可以将入侵检测系统主要分为基于网络的入侵检测（NIDS）和基于主机的入侵检测（HIDS）。</p>
+<p>HIDS也称软件检测系统主要是对该主机的网络实时连接以及系统审计日志进行智能分析和判断。基于主机的入侵检测系统通过监视与分析主机的审计记录检测入侵。</p>
+<p>Windows NT是目前受到攻击较多的操作系统，Windows NT的日志文件一般分为三类：系统日志 、应用程序日志、安全日志。系统管理员可以使用事件查看器选择要查看的日志条目，查看条件包括类别、用户和消息类型。</p>
+<p>在Windows中，日志文件的类型比较多，通常有应用程序日志，安全日志、系统日志、DNS服务器日志、FTP日志、WWW日志等等。只有系统管理员才能访问“安全日志”和“系统日志”，系统默认的情况下会关闭“安全日志”。系统和应用程序日志存储着故障排除信息，对于系统管理员更为有用。</p>
+<p>HIDS模型如图所示</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps161.jpg" alt="img"> </p>
+<p>选择、提取最能反映主机是否正常工作的主机特征是入侵检测器准确可靠工作的基础。</p>
+<p>主机入侵检测系统与网络入侵检测系统相比,通常能够提供更详尽的相关信息。主机入侵检测系统通常情况下比网络入侵检测系统误报率要低，因为检测在主机上运行的命令序列比检测网络流更简单，系统的复杂性也少得多。主机入侵检测系统除了监测自身的主机以外，根本不监测网络上的情况。</p>
+<h3 id="第-七-章-基于网络的入侵检测系统"><a href="#第-七-章-基于网络的入侵检测系统" class="headerlink" title="第 七 章 基于网络的入侵检测系统"></a>第 七 章 基于网络的入侵检测系统</h3><p>基于网络的入侵检测产品(NIDS),通常也称硬件检测系统,放置在比较重要的网段内，不停地监视网段中的各种数据包。目前，大部分入侵检测产品是基于网络的。</p>
+<p>TCP/IP协议分层结构如图所示：</p>
+<p>一块网卡可能会有两种工作模式：普通模式</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps162.png" alt="img"></td>
+</tr>
+</tbody></table>
+<p>、混杂模式。、</p>
+<p>要想捕获流经网卡的但不属于自己主机的所有数据流，就必须绕开系统正常工作的处理机制，直接访问网络底层。</p>
+<p>交换网络实现数据捕获常用的方法为端口重定向、网关捕获、集线器分出。</p>
+<p>在网络入侵检测系统中，有多个久负盛名的开放源码软件，如Snort、Suricata等。</p>
+<p>一般的NIDS结构模型如图所示</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps163.jpg" alt="img"> </p>
+<p>如果一个IDS可以分成许多功能的小实体，则每一个小实体就是一个代理，</p>
+<p>因此，代理（Agent）是能独立运行的实体。</p>
+<p>NIDS结构图</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps164.jpg" alt="img"> </p>
+<p>管理层是系统的决策与响应部分。</p>
+<p>Snort IDS（入侵检测系统）是一个强大的网络入侵检测系统。它具有实时数据流量分析和记录IP网络数据包的能力，能够进行协议分析，对网络数据包内容进行搜索/匹配。Snort的结构由4大软件模块组成，分别是：数据包嗅探、预处理模块、检测模块、报警/日志模块。其体系结构图如图所示</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps165.jpg" alt="img"> </p>
+<p>Snort拥有三大基本功能：嗅探器、数据包记录器和入侵检测。嗅探器模式仅从网络上读取数据包并作为连续不断的流显示在终端上，常用命令snort -dev。数据包记录器模式是把数据包记录到硬盘上，常用命令snort -b。网络入侵检测模式是最复杂的，而且是可配置的。我们可以让Snort分析网络数据流以匹配用户定义的一些规则，并根据检测结果采取一定的动作。</p>
+<p>基于网络的IDS有许多优点它拥有成本较低并且反应速度快，检测基于主机的系统漏掉的攻击，攻击者不易转移证据， 检测未成功的攻击和不良意图，操作系统无关性。</p>
+<h2 id="数字取证："><a href="#数字取证：" class="headerlink" title="数字取证："></a><strong>数字取证：</strong></h2><h3 id="第一章-计算机取证与司法鉴定概论"><a href="#第一章-计算机取证与司法鉴定概论" class="headerlink" title="第一章 计算机取证与司法鉴定概论"></a><strong>第一章</strong> <strong>计算机取证与司法鉴定概论</strong></h3><p>计算机取证与司法鉴定的定义：计算机取证与司法鉴定是将计算机调查和分析技术应用于对潜在的、有法律效力的证据的确定与获取。</p>
+<p>数字取证的主体对象是存在于各种电子设备和计算机系统中与案件有关的数字化数据信息。</p>
+<p>G8小组提出的六条原则，是国际上最权威的计算机取证与司法鉴定原则：</p>
+<p>1．必须应用标准的取证与司法鉴定过程；</p>
+<p>2．获取证据时所采用的任何方法都不能改变原始证据；</p>
+<p>3．取证与司法鉴定人员必须经过专门培训；</p>
+<p>4．完整地记录证据的获取、访问、存储或传输的过程，并妥善保存这些记录以备随时查阅；</p>
+<p>5．每位保管电子证据的人员必须对其在该证据上的任何行为负责；</p>
+<p>6．任何负责获取、访问、存储或传输电子证据的机构有责任遵循以上原则。</p>
+<p>计算机取证与司法鉴定的实施及其有区别于传统证据调查的环节主要包括以下方面：</p>
+<p>受理案件、保护涉案现场、收集电子证据、固定与保管电子证据、分析电子证据、归档电子证据</p>
+<p>计算机取证与司法鉴定的发展趋势为主机证据保全、恢复和分析技术、网络数据捕获与分析、网络追踪。</p>
+<h3 id="第二章-计算机取证基础知识"><a href="#第二章-计算机取证基础知识" class="headerlink" title="第二章 计算机取证基础知识"></a><strong>第二章 计算机取证基础知识</strong></h3><p>原声像资料鉴定细分为录音资料鉴定、图像资料鉴定和电子数据鉴定三类。</p>
+<p>配置标准及说明</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps166.jpg" alt="img"> </p>
+<p>散列函数在取证中可用于检验文件完整性</p>
+<p>一些简单隐藏数据的方法：（1）修改文件名后缀	（2）修改文件属性隐藏文件	（3）隐藏硬盘分区	（4）修改注册表隐藏分区		</p>
+<p>信息隐藏主要是指将特定的信息嵌入数字化宿主信息(如文本、数字化的声音、图像、视频信号等)中，以不引起检查者的注意，并传送出去。</p>
+<p>通常一个信息隐藏系统具有以下特征：不可感知性、不可检测性、完整性、鲁棒性、安全性、自恢复性。</p>
+<p>隐写术常用的技术：替换技术、变换域技术、失真技术、统计方法。</p>
+<p>时域和频域是信号分享的不同方式，提供了不同的角度。用来分析信号的不同角度称为域。时域是描述物理信号对时间的关系，频域是描述信号在频率方面特性时用到的一种坐标系。</p>
+<p>目前常用的破译，达到拦截和破坏秘密攻击方法有：视觉隐写分析、特征隐写分析、统计隐写分析、学习隐写分析。</p>
+<p>数字水印有两种类型；可见水印和不可见水印。按水印的特性可以将数字水印分为鲁棒数字水印和脆弱数字水印两类。</p>
+<p>隐写术专门研究如何隐藏实际存在的信息。载体信息可以与被隐藏信息无任何关联。水印并不总需隐藏，如可见水印，载体信息与被隐藏信息间有密切关系。</p>
+<p>密码学根据其研究的范畴可分为密码编码学和密码分析学。密码编码学和密码分析学是相互对立，相互促进并发展的。攻击或破译密码的方法主要有三种: 穷举攻击、统计分析攻击、数学分析攻击。</p>
+<p>入侵与攻击手段有：木马与病毒、Sniffer、缓冲区溢出、TCP劫持。</p>
+<p>追踪手段有：追踪入侵者IP、追踪MAC地址、追踪电子邮件。</p>
+<p>计算机证据的保全主要是解决证据的完整性，时间戳是取证工作中非常有用的技术。</p>
+<h3 id="第三章-Windows操作系统的取证与分析"><a href="#第三章-Windows操作系统的取证与分析" class="headerlink" title="第三章  Windows操作系统的取证与分析"></a><strong>第三章  Windows操作系统的取证与分析</strong></h3><p>固定证据有三类分别为固定硬盘、部分文件的固定、固定易丢失的证据。</p>
+<p>现场数据收集主要分为以下几个步骤：</p>
+<ol>
+<li>打开一个可信的命令行解释程序；</li>
+<li>与司法鉴定工作站建立网络连接；</li>
+<li>收集易失性证据。</li>
+</ol>
+<p>深入获取对象为：日志文件和目录、注册表、进程列表、网络轨迹、用户分析。两个关键的证据来源是事件日志和目标系统上的注册表。</p>
+<p>文件和目录分为：启动目录、系统目录、我的文档、最近打开的文档、删除文件的恢复。</p>
+<p>注册表包含启动项、用户信息项、系统信息项。</p>
+<p>进程列表分为系统进程、用户进程、开始运行处的进程和进程分析。其中系统进程一般包括基本系统进程和附加进程。</p>
+<p>所谓网络轨迹，是指系统访问网络之后留下来的一些记录。网络轨迹主要包括：网站访问下拉列表、网站访问历史记录、网站收藏夹，等等。</p>
+<p>常见的证据获取/工具使用有ENCASE、校验值计算工具–md5sum（sha256sum）、进程工具–pslist、注册表工具–autoruns、网络查看工具–TCPView，fport，netstat。</p>
+<h3 id="第四章-Unix-Linux系统的取证与分析"><a href="#第四章-Unix-Linux系统的取证与分析" class="headerlink" title="第四章 Unix/Linux系统的取证与分析"></a><strong>第四章 Unix/Linux系统的取证与分析</strong></h3><p>Unix因为其安全、可靠、高效和功能强大的特点在服务器领域得到了广泛的应用。Linux 操作系统是Unix 操作系统的一种克隆系统，诞生于20世纪90年代。</p>
+<p>Unix/Linux系统由内核和shell组成。</p>
+<p>Unix内核（Kernel）及其主要特点：</p>
+<ol>
+<li>Unix内核是操作系统的管理和控制中心；</li>
+<li>Unix使用了虚拟存储；</li>
+<li>Unix是一个模块化的系统。</li>
+</ol>
+<p>为了保护现场，第一要务即为获取现场证据。对于Unix/Linux操作系统来说，获取现场证据是指最大限度地保存当前系统的运行状态。必须尽可能保存数据，尤其是那些容易被改变的数据，例如屏幕信息、内存信息、网络连接信息、进程信息等，也就是所谓的易挥发性数据。</p>
+<p>常见的Linux/Unix服务器内存转储工具有LiME、Volatilitux。</p>
+<p>Linux系统提供了who、w、ps和top等查看进程信息的系统调用。</p>
+<p>一般情况下可以使用netstat命令查看网络连接，netstat命令的功能是显示网络连接、路由表和网络接口信息，可以让用户得知目前都有哪些网络连接正在运作。</p>
+<p>与微软的操作系统不同，Linux文件被删除后很难恢复。对于Unix/Linux操作系统的文件目录来说，它们是由索引节点来描述的，在文件被删除后，索引节点随即被清空，因此直接恢复Unix/ Linux操作系统下的文件是非常困难的。</p>
+<p>Linux系统一般有3个主要的日志子系统：连接时间日志、进程统计日志和错误日志。</p>
+<p>进程统计最初是用作生成内部记账记录，但现在的主要目的是安全，它可以跟踪每个用户运行的每条命令，维护一份详细的关于每个被调用的进程的记录，与连接时间日志不同，进程统计子系统在默认配置中没有被激活，它必须事前手工启动。</p>
+<p>不少应用程序通过维护日志来反映系统的安全状态。</p>
+<p>其他信息源为：账号信息、时间调度程序、内核转储文件、/tmp、隐藏文件和目录、shell、信任关系、非法文件。</p>
+<p>Unix/Linux取证与分析工具有Autopsy–TCT的图形化界面程序，SMART for Linux–基于Linux的商业化的计算机取证与司法鉴定工具。</p>
+<h1 id="二、基于深度学习的入侵检测研究"><a href="#二、基于深度学习的入侵检测研究" class="headerlink" title="二、基于深度学习的入侵检测研究"></a>二、基于深度学习的入侵检测研究</h1><p>​                 <em><strong>*—-专题调研*</strong></em></p>
+<p>随着网络提供的服务日趋丰富,网络中的数据增长越来越快,网络攻击层出不穷,攻击方式也越来越复杂,传统的入侵检测技术难以应对这样严峻和复杂的环境,急需改进。人工智能技术应用于网络入侵检测是一个趋势,深度学习模型有着更高的检测准确率,随着硬件和云计算的发展,算力不断提高,使得深度学习模型的优势得以充分发挥,应用深度学习方法进行网络入侵检测研究前景广阔。</p>
+<p><em><strong>*（一）初步了解深度学习*</strong></em></p>
+<p>深度学习是机器学习的一种方法，它使用深度神经网络来学习数据的特征。深度神经网络是一种多层的人工神经网络，由输入层、隐藏层和输出层组成。它使用反向传播算法来调整权值和偏差，以便在训练期间更好地预测结果。深度学习在许多领域都得到了应用，包括计算机视觉、语音识别、自然语言处理和游戏等。它可以用于处理大量数据，并可以自动学习数据中的复杂特征。因此，它在许多情况下都可以取得比传统机器学习方法更好的结果。</p>
+<p>近年来，深度学习模型在大数据分析中取得了很好的成效，许多研究人员开始将深度学习技术应用在入侵检测模型上，基于深度学习的入侵检测模型被广泛研究和应用。本文主要调查近年来深度学习技术在入侵检测上的应用成果，对其自身的优点和不足进行阐述，并对入侵检测模型未来的挑战进行分析。</p>
+<p>目前，这些采用的深度学习分类算法主要有５种，包括深度神经网络（ＤＮＮ）、卷积神经网络（ＣＮＮ）、循 环 神 经 网 络 （ＲＮＮ）、深 度 信 念 网 络 （ＤＢＮ）［１４］和自编码器（ＡＥ）.同时，一些深度学习的网络空间安全应用也使用ＲＮＮ，ＡＥ，ＤＢＮ进行深度学习模型的特征提取。</p>
+<p><strong>（二）</strong><em><strong>*数据集选取与数据分析*</strong></em></p>
+<p>数据集的分布和结构集中反映了受保护系统运行状态和行为为入侵分析程序提供原始的安全审计数据。这些安全审计数据是入侵检测算法的处理对象，算法的部分任务就是从这些原始审计数据集中提取特定的入侵模式。入侵检测算法的实现需要有足够的先验知识。为了验证算法的性能，将通用的数据集分为训练数据集和测试数据集。作为入侵检测算法进行学习和处理的对象，要求所选择的数据集应具备如下特点：①需要有足够的、全面而真实的反映系统全状态的先验数据；②安全审计数据集在正常情况下是非常稳定的且全面的；③先验数据集中要能够反映各类攻击事件的特征分布；以便各种入侵检测算法学习到入侵模式；④攻击行为总是使安全审计数据的某些特征变量明显地偏离正常值。</p>
+<p>Stolfo 教授领导 的哥伦 比亚大学 IDS 实验室等公布 的安全审计数据集 KDD CUP99 是从1998年MITLL的IDS数据集整理来的，其中仅包含了网络流量数据，是目前大家公认的、实用的网络安全审计数据集，许多论文及研究成果都</p>
+<p>基于该数据集为研究基础。该数据集包括 ：</p>
+<p> (1)全部数据集：训练数据集kddcup.data.gz，18M; 测试数据集 kddcup.testdata.unlabeled.gz,11.2M;</p>
+<p> (2)10%数据集 ：训练数据集 kddcup.data_10_percent.gz（含攻击标记），2.1M ；测试数据集 kddcup.newtestdata.unlabeled_1 0_percent.gz(不含攻击标记)，1.4M ：</p>
+<p>(3) corrected.gz 为含有攻击标记 的测试数据集，研究人员可用此数据集对白已算法的检测结果进行对照与分析。</p>
+<p>迄今为止网络安全审计研究人员使用较多的足10% 数据集。本次调研选取10%数据集作为分析对象。 </p>
+<p>在ＫＤＤ－ＣＵＰ９９数据集中，最后一个标识类用来表示每条连接记录的类型，共分成５种类型．其中包含有１种正常类型和其他４种异常类型，如图６所示。正常类型只有１种，其属性值为“normal”，异常类型有41种具体属性值。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps167.jpg" alt="img"> </p>
+<p>在训练数据集中包含了1种正常的标识类型normal和22种训练攻击类型,如表1所示</p>
+<p>表1  KDDCup99入侵检测实验数据的标识类型</p>
+<table>
+<thead>
+<tr>
+<th><em><strong>*标识类型*</strong></em></th>
+<th><em><strong>*含义*</strong></em></th>
+<th><em><strong>*具体分类标识*</strong></em></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Normal</td>
+<td>正常记录</td>
+<td>Normal</td>
+</tr>
+<tr>
+<td>DOS</td>
+<td>拒绝服务攻击</td>
+<td>back、land、neptune、pod、smurf、teardrop</td>
+</tr>
+<tr>
+<td>Probing</td>
+<td>监视和其他探测活动</td>
+<td>ipsweep、nmap、portsweep、satan</td>
+</tr>
+<tr>
+<td>R2L</td>
+<td>来自远程机器的非法访问</td>
+<td>ftp_write、guess_passwd、imap、multihop、phf、spy、warezclient、warezmaster</td>
+</tr>
+<tr>
+<td>U2R</td>
+<td>普通用户对本地超级用户特权的非法访问</td>
+<td>buffer_overflow、loadmodule、perl、rootkit</td>
+</tr>
+</tbody></table>
+<p>需要说 明 以下 几点 ：</p>
+<p> (1)部分攻击行为只包含在测试数据集中而没有包含在训练数据集中。这样设计是因为优秀的入侵检测算法通过对训练数据集的学习，可以识别一些没有遇到过的、新的攻击行为。</p>
+<p> (2)训练数据集和测试数据集正常连接的数据记录(Normal)分布基本一致 ， 但攻击数据分布不一致。有的差别较大如图所示 。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps168.jpg" alt="img"> </p>
+<p> (3)训练数据集中包含的U2R和R2L攻击很少(0.238%)，测试数据集二者所 占的比例较多(5.278%)，综合比较现有的各种入侵检测算法分类结果，这两类攻击的检错率较高。实际上通过网络流量检测并区分U2R和R2L攻击十分困难，因 为二者都只有少量的格式化网络连接信息。因此一些入侵检测算法中将二者作 为一种攻击来考虑。</p>
+<p> (4)在对入侵检测算法进行评估测试时使用未标注的测试数据集：带有标注 的数据集是用来验证算法的性能的。</p>
+<p>数据特征：KDDCup99训练数据集中每个连接记录包含了41个固定的特征属性和1个类标识,如图1-1所示,标识用来表示该条连接记录是正常的,或是某个具体的攻击类型。在41个固定的特征属性中,9个特征属性为离散(symbolic)型,其他均为连续(continuous)型。</p>
+<p> KDD CUP99两种数据集都采用文本格式存储，并使用相同的记录格式。每条记录包含从一条连接中提取的包括41个特征。</p>
+<p><em><strong>*（三）使用CNN进行网络入侵检测*</strong></em></p>
+<p>1.数据预处理</p>
+<p>数据集中数据属性存在着文本数据，为了更好地实现数值计算，需要对数据属性文本值进行处理，即符号型特征数值化．之后还需要对特征属性值进行标准化。将数据预处理分为三步</p>
+<p>（１）数值标准化</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps169.jpg" alt="img"> </p>
+<p>其中，AVGj表示平均值，STADj表示平均绝对偏差，使用平均绝对偏差是因为其对于孤立点比较适用，鲁棒性更佳。当AVGj＝０时，Ｘ′ｉｊ＝０；当STADj＝０时，Ｘ’i＝０．</p>
+<p>（２）数值归一化</p>
+<p>数值标准化后，进一步进行数据处理，对需要处理的属性归一化。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps170.jpg" alt="img"> </p>
+<p>其中，Ｘ′ｉｊ 归一化后的值为Ｘ″ｉｊ 。</p>
+<p>（３）独热编码</p>
+<p>对离散化后数据进行独热编码［１４］，独热编码的数据为标识类，能够有效地解决分类器不好处理属性数据，提高模型运算效率。</p>
+<p>数据预处理流程如图所示</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps171.jpg" alt="img"> </p>
+<p>部分代码如图所示</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps172.jpg" alt="img"> </p>
+<ol start="2">
+<li>卷积层数据处理</li>
+</ol>
+<p>卷积层通过卷积运算可提取出数据的特征，同时使输入数据的某些特征变更加明显，并减小噪声。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps173.jpg" alt="img"> </p>
+<p>3.全连接层数据处理</p>
+<p>经过卷积和拼接后，网络数据中的抽象特征已被提取出具体的明显特征，完成了一个有效的数据特征提取过程。使用一个全连接层将诸多数据进行分类，准确识别每种数据的类别。</p>
+<p>4.实验结果</p>
+<p>实验中，数据集经过预处理后划分为训练集和测试集，之后使训练集满足网络模型的输入要求，网络各参数设置完成后对网络进行训练，模型训练结束后将测试集带进去，得出准确率高于98.5%。在训练和测试过程中需要监控相应的指标（metric），观察准确度，即正确分类的流量所占的比例，所以选择 accuracy。选取部分经典机器学习分类算法进行对比实验，选择 NB、LR、SVM 和 NN。实</p>
+<p>验结果如图所示，基于CNN提出的入侵检测模型在准确率优于一般机器学习分类模型。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps174.jpg" alt="img"> </p>
+<p>5.总结</p>
+<p>快速有效地发现对网络安全有威胁的网络流量是入侵检测中非常重要的环节， 深度学习在入侵检测方面的应用大多优于机器学习，但是深度学习模型智能化不够、适应性不强且基于深度学习的入侵检测鲁棒性较差，易受攻击。同时随着时间的发展和新应用的出现，新的攻击以及变体不断出现，原先的数据集过于陈旧。总的来说将深度学习与入侵检测结合起来仍是一个很好的方向，值得我们去深入研究。</p>
+]]></content>
+      <tags>
+        <tag>数字取证入侵检测</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>volatility取证</title>
+    <url>/2022/12/07/volatility%E5%8F%96%E8%AF%81/</url>
+    <content><![CDATA[<ol>
+<li><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2></li>
+</ol>
+<p>Win7虚拟机、Kali虚拟机</p>
+<ol start="2">
+<li><h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a><strong>实验内容</strong></h2></li>
+</ol>
+<p>使用 Volatility 取证软件从内存转储文件中获取有用信息，包括：</p>
+<p>1. 查看内存镜像中进程列表</p>
+<ol start="2">
+<li><p>查看内存镜像中注册表信息</p>
+</li>
+<li><p>获取用户名和用户登陆密码</p>
+</li>
+<li><p>查看转储前都运行了哪些程序</p>
+</li>
+<li><p>把某个程序的相关数据转储成一个文件，对这个文件进行进一步分析</p>
+</li>
+<li><p>提取目标系统的命令行历史</p>
+</li>
+<li><p>提取目标系统的网络连接情况</p>
+</li>
+</ol>
+<blockquote>
+<p>8. 提取目标系统的使用 IE 浏览器访问网络情况</p>
+</blockquote>
+<ol start="3">
+<li><h2 id="实验过程-nbsp"><a href="#实验过程-nbsp" class="headerlink" title="实验过程&nbsp;"></a><strong>实验过程</strong>&nbsp;</h2></li>
+<li><p>首先使用内容转储软件 dumpit 在 Windows7 虚拟机（目标系统）中将内存中所有信息转储为一个文件。</p>
+</li>
+</ol>
+<p>   2. 将转储生成的文件拷贝到 Kali 系统中进行分析。</p>
+<ol start="4">
+<li><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h2></li>
+</ol>
+<p><strong>1.</strong> <em><strong>*基本使用*</strong></em></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps75.jpg" alt="img"> </p>
+<p><strong>2.</strong> <em><strong>*制备实验用的转储文件 在目标系统中打开一些应用程序。记事本、画图、终端、计算器。（注意， 在记事本文件中输入一些信息，最好是纯英文文本并进行内存的转储</strong></em></p>
+<p><em><strong>*</strong></em><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps76.jpg" alt="img"></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps77.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps78.jpg" alt="img"> </p>
+<p><em><strong>*2.下面使用 kali 分析转储生成的 raw 文件。*</strong></em></p>
+<p>(1).kali 系统里如果没有安装 volatility，先安装一下： apt-get install volatility 安装失败，选择使用可执行文件夹安装，然后可以输入命令：volatility -h 查看该软件帮助文档–profile=**** 提供待分析转储内存使用系统信息，例如 Win7SP1x86。如果不 知道详细信息，volatility 可以自己分析，使用插件命令 imageinfo，内存中有大量的信息，有些信息是非常诱人的信息（明文，证书秘钥等等），关键是如何快速找出来。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps79.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps80.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps81.jpg" alt="img"> </p>
+<p>(2) .可以使用 pslist 查看内存镜像中进程列表：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps82.jpg" alt="img"> </p>
+<p>(3).在 Windows 系统中，内存中缓存了几乎全部的注册表信息。注册表信息是存放 在注册表文件（hive）中，可以使用命令 hivelist 来查看内存中缓存的注册表信 息（例如：所有用户用户名、密码 hash 值，病毒隐藏，恶意启动项，映射劫持）。涉及到计算机架构、系统结构、注册表结构等大量背景知识，这里只展示皮毛。使用 hivelist 查看内存镜像中注册表文件列表：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps83.jpg" alt="img"> </p>
+<p>其中 SAM 中保存着用户名和密码信息，SOFTWARE 中保存着系统中所有安装 的软件信息等等，要查看文件内容，需要将这些文件转储（dump）出来。</p>
+<p>(4).hivedump 命令可以查看前面 hivelist 所列出的所有 hive 文件内容，要查看SOFEWARE中内容 ：</p>
+<p>使用volatility -f  .raw –profile=Win7SP1x86 hivedump - 命令，就可以看到原 Win7 系统注册表 hive 文件 SOFTWARE 的内容。通过这个我们 可以看到原系统都安装了哪些软件。 hivedump 命令需要传递一个 offset（偏移量）参数，接在 -o 后面，这个参数可 以由前面 hivelist 给出的地址信息获取到。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps84.jpg" alt="img"> </p>
+<p>(5).查看注册表中某一项的键值，例如在 SAM 文件中获取原系统的所有用户账号。 命 令 格 式 ： volatility -f  .raw –profile=Win7SP1x86 printkey -K “SAM\Domains\Account\Users\Names”</p>
+<p>在 Win7 中打开注册表管理器</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps85.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps86.jpg" alt="img"> </p>
+<p>使用 printkey 命令对转储的.raw 文件查询的结果与直接在目标系统中使用注册表 编辑器查看的结果是一致的。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps87.jpg" alt="img"> </p>
+<p>在结果中自己去寻找用户名</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps88.jpg" alt="img"> </p>
+<p>(6).使用到插件命令 hashdump，命 令形式： volatility -f  .raw –profile=Win7SP1x86 hashdump -y system -s SAM进一步取得用户密码的哈希值</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps89.jpg" alt="img"> </p>
+<p>(7).使用Volatility的插件查看用户的密码<img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps90.jpg" alt="img"></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps91.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps92.jpg" alt="img"> </p>
+<p>(8).使用 userassist 命令可以获取到内存被转储前都运行了哪些程序，运行多少次， 最后一次运行的时间</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps93.jpg" alt="img"> </p>
+<p>(9).volatility 还可以使用插件命令 memdump 把某个程序（进程）的相关数据转储成一个文件，然后对这个文件进行进一步分析。命令格式为： volatility -f .raw –profile=Win7SP1x86 memdump -p1528-D mem。先在 home 目录下生成 mem 目录。把记事本程序在内存中相关数据转储成一个.dmp文件。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps94.jpg" alt="img"></p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps95.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps96.jpg" alt="img"> </p>
+<p>(7) .使用 hexeditor 打开dmp文件</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps97.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps98.jpg" alt="img"> </p>
+<p>(8) .使用 strings 命令提取文件中的字符串</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps99.jpg" alt="img"> </p>
+<p>(12).在内存转储的文件1528.dmp 文件中获取到相关内容<img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps100.jpg" alt="img"></p>
+<p>(13).使用 cmdscan 插件命令从转储内容中提取目标系统的命令行历史 <img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps101.jpg" alt="img"></p>
+<p>(14).使用 netscan 插件命令从转储内容中提取目标系统的网络连接情况 <img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps102.jpg" alt="img"></p>
+<p>(15).使用 iehistory 插件命令从转储内容中提取目标系统的使用 IE 浏览器访问网络 情况<img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps103.jpg" alt="img"></p>
+<p>没有在win7使用过任何浏览器包括ie所以没有记录。</p>
+<h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>1、安装volatibity时使用apt-get install volatibity 安装失败</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps104.jpg" alt="img"> </p>
+<p>2、使用Mimikatz时constrcut 时要指定版本pip install construct==2.5.5-reupload不然会报错</p>
+]]></content>
+      <categories>
+        <category>数字取证</category>
+      </categories>
+      <tags>
+        <tag>数字取证</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>可信计算</title>
+    <url>/2022/11/15/%E5%8F%AF%E4%BF%A1%E8%AE%A1%E7%AE%97/</url>
+    <content><![CDATA[<h1 id="实验一-PGP实验"><a href="#实验一-PGP实验" class="headerlink" title="实验一:PGP实验"></a>实验一:PGP实验</h1><h2 id="一．-实验目的与配置"><a href="#一．-实验目的与配置" class="headerlink" title="一． *实验目的与配置*"></a><strong>一．</strong> <em><strong>*实验目的与配置*</strong></em></h2><ol>
+<li>了解PGP软件的功能与使用</li>
+<li>掌握加解密的原理和公钥体制</li>
+<li>掌握PGP的加密原理</li>
+</ol>
+<h2 id="二．-实验环境"><a href="#二．-实验环境" class="headerlink" title="二． *实验环境*"></a><strong>二．</strong> <em><strong>*实验环境*</strong></em></h2><p>Win10</p>
+<h2 id="三．-实验工具"><a href="#三．-实验工具" class="headerlink" title="三． *实验工具*"></a><strong>三．</strong> <em><strong>*实验工具*</strong></em></h2><ol>
+<li>PGP加密软件</li>
+<li>测试客户机一台，安装Windows系统</li>
+<li>测试用文件若干</li>
+</ol>
+<h2 id="四．-实验过程与步骤"><a href="#四．-实验过程与步骤" class="headerlink" title="四． *实验过程与步骤*"></a><strong>四．</strong> <em><strong>*实验过程与步骤*</strong></em></h2><p>1、PGP加密软件的安装（<a href="https://www.cr173.com/soft/739160.html">下载PGP10</a>）</p>
+<p>　　参见安装说明<a href="https://www.cr173.com/soft/739160.html%E3%80%82">https://www.cr173.com/soft/739160.html。</a></p>
+<p>打开PGP Desktop,点击“Help”-&gt;“License…”下看到PGP的5个产品功能已激活，表示成功安装PGP。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps273.jpg" alt="img"> </p>
+<p>2、生成密钥</p>
+<p>要使用该软件进行加密的话，首先要生成一对密钥。也就是一个公钥和一个私钥。其中公钥是发送给别人用来加密钥发送给自己的文件的，私钥是自己保存，用于解密别人用公钥加密的文件，或者起数字签名的作用。</p>
+<p>PGP有很好的创建密钥对的向导，跟着向导很容易生成一对密钥。每一对密钥都对应着一个确定的用户。用户名不一定要真实，但是要方便通信者看到该用户名能知道这个用户名对应的真实的人；邮件地址也是一样不需要真实，但是要能方便与你通信的人在多个公钥中快速的找出你的公钥。</p>
+<p>密钥对的私钥还必须进一步用密码加密，这个加密是对你的私钥加密。这个密码非常重要，切记不要泄漏了，为安全起见，密码长度至少8位，而且应该包含非字母的字符。</p>
+<p>操作步骤：“File” →“New” →“PGP Key”，然后按照向导填入如下信息：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps274.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps275.jpg" alt="img"> </p>
+<p>3、导出并发送公钥</p>
+<p>我们刚才生成了一个名为“zy”的密钥对，如下图：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps276.jpg" alt="img"> </p>
+<p>现在将这个密钥导出，在这个密钥上右击选择“Export…”</p>
+<p>导出密钥后，把密钥文件保存在硬盘上，并把公钥文件发送到一个“公钥管理”文件夹（例如QQ群文件中建一个公钥管理文件夹），大家的公钥整理后都放在这个夹里。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps277.jpg" alt="img"> </p>
+<p>用记事本打开其中一个观察</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps278.jpg" alt="img"> </p>
+<p>　　注意：如果想同时导出公钥和私钥，就把“Include Private Key（s）”选上。如果只想导出公钥给别人加密使用，千万不能选上。</p>
+<p>4、文件加密与解密</p>
+<p>(1) 若Alice想给Bob发送加密文件，则从“公钥管理”文件夹获取Bob的公钥，即bob.asc，放到指定的位置，然后双击这个公钥文件，点击“Import”，即将这个文件导入到密钥盘上。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps279.jpg" alt="img"> </p>
+<p>(2) Alice用Bob的公钥将一个文件加密,例如文件“A Practical Guide To TPM2.0.pdf”，方法如下：</p>
+<p>右键单击该文件→选择“PGP Desktop” →选择“Secure “A Practical Guide To TPM2.0.pdf” with key…”,在弹出的对话框中选择Bob 的公钥“<a href="mailto:Bob@qq.com">Bob@qq.com</a>”，并点击“Add…”。最终得到一个加密文件“A Practical Guide To TPM2.0.pdf.pgp”。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps280.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps281.jpg" alt="img"> </p>
+<p>(3)Alice通过邮件或其他通信软件，将加文件密文“A Practical Guide To TPM2.0.pdf.pgp”发送给Bob。</p>
+<p>(4)Bob收到文件后，利用自己的私钥将文件解密。方法如下：右键单击加密后的文件“A Practical Guide To TPM2.0.pdf.pgp”，选择“PGP Desktop” →选择“Decrypt &amp; Verify “A Practical Guide To TPM2.0.pdf.pgp””。从而得到原文件明文，即 “A Practical Guide To TPM2.0.pdf”。</p>
+<p>对比解密加密：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps282.jpg" alt="img"> </p>
+<p>5、数字签名</p>
+<p>　　对文件签名只能证明是你发出该文件，但是文件的内容并没有被加密，同时，进行数字签名时，关注的是表明该文件是从自己这里发出，因此对于文件的内容并不在意被别人看到，经过数字签名的文件要同原明文文件一同发送给对方，对方才能验证数字签名是否有效。操作方法如下：</p>
+<p>(1) 右键单击文件“A Practical Guide To TPM2.0.pdf”，选择“PGP Desktop” →选择“Sign as…”→选择使用“Alice &lt;Alice @153.com&gt;”的私钥签名，从而得到签名文件“A Practical Guide To TPM2.0.pdf.sig”。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps283.jpg" alt="img"> </p>
+<p>(2) Alice通过邮件或其他通信软件，将原文件“A Practical Guide To TPM2.0.pdf”和签名文件“A Practical Guide To TPM2.0.pdf.sig”发送给Bob。</p>
+<p>Bob将两个文件方法同一目录下，双击签名文件“A Practical Guide To TPM2.0.pdf.sig”即可验证签名。</p>
+<p>（3）Bob从“公钥管理”文件夹获取Alice的公钥，即alice.asc，然后双击这个公钥文件，点击“Import”，即将这个文件导入到密钥盘上。</p>
+<p>导入Bob的公钥以后，打开PGP Desktop，选择“All Keys” →右键单击“Bob” →选择“Sign”（使“Bob”的“Verified”状态变为“✔”）。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps284.jpg" alt="img"> </p>
+<p>Bob将两个文件方法同一目录下，双击签名文件“A Practical Guide To TPM2.0.pdf.sig”即可验证签名。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps285.jpg" alt="img"> </p>
+<h1 id="实验二-TPM实验"><a href="#实验二-TPM实验" class="headerlink" title="实验二:TPM实验"></a>实验二:TPM实验</h1><h2 id="一．-实验目的与配置-1"><a href="#一．-实验目的与配置-1" class="headerlink" title="一． *实验目的与配置*"></a><strong>一．</strong> <em><strong>*实验目的与配置*</strong></em></h2><ol start="4">
+<li>初步了解TPM的工作原理</li>
+<li>理解TPM使用不同策略加解密时函数接口和相应的输入输出</li>
+<li>进一步了解TPM的设计</li>
+</ol>
+<h2 id="二．-实验环境-1"><a href="#二．-实验环境-1" class="headerlink" title="二． *实验环境*"></a><strong>二．</strong> <em><strong>*实验环境*</strong></em></h2><p>Win10系统</p>
+<h2 id="三．-实验工具-1"><a href="#三．-实验工具-1" class="headerlink" title="三． *实验工具*"></a><strong>三．</strong> <em><strong>*实验工具*</strong></em></h2><p>TPM模拟器、Visual Studio 2020</p>
+<h2 id="四．-实验原理与步骤"><a href="#四．-实验原理与步骤" class="headerlink" title="四． *实验原理与步骤*"></a><strong>四．</strong> <em><strong>*实验原理与步骤*</strong></em></h2><p>1.搭建TPM环境</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps286.jpg" alt="img"> </p>
+<p>2.运行TSS.CPP.Samples</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps287.jpg" alt="img"> </p>
+<p>3.hash（）</p>
+<p>TPM2.0规范允许使用多种不同的哈希算法，这其中包括SHA-1，SHA-256，SHA-384。 通常情况下，一个TPM硬件实现的算法是规范中所有算法的一个子集。</p>
+<p>调用TPM API，使用SHA-1和SHA-256分别进行生成简单哈希值，如果期望值与生成值相同，则输出</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps288.jpg" alt="img"> </p>
+<ol start="4">
+<li>HMAC（）</li>
+</ol>
+<p>HMAC被广泛用于证明一个用户拥有一个TPM资源实体的使用权限。TPM2.0也支持这种授权方式。HMAC密钥是TPM设备和用户都知道的共享秘密。用户在使用这个TPM对象之前需要首先构造一个命令消息，然后由对象的权限信息派生出HMAC密钥，接着使用HMAC密钥对命令消息做HMAC操作。当TPM收到命令消息和前述的HMAC操作结果之后，使用同样的方法产生HMAC结果。如果两个HMAC值相同就说明命令没有在传输过程中被修改，即命令消息具备完整性。并且命令的发送者确实知道与这个TPM对象关联的HMAC密钥，这意味着命令发送者是经过授权的。这就是一个基于HMAC的授权过程。</p>
+<p>调用TPM API，利用SHA-1生成哈希运算消息认证码</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps289.jpg" alt="img"> </p>
+<ol start="5">
+<li>EncryptDecryptSample（）</li>
+</ol>
+<p>AES对称加密算法在TPM中有以下三种不同的应用：</p>
+<p>1.保证TPM数据的机密性。此时对称密钥不会被存储到TPM之外，所以只有TPM可以创建和访问它们。当一种密钥因为存储空间的原因需要被存储到TPM之外时，它首先会被只有TPM可以访问的对称密钥加密。</p>
+<p>2.加密进出TPM的通信数据。此时对称密钥由消息发送者和TPM都知道秘密信息派生而来。通信过程中的数据会被这个密钥加密。</p>
+<p>3.把TPM当作一个对称加解密协处理器。因为TPM完全具备对称加解密的功能，这是完全可行的。你可以将一个对称密钥导入TPM，然后让TPM使用这个密钥来对数据加密。因为TPM的运算速度很慢，所以单纯的加解密功能通常用于少量数据加密。但是这个功能可以避免软件工程师使用密码运算函数库。如果加解密功能在TPM中是非必需的功能，TPM厂商倾向于不加入这个功能。因为在硬件中实现加解密功能常常会遇到商业授权方面的限制。</p>
+<p>调用TPM API，利用AES进行加密解密演示，对明文加密再解密后得到一致的消息</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps290.jpg" alt="img"> </p>
+<ol start="6">
+<li>RsaEncryptDecrypt()</li>
+</ol>
+<p>RSA是广为人知的一种非对称加密算法。它使用一种能将大数转换成大素数的函数作为单向函数（这里的大就理解为位数很长很长的数，通常编码实现上利用一个大的数组来存储）。对于RSA来说，一个消息分别经过RSA的公钥和私钥作用之后，会返回成原来的样子，并且与两个密钥作用的顺序无关。</p>
+<p>调用TPM API ，使用RSA对明文进行加密解密</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps291.jpg" alt="img"> </p>
+<ol start="7">
+<li>NV（）</li>
+</ol>
+<p>TPM使用非易失性内存来存储两种类型的数据：</p>
+<p>1.TPM架构定义的数据结构。</p>
+<p>2.用户或者平台相关的规范定义的非结构性数据。</p>
+<p>TPM非易失性内存的一个应用是用于存储架构或者TPM软件规范定义的数据。这些数据包括授权值，种子，凭据以及TPM从不会暴露在安全边界之外的私有数据。</p>
+<p>NV最基本的应用包括给TPM设备初始配置证书或者公钥。高级一点的应用是将NV授权信息应用于一个policy中，然后让多个TPM实体共享这个policy。一个使用位域索引或者计数器索引的policy可以被用于撤销密钥访问权限。一个扩展的索引提供与PCR相同的特性，它可以支持不同的算法，支持授权，并且具有相同的生命周期特性。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps292.jpg" alt="img"> </p>
+<p>8.PCR（）</p>
+<p>平台配置寄存器是TPM必需的特性之一。它们最初的应用是用于提供一种密码学的方式记录（测量）软件的状态：包括平台上运行的软件和软件使用的配置数据。PCR的更新方法叫做扩展，扩展是一种单向的哈希操作，从而保证测量值不被篡改。这些用于测量的PCR可以被读取来报告这些软件的状态。这些PCR的值可以被签名然后用于更加安全的报告，这被称作认证（或者说引用）。PCR还可以被用于扩展的授权policy从而限制其他TPM对象的使用。</p>
+<p>TPM从来不对测量的结果做任何判定。单单根据TPM内部的信息来看，并不能确定测量结果的好坏，或者结果是否安全可信。在测量软件时，TPM仅仅用PCR来记录测量值。至于是否安全，这要到应用程序真正使用PCR用于policy授权的时候，或者是远程请求者请求一个签名认证（quote，引用）然后判定可信性。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps293.jpg" alt="img"> </p>
+<p>遇到问题及解决方法：</p>
+<p>直接点击项目进入vs时因为版本适配问题会弹出工具适配下载，一定要选择同意才能进行下一步，然后进去之后有两个文件，直接点击运行的话会优先运行TSS.CPP，</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps294.jpg" alt="img"> </p>
+<p>弹出如下错误</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps295.jpg" alt="img"> </p>
+<p>百度上所述方法未能解决，将TSS.Cpp从项目里移除只运行TSS.CPP.Samples即可</p>
+<p>运行成功：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps296.jpg" alt="img"> </p>
+]]></content>
+      <tags>
+        <tag>可信计算</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>活取证死取证</title>
+    <url>/2022/12/10/%E6%B4%BB%E5%8F%96%E8%AF%81%E6%AD%BB%E5%8F%96%E8%AF%81/</url>
+    <content><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>1.在Win7操作系统下使用procdump+strings得到想要的dump文件，从内存中还原文字。</p>
+<p>2.利用prodump+strings从Win7操作系统固定图片在Kali下的gimp工具中从内存还原图片</p>
+<p>3.利用prodump从Win7操作系统提取明文用户名密码，Kali下的mimikatz工具还原。</p>
+<p>4.利用加载在Win7操作系统下的kali的live镜像制作当前系统的镜像</p>
+<p>5.利用kali下的Autopsy进行硬盘分析。</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><p>一．活取证： </p>
+<p>1.从内存还原文字 </p>
+<p>2.从内存还原图片 </p>
+<p>3.从内存中提取明文密码</p>
+<p>二．死取证：</p>
+<p>1.使用 Kali live 制作光盘镜像 </p>
+<p>2.使用 Autopsy 对硬盘镜像进行分析</p>
+<h2 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h2><p>Win7虚拟机、Kali虚拟机</p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><h3 id="一．活取证："><a href="#一．活取证：" class="headerlink" title="一．活取证："></a>一．活取证：</h3><p><em><strong>*1.从内存还原文字*</strong></em> </p>
+<p>(1).Win7 系统下进行实验，以记事本程序为例。打开一个记事本，tasklist 命令可 以查看该程序（notepad.exe）的映像名和 PID 等信息。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps105.jpg" alt="img"> </p>
+<p>(2).使用 procdump 工具提取 notepad 程序在内存中的镜像</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps106.jpg" alt="img"> </p>
+<p>(3).使用 strings 工具提取出其中的字符串，找到有用信息。 命令：srtings.exe notepad.dmp &gt; notepad.txt</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps107.jpg" alt="img"> </p>
+<p>(4).打开 notepad.txt:</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps108.jpg" alt="img"> </p>
+<p><em><strong>*2.从内存还原图片*</strong></em> </p>
+<p>(1).用画图工具打开一幅图片，画图工具程序名是“mspaint.exe”</p>
+<p>(2).可以使用 procdump 抓取其内存中的内容：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps109.jpg" alt="img"> </p>
+<p>(3).分析处理 mspaint.dmp 文件还是需要在 kali 系统中进行，将其拷贝到 kali 系统：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps110.jpg" alt="img"> </p>
+<p>(4).用 gimp 打开 mspaint.data，打开后显示的图片是一团混乱的像素点，通过调 节宽度、高度以及位移三个参数，从混乱中寻找可能的图像</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps111.jpg" alt="img"> </p>
+<p>(5).在目标系统中启动 mstsc（远程桌面程序）并登陆一台远程计算机</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps112.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps113.jpg" alt="img"> </p>
+<p>(6).抓取远程桌面的内存数据把 mstsc.dmp 拷贝到 kali 系统中进行处理</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps114.jpg" alt="img"> </p>
+<p>(7).从图像中读取目标系统中远程桌面应用程序中图像的基本信息。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps115.jpg" alt="img"> </p>
+<p><em><strong>*3.从内存中提取明文密码*</strong></em></p>
+<p>(1)****.****使用 procdump 从 这个程序的内存中提取用户的密码</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps116.jpg" alt="img"> </p>
+<p>(2).获取到 dmp 文件后，使用 mimikatz 进行密码提取</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps117.jpg" alt="img"> </p>
+<p>kali 中有 mimikatz 这个软件，但是这个软件是在 windows 系统中使用的，可以 从 kali 中把它拷贝到 windows 中。</p>
+<p>(2) .在依次使用命令：sekurlsa::minidump lsass.dmp 和 sekurlsa::logonPasswords 就 可以将用户密码提取出来</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps118.jpg" alt="img"> </p>
+<h3 id="二、死取证："><a href="#二、死取证：" class="headerlink" title="二、死取证："></a>二、死取证：</h3><p><em><strong>*1.使用 Kali live 制作光盘镜像*</strong></em> </p>
+<p>(1).使用 Live 版 Kali 系统中的 Guymager 来创建一台 Win7 虚拟机的硬盘镜像 首先要将 Live 版 Kali 的 iso 文件装载到 Win7 虚拟机，启动虚拟机，让电脑从光 盘启动，进入 Live 版的 Kali 系统。</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps119.jpg" alt="img"> </p>
+<p>(2).打开 guymager 程序：</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps120.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps121.jpg" alt="img"> </p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps122.jpg" alt="img"> </p>
+<p><em><strong>*2.使用 Autopsy 对硬盘镜像进行分析*</strong></em></p>
+<p>(1).在 kali 终端输入 autopsy 回车，会启动 autopsy 的服务器端，该服务器在端口 9999 进行侦听，可以使用浏览器访问</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps123.jpg" alt="img"> </p>
+<p>(2).在浏览器地址栏输入上面网址</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps124.jpg" alt="img"> </p>
+<p>(3).先创建一个新的 case</p>
+<p>(4).为这个 case 添加主机信息</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps125.jpg" alt="img"> </p>
+<p>(5).点击 ADD HOST 后，在下个页面完善主机信息</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps126.jpg" alt="img"> </p>
+<p>(6).将硬盘镜像上传到新建的 case 中，点击 ADD IMAGE</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps127.jpg" alt="img"> </p>
+<p>(7).导入方法分为三种形式：symlink（镜像放在原位置/root 中，如镜像文件移动， 这个 case 就无法再找到这个镜像继续进行分析了），Move（把镜像从原位置剪 切到 Autopsy 的 evidence locker 中，evidence locker 可以对其中的数据进行写保 护，但是如果 move 过程中如果断电，镜像会被损坏），Copy（把镜像从拷贝一 份到 Autopsy 的 evidence locker 中，比较保险，一般选 copy）</p>
+<p><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps128.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps129.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps130.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps131.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps132.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps133.jpg" alt="img"><img src="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps134.jpg" alt="img"> </p>
+<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>1、使用远程桌面连接是因为win7属性导致不能连接所以改用win10链接xp，得到的文件在做分析时调好参数比较难调。</p>
+<p>2、使用win7进行Kali镜像分析取证的时候，导入镜像点击dvd驱动器出错，选择启动电源时进入固件选择Kali得以解决。</p>
+]]></content>
+      <categories>
+        <category>数字取证</category>
+      </categories>
+      <tags>
+        <tag>数字取证</tag>
+      </tags>
+  </entry>
 </search>

@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SEDD - zylyy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="lucky,SEED实验-PKI证书前言  公钥加密是当今安全通信的基础，但是当通信的一方向另一方发送公钥时，却容易遭受到中间人攻击。根本问题在于没有一个简单的方式验证公钥所有者的身份。也就是说当收到一个公钥和,"> 
+    <meta name="author" content="zmoon"> 
+    <link rel="alternative" href="atom.xml" title="zylyy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://bangdream.moe/img/ident.png"/>
+    <meta name="twitter:creator" content="@yourtwitteridhere"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="SEDD - zylyy"/>
+    <meta name="twitter:description" content="lucky,SEED实验-PKI证书前言  公钥加密是当今安全通信的基础，但是当通信的一方向另一方发送公钥时，却容易遭受到中间人攻击。根本问题在于没有一个简单的方式验证公钥所有者的身份。也就是说当收到一个公钥和,"/>
+    <meta property="og:image" content="https://bangdream.moe/img/ident.png"/>
+    <meta property="og:image:alt" content="lucky,SEED实验-PKI证书前言  公钥加密是当今安全通信的基础，但是当通信的一方向另一方发送公钥时，却容易遭受到中间人攻击。根本问题在于没有一个简单的方式验证公钥所有者的身份。也就是说当收到一个公钥和,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="zylyy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="SEDD - zylyy"/>
+    <meta property="og:description" content="lucky,SEED实验-PKI证书前言  公钥加密是当今安全通信的基础，但是当通信的一方向另一方发送公钥时，却容易遭受到中间人攻击。根本问题在于没有一个简单的方式验证公钥所有者的身份。也就是说当收到一个公钥和,"/>   
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">zylyy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">SEDD</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+        
+    </div>
+
+
+
+<div class="article">
+    <div class='main'>
+        <!-- 帖子视图 -->
+        
+            <h1 class="title">SEDD</h1>
+            <div class="stuff">
+                <span>十一月 09, 2022</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SEDD/" rel="tag">SEDD</a></li></ul>
+
+
+            </div>
+        
+
+
+
+        <h1 class="title">SEDD</h1>
+        <div class="stuff">
+            <span>十一月 09, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/SEDD/" rel="tag">SEDD</a></li></ul>
+
+
+        </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2022.11.09</span>
+        </div>
+
+        <div class="content markdown">
+            <h1 id="SEED实验-PKI证书"><a href="#SEED实验-PKI证书" class="headerlink" title="SEED实验-PKI证书"></a>SEED实验-PKI证书</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>  公钥加密是当今安全通信的基础，但是当通信的一方向另一方发送公钥时，却容易遭受到中间人攻击。根本问题在于没有一个简单的方式验证公钥所有者的身份。也就是说当收到一个公钥和它的所有者信息时，无法确定该公钥确实为这个所有者所拥有。公钥基础设施（PKI）就是解决此问题的一个方案。</p>
+<p>  本次实验涉及到PKI、CA、Apache、HTTPS这几个知识点，所通过本次实验一系列的任务期望能够到达如下几个目的。</p>
+<p>  1. 了解PKI的工作原理；</p>
+<p>  2. 掌握如何使用PKI保护网络；</p>
+<h2 id="一、实验原理"><a href="#一、实验原理" class="headerlink" title="一、实验原理"></a>一、实验原理</h2><p>  PKI是一种遵循标准的利用公钥理论和技术建立的提供安全服务的基础设施。公钥基础设置的目的是从技术上解决网上身份认证、电子信息的完整性和不可抵赖性等安全问题，为网络应用（如浏览器、电子邮件、电子交易）提供可高安全的服务。本次实验就是利用PKI技术为一个浏览器提供服务。</p>
+<h3 id="1-中间人攻击"><a href="#1-中间人攻击" class="headerlink" title="1. 中间人攻击"></a><strong>1. 中间人攻击</strong></h3><p>  在发明公钥加密之前，加密依赖私钥。这种加密方法的挑战在于密钥交换，也就是在加密通道建立之前，如何让通信双方把密钥确定下来。公钥解决了这个问题，因为她的加密密钥时公开的，可以用明文发送。然而，经管它可以防御窃听攻击，但是还是为遭遇到中间人攻击。</p>
+<p>  中间人攻击时发生在两个设备之间的流量被截获的情况下。当一台计算机向另外一台计算机发送数据时，数据会在多个设备之间传输，例如路由器。这些设备如果被攻击，就可以被用来实施中间人攻击。如下图所示：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps198.jpg" alt="img"> </p>
+<p>图1：中间人攻击的原理</p>
+<p>  中间人攻击的基本问题是通信双方无法确定这个公钥是否属于对方，如果能够提供一个机制把公钥和所有者的身份绑定在一起，那么就可以解决这个问题。公钥基础设施（PKI）就是解决此问题的一个方案。</p>
+<h3 id="2-PKI"><a href="#2-PKI" class="headerlink" title="2. PKI"></a><strong>2. PKI</strong></h3><h4 id="2-1-PKI体系结构"><a href="#2-1-PKI体系结构" class="headerlink" title="2.1 PKI体系结构"></a><strong>2.1 PKI体系结构</strong></h4><p>  PKI体系包含证书机构（Certificate Authority, CA）、注册机构（Registration Authority,RA）、策略管理、密钥（Key）与证书管理、密钥备份与恢复、模型运算等功能模块。本实验中我们主要用到CA与证书管理模块，因此PKI可以简化为下图所示：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps199.jpg" alt="img"> </p>
+<p>图2： PKI结构</p>
+<h4 id="2-1-数字证书"><a href="#2-1-数字证书" class="headerlink" title="2.1 数字证书"></a><strong>2.1 数字证书</strong></h4><p>  数字证书是一个经证书授权中心（CA机构）数字签名的文件，包含拥有者的公钥及相关身份信息。证书有四种类型，分别是自签名证书、CA证书、本地证书和设备本地证书。本次实验中我们用到了前两种自签名证书和CA证书。</p>
+<p>   自签名证书：它的拥有者和证书的颁发者是同一个人。用于没办法去跟CA申请证书的情况下。比如本实验中我们用于虚拟的CA并给自己颁发的证书就是自签名证书。</p>
+<p>  CA证书，是CA机构给某一申请终端颁发的证书。</p>
+<h3 id="3-Https访问的认证过程"><a href="#3-Https访问的认证过程" class="headerlink" title="3. Https访问的认证过程"></a><strong>3. Https访问的认证过程</strong></h3><p>   我们通过下图看以下Https访问web时的证书应用场景，Https服务器通过访问CA申请并获得一个证书，客户端管理员通过这个证书来验证服务器的身份就可以了。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps200.jpg" alt="img"> </p>
+<p>图2-3 Https访问web时的认证过程</p>
+<p>三、实验内容</p>
+<p>  本次实验来自于<a target="_blank" rel="noopener" href="https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_PKI/%EF%BC%8C%E5%85%B1%E9%9C%80%E8%A6%81%E5%AE%8C%E6%88%90%E5%A6%82%E4%B8%8B6%E4%B8%AA%E5%B0%8F%E4%BB%BB%E5%8A%A1%E3%80%82%E9%80%9A%E8%BF%87%E8%BF%996%E4%B8%AA%E4%BB%BB%E5%8A%A1%E6%88%91%E4%BB%AC%E5%AE%8C%E6%88%90%E4%B8%80%E4%B8%AA%E9%93%B6%E8%A1%8C%E6%9C%8D%E5%8A%A1%E5%99%A8bank32.com%E7%9A%84%E9%83%A8%E7%BD%B2%E3%80%81%E8%AE%A4%E8%AF%81%E3%80%81%E6%94%BB%E5%87%BB%E8%BF%87%E7%A8%8B%E3%80%82">https://seedsecuritylabs.org/Labs_20.04/Crypto/Crypto_PKI/，共需要完成如下6个小任务。通过这6个任务我们完成一个银行服务器bank32.com的部署、认证、攻击过程。</a></p>
+<p>  Task1 成为认证颁发机构（CA）</p>
+<p>  Task2 为web server生成签名请求</p>
+<p>  Task3 为web server生成签名证书</p>
+<p>  Task4 在网络服务器中部署公钥证书</p>
+<p>四、实验环境</p>
+<p>  本次实验需要一个服务器产生证书，另外我们还需要一个容器来模拟web服务器，分两步完成。</p>
+<ol>
+<li>搭建Seed服务器，需要在Oracle VM VirtualBox上部署Seed实验室的Ubuntu20.04。</li>
+</ol>
+<p>  查看IP地址，使用下面的MobaXterm从主机连接虚拟机。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps201.jpg" alt="img"> </p>
+<h3 id="2-安装连接虚拟机的工具MobaXterm"><a href="#2-安装连接虚拟机的工具MobaXterm" class="headerlink" title="2. 安装连接虚拟机的工具MobaXterm"></a><strong>2. 安装连接虚拟机的工具MobaXterm</strong></h3><p>  安装好虚拟机后，如何方便的从主机方便的上传下载文件呢？这次实验我们给大家介绍一个新的工具来实现——MobaXterm。</p>
+<p>  下载本次绿色版压缩包MobaXterm_Portable_v21.1.zip，直接解压到后，点击MobaXterm_Personal_21.1.exe文件即可使用。</p>
+<p>  打开后，按照下图即可连接虚拟机。IP地址为安装完虚拟机后用ip addr命令查看到的地址。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps202.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps203.jpg" alt="img"> </p>
+<p>  连接后的界面如下，就可以直接从主机往虚拟机拖动文件了。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps204.jpg" alt="img"> </p>
+<h3 id="3-部署容器"><a href="#3-部署容器" class="headerlink" title="3. 部署容器"></a><strong>3. 部署容器</strong></h3><p>  Step1：下载本次实验需要的容器压缩包PKI_Labsetup.zip。</p>
+<p>  Step2：将容器压缩包上传到Seed镜像环境中，建议先新建一个文件夹PKI，让压缩包传到/home/seed/PKI路径下并解压。使用命令为 unzip PKI_Labsetup.zip，注意建立PKI目录后要用MobaXterm把PKI_Labsetup.zip传到PKI目录下，然后再解压。</p>
+<p>mkdir PKI</p>
+<p>cd PKI</p>
+<p>unzip PKI_Labsetup.zip</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps205.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps206.jpg" alt="img"> </p>
+<p>  Step3：Build容器    </p>
+<p>cd Labsetup/    </p>
+<p>docker-compose build</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps207.jpg" alt="img"> </p>
+<p>这里有点慢，跟网络联通情况有关。</p>
+<p>  Step4：启动 命令为 dcup</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps208.jpg" alt="img"> </p>
+<p>图： 容器正常启动</p>
+<p>  Step5: 最后，在主机（seed虚拟机）的/etc/hosts文件增加如下一条配置10.9.0.80 <a target="_blank" rel="noopener" href="http://www.bank32.com/">www.bank32.com</a> ，其中10.9.0.80是容器的IP地址中。待web服务器配置完成后就可以通过主机访问了。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps209.jpg" alt="img"> </p>
+<p>图：配置主机hosts文件</p>
+<p><em><strong>*说明*</strong></em> </p>
+<p>  容器启动后如果要进入容器的shell，需要通过如下两个命令；在主机终端中输入 dockps 命令，查看刚启动的容器ID；输入命令 docksh ID的前两个字符</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps211.jpg" alt="img"> </p>
+<p>图1-6 查看正在启动的容器ID</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps212.jpg" alt="img"> </p>
+<p>图1-7 进入容器的shell</p>
+<h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a>实验步骤</h2><p>  本次实验通过4个分解的任务模拟证书签发和认证过程。首先将本地主机作为一个CA,完成签发证书的过程；接着用签发的证书去配置安全的Web服务器，通过这个配置，分析验证整个证书验证的过程。在整个实验过程中，大家要学习和体会：</p>
+<p>1.使用openssl颁发一个证书的方法</p>
+<p>2.一个公钥证书包含哪些内容</p>
+<p>3.为一个Web服务器配置证书的方法</p>
+<p>4.在客户端配置CA的方法以及客户端为什么能够对服务器的身份进行验证</p>
+<h3 id="Task1-成为认证颁发机构（CA）"><a href="#Task1-成为认证颁发机构（CA）" class="headerlink" title="Task1. 成为认证颁发机构（CA）"></a><strong>Task1. 成为认证颁发机构（CA）</strong></h3><p>  认证颁发机构（CA）是一个可信的、能够签发数字证书的实体。在签发证书之前，CA需要验证证书申请者的身份。CA的核心功能有如下两个：（1）验证Subject域；（2）对证书进行数字签名。</p>
+<p>  一些商业性的CAs被视为根类CAs，想要获得商业核证机关发出的数字证书的用户需要向这些核证机关支付费用。在实验中，我们不使用商业的CA而是让自己成为根CA，然后使用此CA为其他人（例如服务器）颁发证书。</p>
+<p>  任务1中，我们将使本地主机设置成为根CA，并为此CA生成证书。根CA的证书是自签名的，通常预加载到大多数操作系统、web浏览器和其他依赖PKI的软件中。</p>
+<h4 id="Step1-部署CA。"><a href="#Step1-部署CA。" class="headerlink" title="Step1.部署CA。"></a><strong>Step1.部署CA。</strong></h4><p>  签名时，openssl会使用一个默认的配置文件（/usr/lib/ssl/openssl.cnf）,该文件中已经配置了需要的文件夹和文件的名字，因为我们要修改这个配置文件，因此我们拷贝这个文件到自己的目录下，新拷贝的文件命名为myCA_openssl.cnf。Openssl.cnf文件部分配置内容如下,将unique_subject前面的注释去掉。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps213.jpg" alt="img"> </p>
+<p>图3-1 openssl.conf</p>
+<p>  因此需要在/home/seed/PKI下创建一个demoCA的目录，并在该文件夹下创建三个文件夹certs、crl和newcerts和两个文件index.txt和serial。Seiral文件包含证书的序列号可以将任意数字反正文件中来初始化序列号，我们采用1000为例。具体命令如下</p>
+<pre class="language-none"><code class="language-none">sudo mkdir PKIlib //在 /home/seed目录下创建本次实验的文件夹 PKIlib
+
+cp /usr/lib/ssl/openssl.cnf myCA_openssl.cnf //将openssl.cnf 拷贝一份到myCA_openssl.cnf中
+
+vi myCA_openssl.cnf //查看文件的配置内容，并把unique_subject和copy_extensions前面的注释去掉
+
+ 
+
+sudo mkdir demoCA //根据myCA_openssl.cnf中的内容创建需要的文件夹和文件
+
+cd demoCA
+
+sudo mkdir certs crl newcerts
+
+ 
+
+sudo touch index.txt serial
+
+sudo vi serial //最后打开serial写入1000</code></pre>
+
+<p>  设置好配置文件myCA_openssl.cnf中需要的信息之后，就可以创建和颁发证书了。具体文件路径如下：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps214.jpg" alt="img"> </p>
+<h4 id="Step2-生成自签名证书ca-key-私钥证书-和-ca-crt-公钥证书-。"><a href="#Step2-生成自签名证书ca-key-私钥证书-和-ca-crt-公钥证书-。" class="headerlink" title="Step2.生成自签名证书ca.key (私钥证书)和 ca.crt (公钥证书)。"></a><strong>Step2.生成自签名证书ca.key (私钥证书)和 ca.crt (公钥证书)。</strong></h4><p>  在PKI或者PKIlib(自己所建目录下)，执行如下命令，具体命令如下：</p>
+<p>sudo openssl req -x509 -newkey rsa:4096 -sha256 -days 3650 -keyout ca.key -out ca.crt -subj “/CN=<a target="_blank" rel="noopener" href="http://www.modelca.com/O=Model">www.modelCA.com/O=Model</a> CA LTD./C=US” -passout pass:dees</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps215.jpg" alt="img"> </p>
+<p>  其中-subj用来设置Subject域信息，-passout是使用证书时需要的密码信息，因为每次要使用此CA为其他人签名证书时，都必须输入该密码（dees）。</p>
+<p>  利用下面两个命令查看ca.crt和ca.key的内容： </p>
+<pre class="language-none"><code class="language-none">openssl x509 -in ca.crt -text -noout
+
+ </code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps216.jpg" alt="img"> </p>
+<p>sudo openssl rsa -in ca.key -text -noout</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps217.jpg" alt="img"> </p>
+<p>回答下面两个问题：  </p>
+<p>问题1：证书的哪个部分表明这是CA的证书？</p>
+<p>问题2：证书的哪个部分表明这是自签名证书？</p>
+<p>  可参考证书的说明如下图所示：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps218.jpg" alt="img"> </p>
+<p>图3-2 证书说明</p>
+<h3 id="Task2-为web-server生成签名请求"><a href="#Task2-为web-server生成签名请求" class="headerlink" title="Task2. 为web server生成签名请求"></a><strong>Task2. 为web server生成签名请求</strong></h3><p>  如果银行要部署一个基于HTTPS的网络服务器（比如<a target="_blank" rel="noopener" href="http://www.bank32.com)来保护客户与服务器之间的交互,就需要从根ca那里获取一个公钥证书.首先需要生成一个签名请求(csr—certificate/">www.bank32.com）来保护客户与服务器之间的交互，就需要从根CA那里获取一个公钥证书。首先需要生成一个签名请求（CSR—Certificate</a> Singing Request），CSR中包含银行的公钥与其身份细节，如机构名称、地址与域名等信息。</p>
+<p>  生成CSR的命令如下，与Task1中生成自签名的证书类似，去掉了-x509的选项，没有这个选项就是生成了CSR，有这个选项就是生成了自签名证书。命令如下，其中bank32A和bank32B是bank32网站的别名。</p>
+<p>sudo openssl req -newkey rsa:2048 -sha256 -keyout server.key -out server.csr -subj “/CN=<a target="_blank" rel="noopener" href="http://www.bank32.com/O=Bank32">www.bank32.com/O=Bank32</a> Inc./C=US” -addext “subjectAltName = DNS:<a target="_blank" rel="noopener" href="http://www.bank32.com/">www.bank32.com</a>, DNS:<a target="_blank" rel="noopener" href="http://www.bank32a.com/">www.bank32A.com</a>, DNS:<a target="_blank" rel="noopener" href="http://www.bank32b.com/">www.bank32B.com</a>“ -passout pass:dees</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps219.jpg" alt="img"> </p>
+<h3 id="Task3-为web-server生成签名证书"><a href="#Task3-为web-server生成签名证书" class="headerlink" title="Task3. 为web server生成签名证书"></a><strong>Task3. 为web server生成签名证书</strong></h3><p>根据task2中生成的证书请求文件server.csr用如下命令生成证书文件server.crt.</p>
+<p>首先把前面生成的demoCA文件夹和myCA_openssl.cnf文件拷贝到PKIlib文件夹下：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps220.jpg" alt="img"> </p>
+<p>现在可以执行下面命令：</p>
+<pre class="language-none"><code class="language-none">sudo openssl ca -config myCA_openssl.cnf -policy policy_anything -md sha256 -days 3650 -in server.csr -out server.crt -batch -cert ca.crt -keyfile ca.key</code></pre>
+
+<p>在接下来需要输入密码的地方输入dees</p>
+<pre class="language-none"><code class="language-none">Using configuration from myCA_openssl.cnf
+
+Enter pass phrase for ca.key:
+
+Check that the request matches the signature</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps221.jpg" alt="img"> </p>
+<p>  下面的命令可以查看server.crt的内容，观察下与ca.crt有什么不同？</p>
+<p>openssl x509 -in server.crt -text –noout</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps222.jpg" alt="img"> </p>
+<p>server.crt内容：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps223.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps224.jpg" alt="img"> </p>
+<p>ca.crt内容：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps225.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps226.jpg" alt="img"> </p>
+<h3 id="Task4-在网络服务器中部署公钥证书"><a href="#Task4-在网络服务器中部署公钥证书" class="headerlink" title="Task4. 在网络服务器中部署公钥证书"></a><strong>Task4. 在网络服务器中部署公钥证书</strong></h3><p>  一旦银行收到了数字证书，它就可以在HTTPS网站中部署该证书。我们会基于Apache部署一个HTTPS web服务器。首先需要将在主机中生成的证书server.crt和私钥server.key通过volumes文件夹传递给容器（volumes这个文件夹为主机和容器共享的文件夹，主机中放入这个文件夹的文件，容器中可以直接获取到）。</p>
+<p>  Step1 将证书和私钥拷贝到volumes路径下，volumes目录在我们建的目录PKI路径下的Labsetup路径下</p>
+<pre class="language-none"><code class="language-none">cp ~/PKIlib/server.crt ~/PKI/Labsetup/volumes
+
+cp ~/PKIlib/server.key ~/PKI/Labsetup/volumes</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps227.jpg" alt="img"> </p>
+<p>  Step2 在Lapsetup路径下启动容器服务器，进入shell，dockps 命令查看容器ID，docksh id的前两个符号即可进入容器shell</p>
+<p>docker  ps</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps228.jpg" alt="img"> </p>
+<pre class="language-none"><code class="language-none">docker exec -it 8b28d68072db bash</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps229.jpg" alt="img">  </p>
+<p>Step3 将主机传递过来的证书和私钥放到/certs路径下</p>
+<pre class="language-none"><code class="language-none">cd volumes
+
+cp server.crt server.key ../certs</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps230.jpg" alt="img"> </p>
+<p>  Step4 进入到目录/etc/apache2/sites-available中查看文件,site-available是存放的所有可用站点信息。下面我们需要修改文件bank32_apache_ssl.conf。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps231.jpg" alt="img"> </p>
+<p>修改可以有两种方式，一种是直接在容器中下载vi编辑器。命令如下： </p>
+<pre class="language-none"><code class="language-none">apt-get update 
+
+apt-get install vim
+
+（这种方式可能因为网络问题不容易实现）
+
+  另一种是通过共享目录volumes传递文件进行修改，主机volumes路径为Lapsetup路径下，容器在根目录下。
+
+​		SSLCertificateFile	/etc/ssl/certs/ssl-cert-snakeoil.pem
+
+​		SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps232.jpg" alt="img"> </p>
+<p>修改文件中的配置如下bank32_apache_ssl.conf：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps233.jpg" alt="img"> </p>
+<p>图3-3 配置bank32网站信息1</p>
+<p>其中&lt;VirtualHost*:443&gt;代表着当以HTTPS协议访问443端口时服务器相关配置：</p>
+<p>ServerName条目指定网站的名称，而DocumentRoot条目指定网站文件存储的位置。同时我们需要告诉Apache服务器证书和私钥存储在哪里，后两行为证书和私钥文件的位置。</p>
+<p>而下方&lt;VirtualHost*:80&gt;代表着当以HTTP协议访问80端口时服务器相关配置：</p>
+<p>注意DirectoryIndex项的区别，访问80端口时为index_red.html；而访问443端口时为index.html</p>
+<p>在seed系统里编辑好bank32_apache_ssl.conf后，进入容器，把这个文件从/volumes拷贝到/etc/apache2/sites-available</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps234.jpg" alt="img"> </p>
+<p>  Step5 在容器shell中重启apache</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps235.jpg" alt="img"> </p>
+<p>这里需要输入证书口令：dees</p>
+<pre class="language-none"><code class="language-none">a2enmod ssl // 使能SSL模式
+
+a2ensite bank32_apache_ssl //使能文件中的配置信息
+
+service apache2 restart //重启服务器，如果报错，根据提示修改配置文件即可</code></pre>
+
+<p>  Step6 进入主机，打开浏览器输入<a target="_blank" rel="noopener" href="https://www.bank32.com/">https://www.bank32.com</a> <img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps236.jpg" alt="img"></p>
+<p>可以打开网站，但是背景是红色的，在网址前会有安全提示：Connection is not secure. 提醒你可能有风险。</p>
+<p>点开看详情：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps237.jpg" alt="img">提示网站没有进行网页加密，实际是以HTTP协议访问的服务器80端口，获得的是index_red.html这个网页（红色）</p>
+<p>下面我们解决这个问题，需要添加证书。服务器的证书我已经添加到容器中，而且在配置文件中进行了设置，之所以无法使用，是因为server证书是由我们自己建立的CA发放的，我们的这个CA还没有被浏览器认可，所以下面要设置Firefox，添加一个信任的Authority：</p>
+<p>1.打开FireFox的设置</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps238.jpg" alt="img"> </p>
+<p>2.在Privacy&amp;Security中向下找，找到Certificates：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps239.jpg" alt="img"> </p>
+<p>图4-2 添加证书1</p>
+<p>3.在Authorities这项里，把CA的证书添加进去。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps240.jpg" alt="img"> </p>
+<p>图4-3 添加证书2</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps241.jpg" alt="img"> </p>
+<p>图4-4 选择CA证书，点击“Open”</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps242.jpg" alt="img"> </p>
+<p>再次访问<a target="_blank" rel="noopener" href="https://www.bank32.com(注意,要把整个网址都敲进去,包括https//www.bank32.com%EF%BC%89">https://www.bank32.com（注意，要把整个网址都敲进去，包括https://www.bank32.com）</a></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps243.jpg" alt="img"> </p>
+<p>图4-5 能够正常访问</p>
+<p>  请将能够正确访问<a target="_blank" rel="noopener" href="http://www.bank32.com的截图放到实验报告中./">www.bank32.com的截图放到实验报告中。</a></p>
+<h1 id="SEDD实验—TLS协议"><a href="#SEDD实验—TLS协议" class="headerlink" title="SEDD实验—TLS协议"></a>SEDD实验—TLS协议</h1><h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p>  传输层安全协议（transport layer security, TLS）是一种在两个通信应用程序之间提供安全通道的协议，该通道中的数据传输时加密的，数据的完整性也是被保护的。从先前的SSL(secure socket layer)发展而来，并逐渐取代SSL。通过本次实验的系列任务期望能够达到如下几个目的。</p>
+<p>  1. 了解TLS的工作原理；</p>
+<p>  2. 通过抓包分析，理解TLS握手过程中的各字段的含义；</p>
+<p>  3. 掌握TLS协议的工作过程。</p>
+<h2 id="二、实验内容"><a href="#二、实验内容" class="headerlink" title="二、实验内容"></a>二、实验内容</h2><p>  本次实验来自于SEED安全实验室，我们需要完成下面2个任务。通过任务1，我们完成TLS客户端的握手抓包分析过程和TLS的证书验证过程，并理解分析TLS的客户端编程；通过任务2我们利用多种方式完成TLS的服务器端响应客户端的过程，并理解分析TLS的服务器端编程。任务列表如下：</p>
+<p>Task1 TLS 客户端</p>
+<p>  Task1.1 TLS握手</p>
+<p>  Task1.2 TLS协议中的CA认证</p>
+<p>  Task1.3 TLS认证中的校验服务器的主机名</p>
+<p>  Task1.4 利用TLS协议传输应用数据</p>
+<p>Task2 TLS 服务器端</p>
+<p>  Task2.1 实现一个简单的TLS服务器</p>
+<p>  Task2.2 利用主机浏览器测试实现的TLS服务器</p>
+<p>  Task2.3 测试服务器有别名的情况</p>
+<p>三、实验环境</p>
+<p>     本次实验需要的主机沿用实验一搭建好的SEED实验室虚拟环境，另外我们还需要三个容器来分别模拟客户端、服务器和中间代理（暂时用不上），因为实验一已经安装好了VM虚拟主机，本次只需要部署容器即可。</p>
+<h2 id="三、部署容器"><a href="#三、部署容器" class="headerlink" title="三、部署容器"></a>三、<strong>部署容器</strong></h2><p>  Step1：下载本次实验需要的容器压缩包<a target="_blank" rel="noopener" href="https://gitee.com/hitsz-cslab/net-work-security/tree/master/stupkt">TLS_Labsetup.zip</a>。</p>
+<p>  Step2：将容器压缩包上传到Seed镜像环境中, 建议放在新建的文件/home/seed/TLS目录下，并解压。使用命令为 unzip TLS_Labsetup.zip</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps244.jpg" alt="img"> </p>
+<pre class="language-none"><code class="language-none">mkdir TLS
+
+cd TLS
+
+unzip TLS_Labsetup.zip
+
+  Step3：Build容器，并启动，启动后应该能够看到client，server和proxy三个容器
+
+cd Labsetup/
+
+dcbuild                # Alias for: docker-compose build
+
+dcup                   # Alias for: docker-compose up</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps245.jpg" alt="img"> </p>
+<p>容器启动后如果要进入容器的shell，需要通过如下两个命令；在新打开的主机终端中输入 dockps 命令，查看刚启动的容器ID；输入命令 docksh ID的前两个字符</p>
+<pre class="language-none"><code class="language-none">dockps                   // Alias for: docker ps --format "{{.ID}} {{.Names}}"
+
+docksh &lt;id&gt;              // Alias for: docker exec -it &lt;id&gt; /bin/bash  id的前两个字符就行
+
+exit               //退出容器shell返回主机shell
+
+ </code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps246.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps247.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps248.jpg" alt="img"></p>
+<h2 id="四、实验原理"><a href="#四、实验原理" class="headerlink" title="四、实验原理"></a>四、实验原理</h2><p>  数据在互联网中传输时如果未受到保护，很容易被其他人读取甚至修改。应用程序为了保证通信的安全性，需要加密数据并且检测数据的完整性。这可以用密码算法来实现，但是目前有很多密码算法，即使同一种算法，也有很多参数可以使用。为了方便不同的应用程序之间彼此通信，它们需要遵循一个共同的标准。传输层协议（TLS）就是这样一个标准。</p>
+<h3 id="1-TLS概述"><a href="#1-TLS概述" class="headerlink" title="1. TLS概述"></a><strong>1. TLS概述</strong></h3><p>  TLS位于应用层和传输层之间，应用程序将未受保护的数据传递给TLS层，TLS层负责加密、解密和完整性检查，然后TLS将受保护的数据提供给传输层进行传输。TLS提供的安全通道具有以下三个属性：</p>
+<p>  （1）保密性，除了通道两端以外，没有人可以看到通道内数据的实际内容；</p>
+<p>  （2）完整性，如果数据在传输过程中被他人篡改，通道应该能够检测到；</p>
+<p>  （3）身份验证：至少服务器端的身份需要被验证，如果没有身份验证，将会出现中间人攻击。</p>
+<p>  TLS是建立在TCP传输层上的，但它也可以建立在UDP上。建立的UDP上的TLS叫做DTLS，有兴趣的同学可以查看RFC 6347文件。</p>
+<p>  TLS是一个分层协议，它由两层组成。底层为记录层有记录协议，上层由5种消息协议组成，包括握手协议、警报协议、更改密码规范协议、心跳协议和应用协议，如下图所示，本次实验只关注握手协议和应用协议。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps249.jpg" alt="img"> </p>
+<p>图1-1 含有TLS层的TCP/IP网络协议栈</p>
+<p>  握手协议负责建立安全通道，让客户端和服务器共同商定使用的加密算法和密钥、MAC算法、密钥交换算法等加密参数并生成会话密钥；</p>
+<p>  警报协议用于通信双发发送警报信号，目的是向对方报告失败的原因。</p>
+<p>  更改密码规范协议用于通知对方改变正在使用的加密方法，通常用于在握手协议结束后告知对方从公钥加密模式切换到密钥加密模式。</p>
+<p>  心跳协议用于防止TLS会话因为闲置太久而被操作系统关闭。著名的心脏滴血攻击就是这个协议实现中的一个漏洞导致的，如果要详细了解可参考链接：<a target="_blank" rel="noopener" href="https://heartbleed.com/%E3%80%82">https://heartbleed.com/。</a></p>
+<p>  应用协议用于通道的实际传输。</p>
+<h3 id="2-TLS握手"><a href="#2-TLS握手" class="headerlink" title="2. TLS握手"></a><strong>2. TLS握手</strong></h3><h4 id="2-1-TLS握手过程"><a href="#2-1-TLS握手过程" class="headerlink" title="2.1 TLS握手过程"></a><strong>2.1 TLS握手过程</strong></h4><p>  TLS握手协议的目的是让客户端和服务器共同商定加密参数并生成会话密钥。具体步骤如下图所示。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps250.jpg" alt="img"> </p>
+<p>图1-2 TLS握手协议</p>
+<p>  1、客户端：发送客户端问候消息（Client Hello），表明它自己支持哪些密码套件和客户端的一次性随机数（Client_random）。</p>
+<p>  2、服务器：发送服务器问候消息（Server Hello），根据客户端发来的问候消息，选择确认一个客户端和服务器都支持的密码套件，并提供服务器的一次性随机数（Server_random）。</p>
+<p>  3、服务器：发送公钥证书给客户端。</p>
+<p>  4、服务器：发送握手完成的消息，表明已完成握手协商。</p>
+<p>  5、客户端：发送客户端密钥交换消息。客户端随机生成一个预主密钥，然后用服务器的公钥对其进行加密，并将加密后的密钥发送给服务器。客户端和服务器首先使用预主密钥生成主密钥，然后再使用主密钥生成会话密钥。</p>
+<p>  6、客户端和服务器：互相发送更改密码规范消息。</p>
+<p>  7、客户端和服务器：互相发送一个加密完成的消息。必须包括一个哈希值和MAC(报文认证码)值，这些值使用握手协议中交换的所有数据生成。如果双发各自解密验证发来的哈希值和MAC值不对，就说明对方没有正确的密钥或者协议执行过程种出现失败，握手协议将失败，TLS链接会中断。</p>
+<h4 id="2-2-证书验证"><a href="#2-2-证书验证" class="headerlink" title="2.2 证书验证"></a><strong>2.2 证书验证</strong></h4><p>  在TLS握手协议中，上面的第五步，预主密钥在发送给服务器时用服务器的公钥进行加密，由上一次的PKI实验我们可以知道，如果直接发送服务器公钥可能会受到中间人攻击，因此服务器应该给发送一个公钥证书。</p>
+<p>  服务器的证书包含服务器的公钥、身份信息、截止日期、CA的签名及其他相关信息。当客户端受到服务器证书时，最重要的是检查证书是否有效。但是并不检查证书中包含的身份信息是否与目标服务器的身份匹配。这一点非常重要，需要应用程序进行检查，如果没有此项检查，中间人攻击也将成为可能。</p>
+<h4 id="2-3-密钥生成和交换"><a href="#2-3-密钥生成和交换" class="headerlink" title="2.3 密钥生成和交换"></a><strong>2.3 密钥生成和交换</strong></h4><p>  上面的第六步，之所以要更改密码规范，是因为公钥算法加密要比对称加密算法慢得多。因此，TLS仅使用公钥算法来帮助客户端和服务器生成一个共同的密钥，一旦密钥生成后，客户端和服务器将切换到对称加密算法。密钥生成过程分为生成预主密钥、生成主密钥和生成会话密钥三个步骤，如下图所示。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps251.jpg" alt="img"> </p>
+<p>图1-3 TLS密钥生成</p>
+<p>  预主密钥：服务器证书验证成功后，客户端程序会生成一个随机数，称为预主密钥。</p>
+<p>  主密钥：在TLS前两步中，客户端和服务器交换了两个随机数，分别是Client_random和Server_random。用这两个随机数和签名生成的预主密钥，客户端和服务器端会生成主密钥，长度为48字节。</p>
+<p>  会话密钥：客户端和服务器双方使用主密钥根据密码算法生成一个字节序列。这个序列进一步分成4个单独的会话密钥：两个MAC密钥和两个加密密钥。</p>
+<p>  TLS允许客户端和服务器在会话过程中改变加密参数，这不需要重新执行一次完整的握手协议，只需要将分别生成的Client_random和Server_random发给对方，然后重复主密钥扩展和会话密钥生成步骤即可，主密钥不需要变化。</p>
+<h3 id="3-TLS数据传输"><a href="#3-TLS数据传输" class="headerlink" title="3. TLS数据传输"></a><strong>3. TLS数据传输</strong></h3><p>  完成握手协议后，客户端和服务器双方就可以开始交换数据。数据放在TLS记录中传输，记录的格式由TLS记录协议定义。TLS记录不仅用于传输应用程序数据，还用于传输握手协议和其他TLS子协议中的消息。</p>
+<p>  每条记录包含一个头部和一个有效载荷，如下图所示。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps252.jpg" alt="img"> </p>
+<p>图1-4 TLS记录格式</p>
+<p>  内容类型: 表示当前记录携带TLS的哪个子协议</p>
+<p>  版本字段：表示消息的TLS主版本和次版本，例如TLS1.3</p>
+<p>  长度字段：表明有效载荷字段的长度.</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps253.jpg" alt="img"> </p>
+<h2 id="五、-实验步骤"><a href="#五、-实验步骤" class="headerlink" title="五、 实验步骤"></a>五、 实验步骤</h2><p>  本次实验通过2个程序来看TLS是如何在程序中来保护通信安全的，并讨论TLS编程中常见的错误。一个是HTTPS客户端程序，它可以从HTTPS网络服务器获取网页；另一个是HTTPS服务器程序，它可以给浏览器返回网页。HTTPS是建立在TLS之上的应用层协议。</p>
+<h3 id="1-TLS客户端"><a href="#1-TLS客户端" class="headerlink" title="1. TLS客户端"></a><strong>1. TLS客户端</strong></h3><h4 id="1-1-TLS握手"><a href="#1-1-TLS握手" class="headerlink" title="1.1 TLS握手"></a><strong>1.1 TLS握手</strong></h4><p>  在客户端容器中执行给出的TLS握手代码（在volume目录下有一个handshake.py程序，完成与输入参数服务器的一次TLS握手建立TLS连接的过程），观察执行结果，回答下面的几个问题。并通过主机的wireshark抓包工具，抓包分析TLS的握手协议。</p>
+<p>  查看客户端的容器id</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps254.jpg" alt="img"> </p>
+<p>  进入容器客户端端的shell，执行如下命令，可以根据结果查看到交换的密钥和证书等信息</p>
+<pre class="language-none"><code class="language-none">docksh 1a
+
+cd volumes/
+
+./handshake.py [www.baidu.com](http://www.baidu.com)     //以百度服务器为参数，执行handshake.py程序</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps255.jpg" alt="img"> </p>
+<p>  进入主机，打开wireshark工具，选择我们正在使用的网卡开始抓包。然后在客户端容器中重复执行 ./handshake.py <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a> 命令，可以查看分析TLS握手协议。建议大家再通过主机的浏览器访问下<a target="_blank" rel="noopener" href="http://www.baidu.com网站,抓包分析下,可以看到握手后的应用层的协议信息./">www.baidu.com网站，抓包分析下，可以看到握手后的应用层的协议信息。</a></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps256.jpg" alt="img"> </p>
+<p>图2-1 抓包网卡选择</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps257.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps258.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps259.jpg" alt="img"> </p>
+<p>仔细阅读上边程序输出的结果，回答下面问题1和问题2（如果有不清楚，百度一下看看）</p>
+<p>问题1：根据执行结果，客户端和服务器端使用的加密算法有哪些？</p>
+<p>  问题2：简单分析打印的服务器端的证书</p>
+<p>问题3：抓包分析握手协议</p>
+<p>提示：抓包结束后筛选目标数据包：</p>
+<p>1.ping一下<a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>，获得服务器ip地址</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps260.jpg" alt="img"> </p>
+<p>2.以39.156.66.14作为筛选条件在wireshark中筛选数据包</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps261.jpg" alt="img"> </p>
+<p>可以看到所选数据包中有Client Hello、Server Hello、Client Key Exchange等过程，仔细阅读一下抓取到的每个数据包，结合wireshark给出的协议分析，印证SSL握手协议的数据交互过程。 </p>
+<h4 id="1-2-TLS协议中的CA认证"><a href="#1-2-TLS协议中的CA认证" class="headerlink" title="1.2 TLS协议中的CA认证"></a><strong>1.2 TLS协议中的CA认证</strong></h4><p>  将handshake.py代码中的证书文件路径改成 ./client-certs,再次在客户端容器运行 ./handshake.py <a href="http://www.baidu.com,观察出现的结果，想想为什么？">www.baidu.com,观察出现的结果，想想为什么？</a></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps262.jpg" alt="img"> 更改handshake.py代码中的证书文件路径</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps263.jpg" alt="img"> </p>
+<p>更改证书路径后，再进行握手时会报错。为什么？</p>
+<p>将<a target="_blank" rel="noopener" href="http://www.baidu.com需要的证书copy到/">www.baidu.com需要的证书copy到</a> ./client-certs下，根据下面的命令生成hash并做个软链接，再次运行./handshake.py <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a>，查看出现的结果。</p>
+<p>补充知识：</p>
+<p>1.要能够认证百度网站的证书，我们需要/etc/ssl/certs/目录下的GlobalSign_Root_CA.pem 证书，这个证书是Globalsign的根证书，GlobalSign的根证书是PKI生态系统中最古老，最受信任的根证书。当客户端程序拥有了这个证书，再结合百度网站提供的证书以及到根CA的证书链就可以完成对百度服务器的身份认证。</p>
+<p>2.PEM格式通常用于数字证书认证机构（Certificate Authorities，CA），扩展名为.pem，内容为Base64编码的ASCII码文件，有类似”—–BEGIN CERTIFICATE—–” 和 “—–END CERTIFICATE—–”的头尾标记。此外还有Der 、Cer、 Pfx等格式，它们都是扩展名（文件名的后缀，代表格式）.DER：用二进制DER编码的证书； .CER：存放公钥，没有私钥； .PFX：存放公钥和私钥。可以使用OpenSSL命令行工具在不同证书格式之间的转换。</p>
+<p>下面我们把需要的这个根证书拷贝到handshake.py代码中新更改的证书文件路径：</p>
+<p>cp /etc/ssl/certs/GlobalSign_Root_CA.pem client-certs/   </p>
+<p>//copy百度网站的证书</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps264.jpg" alt="img"> </p>
+<p>仍然不行的原因是证书系统中证书文件命名都是“哈希值.0 ”，所以计算出GlobalSign_Root_CA.pem的哈希值，给GlobalSign_Root_CA.pem证书再建立一个名为“哈希值.0 ”的软链接：</p>
+<pre class="language-none"><code class="language-none">openssl x509 -in GlobalSign_Root_CA.pem -noout -subject_hash
+
+5ad8a5d6
+
+ln -s GlobalSign_Root_CA.pem 5ad8a5d6.0</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps265.jpg" alt="img"> </p>
+<h3 id="2-TLS-服务器"><a href="#2-TLS-服务器" class="headerlink" title="2. TLS 服务器"></a><strong>2. TLS 服务器</strong></h3><h4 id="2-1-实现一个简单的TLS服务器"><a href="#2-1-实现一个简单的TLS服务器" class="headerlink" title="2.1 实现一个简单的TLS服务器"></a><strong>2.1 实现一个简单的TLS服务器</strong></h4><p>  这个任务中我们将使用实验一中生成的CA证书和<a target="_blank" rel="noopener" href="http://www.bank32.com的证书和私钥,首先将ca证书copy到客户端的client-certs目录下并进行软链接,然后将bank32服务器的证书和私钥拷贝到到server-certs目录下./">www.bank32.com的证书和私钥，首先将CA证书copy到客户端的client-certs目录下并进行软链接，然后将bank32服务器的证书和私钥拷贝到到server-certs目录下。</a></p>
+<p>cp ca.crt ../TLS/Labsetup/volumes/client-certs/</p>
+<p>sudo cp server.crt server.key ../TLS/Labsetup/volumes/server-certs/</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps266.jpg" alt="img"> </p>
+<p>  在主机中，修改server.py的证书正确的路径和名称(server.crt 和server.key)，并绑定服务器的ip 10.9.0.43。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps267.jpg" alt="img"> </p>
+<p>在服务器容器中，启动服务器 ./server.py,输入我们实验中设置的证书密码dees</p>
+<p>在客户端容器中，将ca.crt做软链接，并将<a target="_blank" rel="noopener" href="http://www.bank32.com的信息写入/etc/hosts%E4%B8%AD">www.bank32.com的信息写入/etc/hosts中</a></p>
+<pre class="language-none"><code class="language-none">openssl x509 -in ca.crt -noout -subject_hash
+
+dbb9c584
+
+ln -s ca.crt dbb9c584.0
+
+echo 10.9.0.43 www.bank32.com &gt;&gt; /etc/hosts</code></pre>
+
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps268.jpg" alt="img"> </p>
+<p>  更改client.py中证书的路径为 client-certs，并将端口号改为和服务器保持一致。</p>
+<p>  在客户端容器中,启动客户端。 ./client.py <a target="_blank" rel="noopener" href="http://www.bank32.com/">www.bank32.com</a></p>
+<p>  再切换到服务器端可以看到有消息接收。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps269.jpg" alt="img"> </p>
+<p>  问题：请分析TLS客户端编程和server.py的代码，说明下服务器程序的关键步骤。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps270.jpg" alt="img"> </p>
+<h4 id="2-2-利用主机浏览器测试实现的TLS服务器"><a href="#2-2-利用主机浏览器测试实现的TLS服务器" class="headerlink" title="2.2 利用主机浏览器测试实现的TLS服务器"></a><strong>2.2 利用主机浏览器测试实现的TLS服务器</strong></h4><p>  从主机的浏览器进入到https://<a target="_blank" rel="noopener" href="http://www.bank32.com网站/">www.bank32.com网站</a>，查看服务器的链接情况，如果还是在第一次的实验环境中，我们已经加入了证书，如果没有加入证书，需要在firefox浏览器加入ca.crt的证书。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps271.jpg" alt="img"> </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/#/song?id=1325114607"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/#/song?id=1465114465"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SEED%E5%AE%9E%E9%AA%8C-PKI%E8%AF%81%E4%B9%A6"><span class="toc-number">1.</span> <span class="toc-text">SEED实验-PKI证书</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-number">1.2.</span> <span class="toc-text">一、实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%AD%E9%97%B4%E4%BA%BA%E6%94%BB%E5%87%BB"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 中间人攻击</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-PKI"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. PKI</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-PKI%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">2.1 PKI体系结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E6%95%B0%E5%AD%97%E8%AF%81%E4%B9%A6"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2.1 数字证书</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Https%E8%AE%BF%E9%97%AE%E7%9A%84%E8%AE%A4%E8%AF%81%E8%BF%87%E7%A8%8B"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. Https访问的认证过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E8%BF%9E%E6%8E%A5%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%9A%84%E5%B7%A5%E5%85%B7MobaXterm"><span class="toc-number">1.2.4.</span> <span class="toc-text">2. 安装连接虚拟机的工具MobaXterm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%83%A8%E7%BD%B2%E5%AE%B9%E5%99%A8"><span class="toc-number">1.2.5.</span> <span class="toc-text">3. 部署容器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.3.</span> <span class="toc-text">实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Task1-%E6%88%90%E4%B8%BA%E8%AE%A4%E8%AF%81%E9%A2%81%E5%8F%91%E6%9C%BA%E6%9E%84%EF%BC%88CA%EF%BC%89"><span class="toc-number">1.3.1.</span> <span class="toc-text">Task1. 成为认证颁发机构（CA）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Step1-%E9%83%A8%E7%BD%B2CA%E3%80%82"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">Step1.部署CA。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Step2-%E7%94%9F%E6%88%90%E8%87%AA%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6ca-key-%E7%A7%81%E9%92%A5%E8%AF%81%E4%B9%A6-%E5%92%8C-ca-crt-%E5%85%AC%E9%92%A5%E8%AF%81%E4%B9%A6-%E3%80%82"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">Step2.生成自签名证书ca.key (私钥证书)和 ca.crt (公钥证书)。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task2-%E4%B8%BAweb-server%E7%94%9F%E6%88%90%E7%AD%BE%E5%90%8D%E8%AF%B7%E6%B1%82"><span class="toc-number">1.3.2.</span> <span class="toc-text">Task2. 为web server生成签名请求</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task3-%E4%B8%BAweb-server%E7%94%9F%E6%88%90%E7%AD%BE%E5%90%8D%E8%AF%81%E4%B9%A6"><span class="toc-number">1.3.3.</span> <span class="toc-text">Task3. 为web server生成签名证书</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Task4-%E5%9C%A8%E7%BD%91%E7%BB%9C%E6%9C%8D%E5%8A%A1%E5%99%A8%E4%B8%AD%E9%83%A8%E7%BD%B2%E5%85%AC%E9%92%A5%E8%AF%81%E4%B9%A6"><span class="toc-number">1.3.4.</span> <span class="toc-text">Task4. 在网络服务器中部署公钥证书</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SEDD%E5%AE%9E%E9%AA%8C%E2%80%94TLS%E5%8D%8F%E8%AE%AE"><span class="toc-number">2.</span> <span class="toc-text">SEDD实验—TLS协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%89%8D%E8%A8%80"><span class="toc-number">2.1.</span> <span class="toc-text">一、前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-number">2.2.</span> <span class="toc-text">二、实验内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E9%83%A8%E7%BD%B2%E5%AE%B9%E5%99%A8"><span class="toc-number">2.3.</span> <span class="toc-text">三、部署容器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%9E%E9%AA%8C%E5%8E%9F%E7%90%86"><span class="toc-number">2.4.</span> <span class="toc-text">四、实验原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-TLS%E6%A6%82%E8%BF%B0"><span class="toc-number">2.4.1.</span> <span class="toc-text">1. TLS概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TLS%E6%8F%A1%E6%89%8B"><span class="toc-number">2.4.2.</span> <span class="toc-text">2. TLS握手</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-TLS%E6%8F%A1%E6%89%8B%E8%BF%87%E7%A8%8B"><span class="toc-number">2.4.2.1.</span> <span class="toc-text">2.1 TLS握手过程</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E8%AF%81%E4%B9%A6%E9%AA%8C%E8%AF%81"><span class="toc-number">2.4.2.2.</span> <span class="toc-text">2.2 证书验证</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-3-%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E5%92%8C%E4%BA%A4%E6%8D%A2"><span class="toc-number">2.4.2.3.</span> <span class="toc-text">2.3 密钥生成和交换</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-TLS%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93"><span class="toc-number">2.4.3.</span> <span class="toc-text">3. TLS数据传输</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81-%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">2.5.</span> <span class="toc-text">五、 实验步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-TLS%E5%AE%A2%E6%88%B7%E7%AB%AF"><span class="toc-number">2.5.1.</span> <span class="toc-text">1. TLS客户端</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-TLS%E6%8F%A1%E6%89%8B"><span class="toc-number">2.5.1.1.</span> <span class="toc-text">1.1 TLS握手</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-TLS%E5%8D%8F%E8%AE%AE%E4%B8%AD%E7%9A%84CA%E8%AE%A4%E8%AF%81"><span class="toc-number">2.5.1.2.</span> <span class="toc-text">1.2 TLS协议中的CA认证</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-TLS-%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.5.2.</span> <span class="toc-text">2. TLS 服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-%E5%AE%9E%E7%8E%B0%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84TLS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.5.2.1.</span> <span class="toc-text">2.1 实现一个简单的TLS服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-%E5%88%A9%E7%94%A8%E4%B8%BB%E6%9C%BA%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B5%8B%E8%AF%95%E5%AE%9E%E7%8E%B0%E7%9A%84TLS%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.5.2.2.</span> <span class="toc-text">2.2 利用主机浏览器测试实现的TLS服务器</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSKCZ36W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14MSKCZ36W');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>

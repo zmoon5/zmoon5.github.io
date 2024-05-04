@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>volatility取证 - zylyy</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="lucky,
+实验环境
+
+Win7虚拟机、Kali虚拟机
+
+实验内容
+
+使用 Volatility 取证软件从内存转储文件中获取有用信息，包括：
+1. 查看内存镜像中进程列表
+
+查看内存镜像中注册表信息
+
+获取,"> 
+    <meta name="author" content="zmoon"> 
+    <link rel="alternative" href="atom.xml" title="zylyy" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+    <meta name="twitter:image:src" content="https://bangdream.moe/img/ident.png"/>
+    <meta name="twitter:creator" content="@yourtwitteridhere"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:title" content="volatility取证 - zylyy"/>
+    <meta name="twitter:description" content="lucky,
+实验环境
+
+Win7虚拟机、Kali虚拟机
+
+实验内容
+
+使用 Volatility 取证软件从内存转储文件中获取有用信息，包括：
+1. 查看内存镜像中进程列表
+
+查看内存镜像中注册表信息
+
+获取,"/>
+    <meta property="og:image" content="https://bangdream.moe/img/ident.png"/>
+    <meta property="og:image:alt" content="lucky,
+实验环境
+
+Win7虚拟机、Kali虚拟机
+
+实验内容
+
+使用 Volatility 取证软件从内存转储文件中获取有用信息，包括：
+1. 查看内存镜像中进程列表
+
+查看内存镜像中注册表信息
+
+获取,"/>
+    <meta property="og:image:width" content="1200"/>
+    <meta property="og:image:height" content="600"/>
+    <meta property="og:site_name" content="zylyy"/>
+    <meta property="og:type" content="object"/>
+    <meta property="og:title" content="volatility取证 - zylyy"/>
+    <meta property="og:description" content="lucky,
+实验环境
+
+Win7虚拟机、Kali虚拟机
+
+实验内容
+
+使用 Volatility 取证软件从内存转储文件中获取有用信息，包括：
+1. 查看内存镜像中进程列表
+
+查看内存镜像中注册表信息
+
+获取,"/>   
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+<link rel="stylesheet" href="/css/site.css">
+
+    <script>window.searchDbPath = "/search.xml";</script>
+    
+<!-- 代码块复制 -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/clipboard@latest/dist/clipboard.js"></script>
+
+    
+<!-- 点击效果 -->
+    
+    <canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas>
+    <script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/gh/5MayRain/5MayRain.github.io@latest/js/fireworks.js"></script>
+    
+    
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap" rel="stylesheet">
+<meta name="generator" content="Hexo 6.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+<link rel="stylesheet" href="/css/prism.css" type="text/css"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">zylyy</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="http://example.com"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">volatility取证</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        
+<!-- 帖子视图 -->
+
+    <div class="post_cover" >
+        
+            <img src="/img/loading.gif" data-original="/img/welcome-cover.jpg,/img/OIP.jpg,/img/2.png,/img/1.png,/img/6.jpg,/img/7.jpg" />
+        
+    </div>
+
+
+
+<div class="article">
+    <div class='main'>
+        <!-- 帖子视图 -->
+        
+            <h1 class="title">volatility取证</h1>
+            <div class="stuff">
+                <span>十二月 07, 2022</span>
+
+                
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81/" rel="tag">数字取证</a></li></ul>
+
+
+            </div>
+        
+
+
+
+        <h1 class="title">volatility取证</h1>
+        <div class="stuff">
+            <span>十二月 07, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/%E6%95%B0%E5%AD%97%E5%8F%96%E8%AF%81/" rel="tag">数字取证</a></li></ul>
+
+
+        </div>
+        
+        <!-- 更新时间 -->
+        <div class="updated">
+            <div></div>
+            <span>该文章更新于 2022.12.07</span>
+        </div>
+
+        <div class="content markdown">
+            <ol>
+<li><h2 id="实验环境"><a href="#实验环境" class="headerlink" title="实验环境"></a>实验环境</h2></li>
+</ol>
+<p>Win7虚拟机、Kali虚拟机</p>
+<ol start="2">
+<li><h2 id="实验内容"><a href="#实验内容" class="headerlink" title="实验内容"></a><strong>实验内容</strong></h2></li>
+</ol>
+<p>使用 Volatility 取证软件从内存转储文件中获取有用信息，包括：</p>
+<p>1. 查看内存镜像中进程列表</p>
+<ol start="2">
+<li><p>查看内存镜像中注册表信息</p>
+</li>
+<li><p>获取用户名和用户登陆密码</p>
+</li>
+<li><p>查看转储前都运行了哪些程序</p>
+</li>
+<li><p>把某个程序的相关数据转储成一个文件，对这个文件进行进一步分析</p>
+</li>
+<li><p>提取目标系统的命令行历史</p>
+</li>
+<li><p>提取目标系统的网络连接情况</p>
+</li>
+</ol>
+<blockquote>
+<p>8. 提取目标系统的使用 IE 浏览器访问网络情况</p>
+</blockquote>
+<ol start="3">
+<li><h2 id="实验过程-nbsp"><a href="#实验过程-nbsp" class="headerlink" title="实验过程&nbsp;"></a><strong>实验过程</strong>&nbsp;</h2></li>
+<li><p>首先使用内容转储软件 dumpit 在 Windows7 虚拟机（目标系统）中将内存中所有信息转储为一个文件。</p>
+</li>
+</ol>
+<p>   2. 将转储生成的文件拷贝到 Kali 系统中进行分析。</p>
+<ol start="4">
+<li><h2 id="实验步骤"><a href="#实验步骤" class="headerlink" title="实验步骤"></a><strong>实验步骤</strong></h2></li>
+</ol>
+<p><strong>1.</strong> <em><strong>*基本使用*</strong></em></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps75.jpg" alt="img"> </p>
+<p><strong>2.</strong> <em><strong>*制备实验用的转储文件 在目标系统中打开一些应用程序。记事本、画图、终端、计算器。（注意， 在记事本文件中输入一些信息，最好是纯英文文本并进行内存的转储</strong></em></p>
+<p><em><strong>*</strong></em><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps76.jpg" alt="img"></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps77.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps78.jpg" alt="img"> </p>
+<p><em><strong>*2.下面使用 kali 分析转储生成的 raw 文件。*</strong></em></p>
+<p>(1).kali 系统里如果没有安装 volatility，先安装一下： apt-get install volatility 安装失败，选择使用可执行文件夹安装，然后可以输入命令：volatility -h 查看该软件帮助文档–profile=**** 提供待分析转储内存使用系统信息，例如 Win7SP1x86。如果不 知道详细信息，volatility 可以自己分析，使用插件命令 imageinfo，内存中有大量的信息，有些信息是非常诱人的信息（明文，证书秘钥等等），关键是如何快速找出来。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps79.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps80.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps81.jpg" alt="img"> </p>
+<p>(2) .可以使用 pslist 查看内存镜像中进程列表：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps82.jpg" alt="img"> </p>
+<p>(3).在 Windows 系统中，内存中缓存了几乎全部的注册表信息。注册表信息是存放 在注册表文件（hive）中，可以使用命令 hivelist 来查看内存中缓存的注册表信 息（例如：所有用户用户名、密码 hash 值，病毒隐藏，恶意启动项，映射劫持）。涉及到计算机架构、系统结构、注册表结构等大量背景知识，这里只展示皮毛。使用 hivelist 查看内存镜像中注册表文件列表：</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps83.jpg" alt="img"> </p>
+<p>其中 SAM 中保存着用户名和密码信息，SOFTWARE 中保存着系统中所有安装 的软件信息等等，要查看文件内容，需要将这些文件转储（dump）出来。</p>
+<p>(4).hivedump 命令可以查看前面 hivelist 所列出的所有 hive 文件内容，要查看SOFEWARE中内容 ：</p>
+<p>使用volatility -f  .raw –profile=Win7SP1x86 hivedump - 命令，就可以看到原 Win7 系统注册表 hive 文件 SOFTWARE 的内容。通过这个我们 可以看到原系统都安装了哪些软件。 hivedump 命令需要传递一个 offset（偏移量）参数，接在 -o 后面，这个参数可 以由前面 hivelist 给出的地址信息获取到。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps84.jpg" alt="img"> </p>
+<p>(5).查看注册表中某一项的键值，例如在 SAM 文件中获取原系统的所有用户账号。 命 令 格 式 ： volatility -f  .raw –profile=Win7SP1x86 printkey -K “SAM\Domains\Account\Users\Names”</p>
+<p>在 Win7 中打开注册表管理器</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps85.jpg" alt="img"><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps86.jpg" alt="img"> </p>
+<p>使用 printkey 命令对转储的.raw 文件查询的结果与直接在目标系统中使用注册表 编辑器查看的结果是一致的。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps87.jpg" alt="img"> </p>
+<p>在结果中自己去寻找用户名</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps88.jpg" alt="img"> </p>
+<p>(6).使用到插件命令 hashdump，命 令形式： volatility -f  .raw –profile=Win7SP1x86 hashdump -y system -s SAM进一步取得用户密码的哈希值</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps89.jpg" alt="img"> </p>
+<p>(7).使用Volatility的插件查看用户的密码<img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps90.jpg" alt="img"></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps91.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps92.jpg" alt="img"> </p>
+<p>(8).使用 userassist 命令可以获取到内存被转储前都运行了哪些程序，运行多少次， 最后一次运行的时间</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps93.jpg" alt="img"> </p>
+<p>(9).volatility 还可以使用插件命令 memdump 把某个程序（进程）的相关数据转储成一个文件，然后对这个文件进行进一步分析。命令格式为： volatility -f .raw –profile=Win7SP1x86 memdump -p1528-D mem。先在 home 目录下生成 mem 目录。把记事本程序在内存中相关数据转储成一个.dmp文件。</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps94.jpg" alt="img"></p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps95.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps96.jpg" alt="img"> </p>
+<p>(7) .使用 hexeditor 打开dmp文件</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps97.jpg" alt="img"> </p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps98.jpg" alt="img"> </p>
+<p>(8) .使用 strings 命令提取文件中的字符串</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps99.jpg" alt="img"> </p>
+<p>(12).在内存转储的文件1528.dmp 文件中获取到相关内容<img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps100.jpg" alt="img"></p>
+<p>(13).使用 cmdscan 插件命令从转储内容中提取目标系统的命令行历史 <img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps101.jpg" alt="img"></p>
+<p>(14).使用 netscan 插件命令从转储内容中提取目标系统的网络连接情况 <img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps102.jpg" alt="img"></p>
+<p>(15).使用 iehistory 插件命令从转储内容中提取目标系统的使用 IE 浏览器访问网络 情况<img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps103.jpg" alt="img"></p>
+<p>没有在win7使用过任何浏览器包括ie所以没有记录。</p>
+<h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>1、安装volatibity时使用apt-get install volatibity 安装失败</p>
+<p><img src="/img/loading.gif" data-original="file:///C:\Users\zy\AppData\Local\Temp\ksohtml29640\wps104.jpg" alt="img"> </p>
+<p>2、使用Mimikatz时constrcut 时要指定版本pip install construct==2.5.5-reupload不然会报错</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title="0" data-url="http://music.163.com/#/song?id=1325114607"></li>
+                        
+                    
+                        
+                            <li title="1" data-url="http://music.163.com/#/song?id=1465114465"></li>
+                        
+                    
+                        
+                            <li title="2" data-url="https://music.163.com/song?id=1465114465.mp3"></li>
+                        
+                    
+                        
+                            <li title="3" data-url="http://music.163.com/song/media/outer/url?id=1382576173.mp3"></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+        
+    <div id="gitalk-container" class="comment link"
+		data-enable="true"
+        data-ae="false"
+        data-ci=""
+        data-cs=""
+        data-r=""
+        data-o=""
+        data-a=""
+        data-d="false"
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%8E%AF%E5%A2%83"><span class="toc-number">1.</span> <span class="toc-text">实验环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E5%86%85%E5%AE%B9"><span class="toc-number">2.</span> <span class="toc-text">实验内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%BF%87%E7%A8%8B-nbsp"><span class="toc-number">3.</span> <span class="toc-text">实验过程 </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.</span> <span class="toc-text">实验步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%87%E5%88%B0%E9%97%AE%E9%A2%98"><span class="toc-number">5.</span> <span class="toc-text">遇到问题</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script>
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: false,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(e.href.match(t)||e.href.match(r))&&(e.href=a.dataset.original)})});</script><script>!function(r){r.imageLazyLoadSetting.processImages=t;var e=r.imageLazyLoadSetting.isSPA,n=r.imageLazyLoadSetting.preloadRatio||1,c=a();function a(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(){e&&(c=a());for(var t,o=0;o<c.length;o++)0<=(t=(t=c[o]).getBoundingClientRect()).bottom&&0<=t.left&&t.top<=(r.innerHeight*n||document.documentElement.clientHeight*n)&&function(){var t,e,n,a,i=c[o];e=function(){c=c.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(n=new Image,a=t.getAttribute("data-original"),n.onload=function(){t.src=a,t.removeAttribute("data-original"),e&&e()},t.src!==a&&(n.src=a))}()}function i(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",i),r.addEventListener("resize",i),r.addEventListener("orientationchange",i)}(this);</script></body>
+<!--动态线条背景-->
+<script type="text/javascript"
+color="220,220,220" opacity='0.7' zIndex="-2" count="200" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js">
+</script>
+<script type="text/javascript" src="\js\FunnyTitle.js"></script>
+
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/codeCopy.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({"HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"], linebreaks: { automatic:true }, EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50) },
+        tex2jax: { inlineMath: [ ["$", "$"], ["\\(","\\)"] ], processEscapes: true, ignoreClass: "tex2jax_ignore|dno",skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']},
+        TeX: {  noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } }, Macros: { href: "{}" } },
+        messageStyle: "none"
+    });
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+
+
+
+<!-- Google Analytics -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-14MSKCZ36W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-14MSKCZ36W');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
